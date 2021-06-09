@@ -1,0 +1,27 @@
+{
+  "Hook": {
+    "prefix": "hook",
+    "body": [
+      "function ${TM_FILENAME_BASE}() {",
+      "  $1",
+      "  return {}",
+      "}",
+      "",
+      "export default ${TM_FILENAME_BASE}",
+      ""
+    ],
+    "description": "Hook"
+  },
+  "Type": {
+    "prefix": "type",
+    "body": [
+      "type T${TM_FILENAME_BASE} = {",
+      "  $1",
+      "}",
+      "",
+      "export default T${TM_FILENAME_BASE}",
+      ""
+    ],
+    "description": "type"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "visualstudioexptteam.vscodeintellicode",
+    "christian-kohler.npm-intellisense",
+    "christian-kohler.path-intellisense",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "jpoissonnier.vscode-styled-components"
+  ]
+}

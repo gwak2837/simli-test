@@ -1,0 +1,17 @@
+{
+  "name": "심리테스트 (Simli Test)",
+  "short_name": "심리테스트",
+  "theme_color": "#ffdf3e",
+  "background_color": "#fcfcfc",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "scope": "/",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "128x128",
+      "type": "image/png"
+    }
+  ]
+}
