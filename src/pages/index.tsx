@@ -1,7 +1,3 @@
-import ExpandMoreRoundedIcon from '@material-ui/icons/ExpandMoreRounded'
-import IconButton from '@material-ui/core/IconButton'
-import LocalGroceryStoreRoundedIcon from '@material-ui/icons/LocalGroceryStoreRounded'
-import grey from '@material-ui/core/colors/grey'
 import styled from 'styled-components'
 import NavigationLayout from '../components/layouts/NavigationLayout'
 import PageHead from '../components/layouts/PageHead'
@@ -17,16 +13,6 @@ const FlexContainerBetweenCenter = styled(FlexContainerBetween)`
   height: 100%;
 `
 
-const StyledExpandMoreRoundedIcon = { fontSize: 23, color: grey[800] }
-
-const StyledLocalGroceryStoreRoundedIcon = styled(LocalGroceryStoreRoundedIcon)`
-  font-size: 50px !important;
-  background-color: #f57961;
-  border-radius: 50%;
-  padding: 10px;
-  color: white !important;
-  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.08) !important;
-`
 const LocationText = styled.h3`
   margin: 16px 2px 16px 16px;
   font-size: 18px;
@@ -84,9 +70,6 @@ function HomePage() {
         <FlexContainerBetweenCenter>
           <FlexContainerAlignCenter>
             <LocationText>서초동</LocationText>
-            <ClientSideLink href="/location">
-              <ExpandMoreRoundedIcon style={StyledExpandMoreRoundedIcon} />
-            </ClientSideLink>
           </FlexContainerAlignCenter>
           <FlexContainerAlignCenter>
             <ClientSideLink href="/users/username/regulars">
@@ -97,14 +80,6 @@ function HomePage() {
 
         <PrimaryButton>클릭?</PrimaryButton>
         <SecondaryButton>클릭!</SecondaryButton>
-
-        <FixedPosition>
-          <ClientSideLink href="/cart">
-            <IconButton aria-label="shopping cart" color="default" component="div">
-              <StyledLocalGroceryStoreRoundedIcon />
-            </IconButton>
-          </ClientSideLink>
-        </FixedPosition>
       </NavigationLayout>
     </PageHead>
   )

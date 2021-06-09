@@ -1,8 +1,3 @@
-import AssignmentTwoToneIcon from '@material-ui/icons/AssignmentRounded'
-import HomeRoundedIcon from '@material-ui/icons/HomeRounded'
-import PersonRoundedIcon from '@material-ui/icons/PersonRounded'
-import FavoriteRoundedIcon from '@material-ui/icons/FavoriteRounded'
-import StoreRoundedIcon from '@material-ui/icons/StoreRounded'
 import { memo } from 'react'
 import {
   HEADER_HEIGHT,
@@ -64,9 +59,6 @@ function Header() {
       <GridContainerAlignCenter>
         <ClientSideLink href={homePageUrl}>
           <FlexContainerColumnCenterCenter>
-            <HomeRoundedIcon
-              style={asPath === homePageUrl ? SelectedIconStyle : UnSelectedIconStyle}
-            />
             <NoMarginH6 style={asPath === homePageUrl ? undefined : UnSelectedTextStyle}>
               홈
             </NoMarginH6>
@@ -74,9 +66,6 @@ function Header() {
         </ClientSideLink>
         <ClientSideLink href={feedPageUrl}>
           <FlexContainerColumnCenterCenter>
-            <StoreRoundedIcon
-              style={asPath === feedPageUrl ? SelectedIconStyle : UnSelectedIconStyle}
-            />
             <NoMarginH6 style={asPath === feedPageUrl ? undefined : UnSelectedTextStyle}>
               홈2
             </NoMarginH6>
@@ -84,9 +73,6 @@ function Header() {
         </ClientSideLink>
         <ClientSideLink href={favoritePageUrl}>
           <FlexContainerColumnCenterCenter>
-            <FavoriteRoundedIcon
-              style={asPath === favoritePageUrl ? SelectedIconStyle : UnSelectedIconStyle}
-            />
             <NoMarginH6 style={asPath === favoritePageUrl ? undefined : UnSelectedTextStyle}>
               홈3
             </NoMarginH6>
@@ -94,9 +80,6 @@ function Header() {
         </ClientSideLink>
         <ClientSideLink href={userOrdersPageUrl}>
           <FlexContainerColumnCenterCenter>
-            <AssignmentTwoToneIcon
-              style={asPath === userOrdersPageUrl ? SelectedIconStyle : UnSelectedIconStyle}
-            />
             <NoMarginH6 style={asPath === userOrdersPageUrl ? undefined : UnSelectedTextStyle}>
               홈4
             </NoMarginH6>
@@ -104,9 +87,6 @@ function Header() {
         </ClientSideLink>
         <ClientSideLink href={myPageUrl}>
           <FlexContainerColumnCenterCenter>
-            <PersonRoundedIcon
-              style={asPath === myPageUrl ? SelectedIconStyle : UnSelectedIconStyle}
-            />
             <NoMarginH6 style={asPath === myPageUrl ? undefined : UnSelectedTextStyle}>
               홈5
             </NoMarginH6>
