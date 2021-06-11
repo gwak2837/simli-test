@@ -71,14 +71,6 @@ http://localhost:3000
 
 코드 포맷, 린트, TypeScript 타입 검사를 전부 수행합니다. 현재 이 명령어는 원격 저장소로 push 하기 전에 husky가 자동으로 실행해주고, 문제가 없는 경우에만 커밋을 원격 저장소로 push합니다.
 
-### GraphQL Code Generator
-
-```bash
-> yarn generate
-```
-
-서버로부터 GraphQL Schema를 받아서 이에 해당하는 TypeScript 자료형과 apollo hook 등을 자동으로 생성해줍니다. 서버나 로컬의 GraphQL Schema가 변경됐을 때마다 실행합니다.
-
 ### Build
 
 #### 정적 빌드
