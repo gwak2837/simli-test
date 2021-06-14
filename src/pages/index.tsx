@@ -6,8 +6,9 @@ import { FlexContainerBetween, FlexContainerAlignCenter } from 'src/styles/FlexC
 import { HEADER_HEIGHT, TABLET_MIN_WIDTH } from 'src/models/constants'
 import ClientSideLink from 'src/components/atoms/ClientSideLink'
 import { GlobalContext } from './_app'
-import { PrimaryButton, SecondaryButton } from 'src/components/atoms/Button'
-import { TestSelectButton } from './main_button'
+import { TestSelectButton } from 'src/components/atoms/Button'
+
+import useGoToPage from 'src/hooks/useGoToPage'
 const FlexContainerBetweenCenter = styled(FlexContainerBetween)`
   align-items: center;
   height: 100%;
@@ -64,6 +65,11 @@ export const TopIconImg = styled.img`
 function HomePage() {
   const { data, data2 } = useContext(GlobalContext)
 
+  const goToTestFisrtTest = useGoToPage('/tests/Test_1')
+  const goToTestSecondTest = useGoToPage('/tests/Test_2')
+  const goToTestThirdTest = useGoToPage('/tests/Test_3')
+  const goToTestFourthTest = useGoToPage('/tests/Test_4')
+
   return (
     <PageHead>
       <NavigationLayout>
@@ -73,18 +79,18 @@ function HomePage() {
           </FlexContainerAlignCenter>
           <FlexContainerAlignCenter>
             <ClientSideLink href="/users/username/regulars">
-              <TopIconImg src="https://w7.pngwing.com/pngs/94/32/png-transparent-thought-question-brain-icon-thinking-person-human-head-and-question-mark-illustration-other-heart-people-thumbnail.png" />
+              <TopIconImg src="/main_icon.png" />
             </ClientSideLink>
           </FlexContainerAlignCenter>
         </FlexContainerBetweenCenter>
         <FlexContainerBetweenCenter>
-          <IconImg src="https://blog.hmgjournal.com/images/contents/article/20170112_brain01.jpg" />
+          <IconImg src="/simli_main.jpg" />
         </FlexContainerBetweenCenter>
         <FlexContainerAlignCenter>
-          <TestSelectButton>심리Test1</TestSelectButton>
-          <TestSelectButton>심리Test2</TestSelectButton>
-          <TestSelectButton>심리Test3</TestSelectButton>
-          <TestSelectButton>심리Test4</TestSelectButton>
+          <TestSelectButton onClick={goToTestFisrtTest}>심리Test1</TestSelectButton>
+          <TestSelectButton onClick={goToTestSecondTest}>심리Test2</TestSelectButton>
+          <TestSelectButton onClick={goToTestThirdTest}>심리Test3</TestSelectButton>
+          <TestSelectButton onClick={goToTestFourthTest}>심리Test4</TestSelectButton>
         </FlexContainerAlignCenter>
       </NavigationLayout>
     </PageHead>
