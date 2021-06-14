@@ -1,6 +1,7 @@
 import { Button } from 'antd'
 import {
   BASIC_TEXT_COLOR,
+  START_BACKGROUND_COLOR,
   PRIMARY_BACKGROUND_COLOR,
   PRIMARY_TEXT_COLOR,
   SECONDARY_BACKGROUND_COLOR,
@@ -17,6 +18,23 @@ export const StyledButton = styled(Button)`
   border-radius: 0.3rem;
   font-size: 1rem;
   font-weight: 500;
+`
+
+export const StartButton = styled(StyledButton)`
+  background: ${START_BACKGROUND_COLOR};
+  border: solid ${START_BACKGROUND_COLOR};
+  color: ${BASIC_TEXT_COLOR};
+  :focus {
+    background: ${START_BACKGROUND_COLOR};
+    border: solid ${START_BACKGROUND_COLOR};
+    color: ${BASIC_TEXT_COLOR};
+  }
+  :active,
+  :hover {
+    background: #fff;
+    border-color: ${START_BACKGROUND_COLOR};
+    color: ${START_BACKGROUND_COLOR};
+  }
 `
 
 export const PrimaryButton = styled(StyledButton)`

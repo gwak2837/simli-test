@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import Header from '../Header'
 
 const BackgroundColor = styled.div`
-  background-color: #fcfcfc !important;
+  background-color: #ffdf3e !important;
 `
 export const Padding = styled.div`
   padding: ${HEADER_HEIGHT} 0 0;

@@ -5,6 +5,8 @@ export const DESKTOP_MIN_WIDTH = '1024px'
 export const TOP_HEADER_HEIGHT = '3.5rem'
 export const HEADER_HEIGHT = '4rem'
 
+export const START_BACKGROUND_COLOR = '#F1AF79'
+
 export const PRIMARY_BACKGROUND_COLOR = '#FFEA80'
 export const PRIMARY_TEXT_COLOR = '#AD9100'
 export const PRIMARY_ACHROMATIC_BACKGROUND_COLOR = ''

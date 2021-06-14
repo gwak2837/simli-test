@@ -29,6 +29,7 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     padding: 0;
+    background-color: #ffdf3e;
     color: ${BASIC_TEXT_COLOR};
     font-family: 'Song Myung', 'Poor Story', -apple-system, BlinkMacSystemFont,
       'Helvetica Neue', sans-serif;

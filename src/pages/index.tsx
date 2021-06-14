@@ -6,7 +6,7 @@ import { FlexContainerBetween, FlexContainerAlignCenter } from 'src/styles/FlexC
 import { HEADER_HEIGHT, TABLET_MIN_WIDTH } from 'src/models/constants'
 import ClientSideLink from 'src/components/atoms/ClientSideLink'
 import { GlobalContext } from './_app'
-import { PrimaryButton, SecondaryButton } from 'src/components/atoms/Button'
+import { StartButton } from 'src/components/atoms/Button'
 
 const FlexContainerBetweenCenter = styled(FlexContainerBetween)`
   align-items: center;
@@ -55,9 +55,9 @@ export const IconImg = styled.img`
   margin: 0;
 `
 
-export const TopIconImg = styled.img`
-  width: 22px;
-  height: 22px;
+export const StartImg = styled.img`
+  width: 500px;
+  height: 500px;
   margin: 0 8px 0 8px;
 `
 
@@ -66,21 +66,24 @@ function HomePage() {
 
   return (
     <PageHead>
-      <NavigationLayout>
-        <FlexContainerBetweenCenter>
-          <FlexContainerAlignCenter>
-            <LocationText>서초동</LocationText>
-          </FlexContainerAlignCenter>
-          <FlexContainerAlignCenter>
-            <ClientSideLink href="/users/username/regulars">
-              <TopIconImg src="/442@3x.png" />
-            </ClientSideLink>
-          </FlexContainerAlignCenter>
-        </FlexContainerBetweenCenter>
-
-        <PrimaryButton>클릭?</PrimaryButton>
-        <SecondaryButton>클릭!</SecondaryButton>
-      </NavigationLayout>
+      <FlexContainerBetweenCenter>
+        <h1>심리테스트의 저주</h1>
+        <FlexContainerAlignCenter>
+          <LocationText>
+            제이도 날 좋아할까? 그녀의 심리를 알고 싶다면?
+            <LocationText>
+              나는 타고난 어그로 꾼인가? 당신의 숨겨진 정체를 깨닫고 싶다면?
+            </LocationText>
+            <LocationText>
+              이 말을 가짜라고 생각하고 무시한다면 정말 안 좋은 사고가 꼭 일어납니다.
+            </LocationText>
+            지금 당장 시작하세요.
+          </LocationText>
+        </FlexContainerAlignCenter>
+      </FlexContainerBetweenCenter>
+      <FlexContainerAlignCenter>
+        <StartButton>시작하기</StartButton>
+      </FlexContainerAlignCenter>
     </PageHead>
   )
 }
