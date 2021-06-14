@@ -22,18 +22,50 @@ export const StyledButton = styled(Button)`
 
 export const StartButton = styled(StyledButton)`
   background: ${START_BACKGROUND_COLOR};
-  border: solid ${START_BACKGROUND_COLOR};
+  border: 1px solid ${START_BACKGROUND_COLOR};
   color: ${BASIC_TEXT_COLOR};
-  :focus {
-    background: ${START_BACKGROUND_COLOR};
-    border: solid ${START_BACKGROUND_COLOR};
+  font-size: 8rem;
+  -webkit-animation: focus-in-expand-fwd 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: focus-in-expand-fwd 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  :hover {
+    background: #e70c0c;
+    border-color: ${START_BACKGROUND_COLOR};
     color: ${BASIC_TEXT_COLOR};
   }
-  :active,
-  :hover {
-    background: #fff;
-    border-color: ${START_BACKGROUND_COLOR};
-    color: ${START_BACKGROUND_COLOR};
+  @-webkit-keyframes focus-in-expand-fwd {
+    0% {
+      letter-spacing: -0.5em;
+      -webkit-transform: translateZ(-800px);
+      transform: translateZ(-800px);
+      -webkit-filter: blur(12px);
+      filter: blur(12px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+      -webkit-filter: blur(0);
+      filter: blur(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes focus-in-expand-fwd {
+    0% {
+      letter-spacing: -0.5em;
+      -webkit-transform: translateZ(-800px);
+      transform: translateZ(-800px);
+      -webkit-filter: blur(12px);
+      filter: blur(12px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+      -webkit-filter: blur(0);
+      filter: blur(0);
+      opacity: 1;
+    }
   }
 `
 
