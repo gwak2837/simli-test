@@ -49,10 +49,10 @@ function Header() {
   const { asPath } = useRouter()
 
   const homePageUrl = '/'
-  const feedPageUrl = '/feed'
-  const favoritePageUrl = `/users/favorite-menus`
+  const feedPageUrl = '/feed' //  성격테스트
+  const favoritePageUrl = `/users/favorite-menus` //  중독테스트
   const userOrdersPageUrl = `/users/orders`
-  const myPageUrl = `/users`
+  const myPageUrl = `/users` // 게시판
 
   return (
     <FixedHeader>
@@ -67,28 +67,28 @@ function Header() {
         <ClientSideLink href={feedPageUrl}>
           <FlexContainerColumnCenterCenter>
             <NoMarginH6 style={asPath === feedPageUrl ? undefined : UnSelectedTextStyle}>
-              홈2
+              성격테스트
             </NoMarginH6>
           </FlexContainerColumnCenterCenter>
         </ClientSideLink>
         <ClientSideLink href={favoritePageUrl}>
           <FlexContainerColumnCenterCenter>
             <NoMarginH6 style={asPath === favoritePageUrl ? undefined : UnSelectedTextStyle}>
-              홈3
+              중독테스트
             </NoMarginH6>
           </FlexContainerColumnCenterCenter>
         </ClientSideLink>
         <ClientSideLink href={userOrdersPageUrl}>
           <FlexContainerColumnCenterCenter>
-            <NoMarginH6 style={asPath === userOrdersPageUrl ? undefined : UnSelectedTextStyle}>
-              홈4
-            </NoMarginH6>
+            <NoMarginH6
+              style={asPath === userOrdersPageUrl ? undefined : UnSelectedTextStyle}
+            ></NoMarginH6>
           </FlexContainerColumnCenterCenter>
         </ClientSideLink>
         <ClientSideLink href={myPageUrl}>
           <FlexContainerColumnCenterCenter>
             <NoMarginH6 style={asPath === myPageUrl ? undefined : UnSelectedTextStyle}>
-              홈5
+              게시판
             </NoMarginH6>
           </FlexContainerColumnCenterCenter>
         </ClientSideLink>

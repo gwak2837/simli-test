@@ -7,7 +7,7 @@ import { HEADER_HEIGHT, TABLET_MIN_WIDTH } from 'src/models/constants'
 import ClientSideLink from 'src/components/atoms/ClientSideLink'
 import { GlobalContext } from './_app'
 import { PrimaryButton, SecondaryButton } from 'src/components/atoms/Button'
-
+import { TestSelectButton } from './main_button'
 const FlexContainerBetweenCenter = styled(FlexContainerBetween)`
   align-items: center;
   height: 100%;
@@ -50,14 +50,14 @@ const FixedPosition = styled.div`
 `
 
 export const IconImg = styled.img`
-  width: 20px;
-  height: 20px;
+  width: 700px;
+  height: 400px;
   margin: 0;
 `
 
 export const TopIconImg = styled.img`
-  width: 22px;
-  height: 22px;
+  width: 40px;
+  height: 40px;
   margin: 0 8px 0 8px;
 `
 
@@ -69,17 +69,23 @@ function HomePage() {
       <NavigationLayout>
         <FlexContainerBetweenCenter>
           <FlexContainerAlignCenter>
-            <LocationText>서초동</LocationText>
+            <LocationText>모두의 심리테스트</LocationText>
           </FlexContainerAlignCenter>
           <FlexContainerAlignCenter>
             <ClientSideLink href="/users/username/regulars">
-              <TopIconImg src="/442@3x.png" />
+              <TopIconImg src="https://w7.pngwing.com/pngs/94/32/png-transparent-thought-question-brain-icon-thinking-person-human-head-and-question-mark-illustration-other-heart-people-thumbnail.png" />
             </ClientSideLink>
           </FlexContainerAlignCenter>
         </FlexContainerBetweenCenter>
-
-        <PrimaryButton>클릭?</PrimaryButton>
-        <SecondaryButton>클릭!</SecondaryButton>
+        <FlexContainerBetweenCenter>
+          <IconImg src="https://blog.hmgjournal.com/images/contents/article/20170112_brain01.jpg" />
+        </FlexContainerBetweenCenter>
+        <FlexContainerAlignCenter>
+          <TestSelectButton>심리Test1</TestSelectButton>
+          <TestSelectButton>심리Test2</TestSelectButton>
+          <TestSelectButton>심리Test3</TestSelectButton>
+          <TestSelectButton>심리Test4</TestSelectButton>
+        </FlexContainerAlignCenter>
       </NavigationLayout>
     </PageHead>
   )
