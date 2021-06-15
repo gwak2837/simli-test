@@ -95,7 +95,7 @@ export const tests: Record<string, Test> = {
       },
       {
         id: '6',
-        question: 'Q. 오늘의 일은 휴식의 니코틴보다 향기롭다.',
+        question: 'Q. 오늘의 일은 휴식의 니코틴보다 향기롭다!',
         onYes: [
           { id: '1', name: '중독', value: 20 },
           { id: '2', name: '게으름', value: -10 },
