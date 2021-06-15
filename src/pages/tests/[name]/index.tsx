@@ -8,7 +8,7 @@ import { GlobalContext } from 'src/pages/_app'
 const description = '심리 테스트를 진행해보아요'
 
 function TestPage() {
-  const { data, data2 } = useContext(GlobalContext)
+  const { result, setResult } = useContext(GlobalContext)
 
   const [questionNumber, setQuestionNumber] = useState(0)
 
@@ -17,31 +17,43 @@ function TestPage() {
   const [testName, setTestName] = useState('')
 
   useEffect(() => {
+    setResult({})
+  }, [setResult])
+
+  useEffect(() => {
     setTestName((router.query.name ?? '') as string)
   }, [router.query.name])
 
   const questions = tests[testName]?.questions
   const question = questions?.[questionNumber]
 
+  function updateResult(yesOrNo: 'onYes' | 'onNo') {
+    return () => {
+      if (questionNumber >= questions.length - 1) {
+        router.push(`/tests/${testName}/result`)
+      } else {
+        const newResult = { ...result }
+
+        question[yesOrNo].forEach((action) => {
+          if (!newResult[action.name]) {
+            newResult[action.name] = 0
+          }
+          newResult[action.name] += action.value
+        })
+
+        setResult(newResult)
+        setQuestionNumber((prev) => prev + 1)
+      }
+    }
+  }
+
   return (
     <PageHead title={`심리테스트 - ${router.query.name ?? ''}`} description={description}>
       <h2>{router.query.name}</h2>
       <BinaryQuestionAnswer
         question={question?.question}
-        onYes={() => {
-          if (questionNumber >= questions.length - 1) {
-            router.push(`/tests/${testName}/result`)
-          } else {
-            setQuestionNumber((prev) => prev + 1)
-          }
-        }}
-        onNo={() => {
-          if (questionNumber >= questions.length - 1) {
-            router.push(`/tests/${testName}/result`)
-          } else {
-            setQuestionNumber((prev) => prev + 1)
-          }
-        }}
+        onYes={updateResult('onYes')}
+        onNo={updateResult('onNo')}
       />
     </PageHead>
   )
