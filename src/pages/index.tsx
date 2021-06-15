@@ -72,8 +72,6 @@ const StartEffectTag = styled.div`
 `
 
 function HomePage() {
-  const { data, data2 } = useContext(GlobalContext)
-
   const goToTestsPage = useGoToPage('/tests')
 
   return (
