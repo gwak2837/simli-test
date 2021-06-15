@@ -1,13 +1,17 @@
 import { useRouter } from 'next/router'
+import { useContext } from 'react'
 import PageHead from 'src/components/layouts/PageHead'
+import { GlobalContext } from 'src/pages/_app'
 
 const description = '결과를 확인해 보아요'
 
 function TestResultPage() {
+  const { data, data2 } = useContext(GlobalContext)
+
   const { query } = useRouter()
 
   return (
-    <PageHead title={`심리테스트 - ${query.name} 결과`} description={description}>
+    <PageHead title={`심리테스트 - ${query.name ?? ''} 결과`} description={description}>
       <h1>성격유형 : “뜨거운 논쟁을 즐기는 변론가”</h1>
       <blockquote>
         가시밭길이더라도 자주적 사고를 하는 이의 길을 가십시오. 비판과 논란에 맞서서 당신의 생각을
