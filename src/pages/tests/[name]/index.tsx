@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router'
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import BinaryQuestionAnswer from 'src/components/BinaryQuestionAnswer'
 import PageHead from 'src/components/layouts/PageHead'
 import { GlobalContext } from 'src/pages/_app'
