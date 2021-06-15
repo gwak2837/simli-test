@@ -1,29 +1,19 @@
 import styled from 'styled-components'
-import NavigationLayout from '../components/layouts/NavigationLayout'
-import PageHead from '../components/layouts/PageHead'
-import { useContext } from 'react'
-import {
-  FlexContainerBetween,
-  FlexContainerAlignCenter,
-  FlexUpperPadding,
-} from 'src/styles/FlexContainer'
-import { HEADER_HEIGHT, TABLET_MIN_WIDTH } from 'src/models/constants'
-import ClientSideLink from 'src/components/atoms/ClientSideLink'
-import { GlobalContext } from './_app'
-import { StartButton } from 'src/components/atoms/Button'
-import { StartEffectTag } from 'src/styles/SpecialEffect'
 import useGoToPage from 'src/hooks/useGoToPage'
+import { PrimaryButton } from 'src/components/atoms/Button'
 
 const Container = styled.div`
   margin-top: 50px;
   padding: 20px;
 `
+
 const Register = styled.h3`
   margin: 16px 2px 16px 16px;
   font-size: 18px;
   font-weight: bold;
   line-height: 1;
 `
+
 const Input = styled.input`
   position: relative;
   overflow: hidden;
@@ -36,28 +26,7 @@ const Input = styled.input`
   box-sizing: border-box;
 `
 
-const Button = styled.div`
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 49px;
-  display: block;
-  width: 100%;
-  height: 49px;
-  margin: 16px 0 7px;
-  cursor: pointer;
-  text-align: center;
-  color: #fff;
-  border: none;
-  border-radius: 0;
-  background-color: #03c75a;
-  ${({ disabled }) =>
-    disabled &&
-    `
-    background-color: #efefef;
-  `}
-`
-
-function RegisterForm() {
+function RegisterPage() {
   const goToLoginPage = useGoToPage('/')
 
   return (
@@ -81,9 +50,9 @@ function RegisterForm() {
       <Register>Address</Register>
       <Input id="Address" name="Address" type="Address" placeholder="주소를 입력해주세요" />
 
-      <Button onClick={goToLoginPage}>회원가입 완료!</Button>
+      <PrimaryButton onClick={goToLoginPage}>회원가입 완료!</PrimaryButton>
     </Container>
   )
 }
 
-export default RegisterForm
+export default RegisterPage
