@@ -14,7 +14,7 @@ const LocationText = styled.h3`
   text-align: center;
 `
 
-const SquareFrame = styled.div`
+export const SquareFrame = styled.div`
   padding-top: 100%;
   position: relative;
 `
