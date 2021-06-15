@@ -4,17 +4,6 @@ import Image from 'next/image'
 import ClientSideLink from 'src/components/atoms/ClientSideLink'
 import { SquareFrame } from '..'
 
-export const TestSelectImg = styled.img`
-  width: 250px;
-  height: 150px;
-  margin: 6px;
-  padding: 6px;
-  display: block;
-  :hover {
-    background-color: black;
-  }
-`
-
 const RelativePosition = styled.div`
   position: relative;
   @keyframes fadeOut {
@@ -22,7 +11,7 @@ const RelativePosition = styled.div`
       opacity: 1;
     }
     to {
-      opacity: 0;
+      opacity: 0.1;
     }
   }
   @keyframes fadeIn {
@@ -33,14 +22,17 @@ const RelativePosition = styled.div`
       opacity: 1;
     }
   }
+
   :hover {
     > text {
       animation-name: fadeIn;
-      animation-duration: 2.4s;
+      animation-duration: 1s;
+      opacity: 1;
     }
-    > a > img {
+    > a > div > img {
       animation-name: fadeOut;
-      animation-duration: 2.4s;
+      animation-duration: 1s;
+      opacity: 0.1;
     }
   }
 `
@@ -65,6 +57,7 @@ const TestSelectGridContainer = styled.nav`
   top: 0;
   left: 0;
   position: absolute;
+  background: #eee;
 `
 
 const description = '테스트 목록을 확인해보세요'
