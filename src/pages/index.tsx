@@ -34,17 +34,6 @@ export const GridContainerUl = styled.ul<{ onlyImage: boolean }>`
   background: #fcfcfc;
 `
 
-const FixedPosition = styled.div`
-  position: fixed;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: ${HEADER_HEIGHT};
-  z-index: 1;
-  width: 100%;
-  max-width: ${TABLET_MIN_WIDTH};
-  text-align: right;
-`
-
 export const IconImg = styled.img`
   width: 700px;
   height: 400px;
