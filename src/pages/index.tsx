@@ -46,7 +46,7 @@ const Button = styled.div`
   cursor: pointer;
   text-align: center;
   color: #fff;
-  border: none;ㄴ
+  border: none;
   border-radius: 0;
   background-color: #03c75a;
   ${({ disabled }) =>
@@ -56,31 +56,12 @@ const Button = styled.div`
   `}
 `
 
-function RegisterForm() {
+function MainForm() {
   return (
     <Container>
-      <Register>회원가입</Register>
-      <Register>ID</Register>
-      <Input id="id" name="id" placeholder="아이디를 입력해주세요" />
-      <Register>PassWord</Register>
-      <Input id="password" name="password" type="password" placeholder="비밀번호를 입력해주세요" />
-      <Register>Name</Register>
-      <Input id="Name" name="Name" type="Name" placeholder="이름을 입력해주세요" />
-      <Register>Phone</Register>
-      <Input id="Phone" name="Phone" type="Phone" placeholder="전화번호를 입력해주세요" />
-      <Register>Date of birth </Register>
-      <Input
-        id="Datebirth"
-        name="Datebirth"
-        type="Datebirth"
-        placeholder="생년월일을 입력해주세요"
-      />
-      <Register>Address</Register>
-      <Input id="Address" name="Address" type="Address" placeholder="주소를 입력해주세요" />
-
-      <Button>회원가입 완료!</Button>
+      <Register>심리테스트</Register>
     </Container>
   )
 }
 
-export default RegisterForm
+export default MainForm

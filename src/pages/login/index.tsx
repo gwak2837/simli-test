@@ -1,5 +1,18 @@
-import React from 'react'
 import styled from 'styled-components'
+import NavigationLayout from '../components/layouts/NavigationLayout'
+import PageHead from '../components/layouts/PageHead'
+import { useContext } from 'react'
+import {
+  FlexContainerBetween,
+  FlexContainerAlignCenter,
+  FlexUpperPadding,
+} from 'src/styles/FlexContainer'
+import { HEADER_HEIGHT, TABLET_MIN_WIDTH } from 'src/models/constants'
+import ClientSideLink from 'src/components/atoms/ClientSideLink'
+import { GlobalContext } from './_app'
+import { StartButton } from 'src/components/atoms/Button'
+import { StartEffectTag } from 'src/styles/SpecialEffect'
+import useGoToPage from 'src/hooks/useGoToPage'
 
 const Container = styled.div`
   margin-top: 100px;
@@ -46,12 +59,16 @@ const Button = styled.div`
 `
 
 function LoginForm() {
+  const goToLoginPage = useGoToPage('/')
+  const goToRegisterPage = useGoToPage('/register')
+
   return (
     <Container>
-      <LogIn>LOGIN</LogIn>
+      <LogIn>LOGIN1</LogIn>
       <Input id="id" name="id" placeholder="아이디를 입력해주세요" />
       <Input id="password" name="password" type="password" placeholder="비밀번호를 입력해주세요" />
-      <Button>로그인</Button>
+      <Button onClick={goToLoginPage}>로그인</Button>
+      <Button onClick={goToRegisterPage}>회원가입</Button>
     </Container>
   )
 }
