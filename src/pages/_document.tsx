@@ -1,6 +1,6 @@
 /* eslint-disable react/no-danger */
 import Document, { DocumentContext, Html, Head, Main, NextScript } from 'next/document'
-import { PRIMARY_BACKGROUND_COLOR, PRIMARY_TEXT_COLOR } from 'src/models/constants'
+import { PRIMARY_BACKGROUND_COLOR } from 'src/models/constants'
 import { GOOGLE_ANALYTICS_TRACKING_ID } from 'src/utils/google-analytics'
 import { ServerStyleSheet } from 'styled-components'
 
