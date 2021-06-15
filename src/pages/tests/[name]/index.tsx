@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 import { useContext, useEffect, useState } from 'react'
 import BinaryQuestionAnswer from 'src/components/BinaryQuestionAnswer'
 import PageHead from 'src/components/layouts/PageHead'
-import { tests } from 'src/models/question-result'
+import { tests } from 'src/models/binary-questions'
 import { GlobalContext } from 'src/pages/_app'
 
 const description = '심리 테스트를 진행해보아요'
@@ -27,7 +27,7 @@ function TestPage() {
     <PageHead title={`심리테스트 - ${router.query.name ?? ''}`} description={description}>
       <h2>{router.query.name}</h2>
       <BinaryQuestionAnswer
-        question={question.question}
+        question={question?.question}
         onYes={() => {
           if (questionNumber >= questions.length - 1) {
             router.push(`/tests/${testName}/result`)
