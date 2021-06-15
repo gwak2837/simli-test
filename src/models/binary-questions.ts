@@ -11,10 +11,21 @@ type Question = {
   onNo: Answer[] // '아니요' 클릭 시 수행할 계산
 }
 
+type Result = {
+  id: string
+  title: string
+  imageUrl: string
+  contents: {
+    id: string
+    content: string
+    tag?: string // HTML 태그 종류. 기본값은 <p>
+  }[]
+}
+
 type Test = {
   id: string
   questions: Question[]
-  results: string[]
+  results: Result[]
 }
 
 export const tests: Record<string, Test> = {
@@ -46,7 +57,14 @@ export const tests: Record<string, Test> = {
         ],
       },
     ],
-    results: ['결과1', '결과2'],
+    results: [
+      {
+        id: '1',
+        title: '당신은 배가 고픕니다.',
+        imageUrl: '',
+        contents: [{ id: '1', content: '빨리 밥을 먹으세요' }],
+      },
+    ],
   },
   Test_2: {
     id: '1',
@@ -113,6 +131,25 @@ export const tests: Record<string, Test> = {
         ],
       },
     ],
-    results: ['결과1', '결과2'],
+    results: [
+      {
+        id: '1',
+        title: '당신은 조선의 무법자입니다.',
+        imageUrl: '',
+        contents: [{ id: '1', content: '가끔 셧다운이 필요할 것 같군요.' }],
+      },
+      {
+        id: '2',
+        title: '당신은 조선의 노예입니다.',
+        imageUrl: '',
+        contents: [{ id: '1', content: '가끔 주인에게 열폭하는 것도 장수의 비결!' }],
+      },
+      {
+        id: '3',
+        title: '당신은 조선의 선비입니다.',
+        imageUrl: '',
+        contents: [{ id: '1', content: '기분 좋으세요?' }],
+      },
+    ],
   },
 }
