@@ -63,7 +63,7 @@ const StartButton = styled(SecondaryButton)`
 
 const FlexContainerColumnCenter = styled(FlexContainerAlignCenter)`
   flex-flow: column nowrap;
-  padding: 10rem 0;
+  margin: 1rem 0;
 `
 
 const StartEffectTag = styled.div`
@@ -71,23 +71,18 @@ const StartEffectTag = styled.div`
   text-align: center;
 `
 
-const TestSelectButton = styled(PrimaryButton)``
-
 function HomePage() {
   const { data, data2 } = useContext(GlobalContext)
 
-  const goToTestFisrtTest = useGoToPage('/tests/Test_1')
-  const goToTestSecondTest = useGoToPage('/tests/Test_2')
-  const goToTestThirdTest = useGoToPage('/tests/Test_3')
-  const goToTestFourthTest = useGoToPage('/tests/Test_4')
+  const goToTestsPage = useGoToPage('/tests')
 
   return (
     <PageHead>
       <FlexContainerColumnCenter>
-        <ClientSideLink href="/users/username/regulars">
+        <ClientSideLink href="/tests">
           <StartImg src="/simli_main.jpg" />
         </ClientSideLink>
-        <StartButton>심리테스트 시작</StartButton>
+        <StartButton onClick={goToTestsPage}>심리테스트 시작</StartButton>
         <FlexContainerAlignCenter>
           <LocationText>
             <StartEffectTag>쟤도 날 좋아할까? 그/그녀의 심리를 알고 싶다면?</StartEffectTag>
@@ -100,12 +95,6 @@ function HomePage() {
             지금 당장 시작하세요.
           </LocationText>
         </FlexContainerAlignCenter>
-        <div>
-          <TestSelectButton onClick={goToTestFisrtTest}>심리Test1</TestSelectButton>
-          <TestSelectButton onClick={goToTestSecondTest}>심리Test2</TestSelectButton>
-          <TestSelectButton onClick={goToTestThirdTest}>심리Test3</TestSelectButton>
-          <TestSelectButton onClick={goToTestFourthTest}>심리Test4</TestSelectButton>
-        </div>
       </FlexContainerColumnCenter>
     </PageHead>
   )
