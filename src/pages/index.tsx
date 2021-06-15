@@ -8,6 +8,7 @@ import { GlobalContext } from './_app'
 import { PrimaryButton, SecondaryButton } from 'src/components/atoms/Button'
 import { FocusInExpandFwd } from 'src/styles/SpecialEffect'
 import useGoToPage from 'src/hooks/useGoToPage'
+import Image from 'next/image'
 
 const LocationText = styled.h3`
   margin: 1rem;
@@ -16,45 +17,9 @@ const LocationText = styled.h3`
   text-align: center;
 `
 
-export const IconGridContainer = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  margin: 0 16px 16px 16px;
-  top: 0;
-  align-items: center;
-  height: 100%;
-`
-
-export const GridContainerUl = styled.ul<{ onlyImage: boolean }>`
-  display: grid;
-  grid-template-columns: ${(p) => (p.onlyImage ? '1fr 1fr 1fr' : '1fr')};
-  gap: ${(p) => (p.onlyImage ? 'min(1vw, 0.5rem)' : 'min(2vw, 1rem)')};
-  padding: ${(p) => (p.onlyImage ? 'min(1vw, 0.5rem)' : 'min(2vw, 1rem)')};
-
-  background: #fcfcfc;
-`
-
-const FixedPosition = styled.div`
-  position: fixed;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: ${HEADER_HEIGHT};
-  z-index: 1;
-  width: 100%;
-  max-width: ${TABLET_MIN_WIDTH};
-  text-align: right;
-`
-
-export const IconImg = styled.img`
-  width: 700px;
-  height: 400px;
-  margin: 0;
-`
-
-export const StartImg = styled.img`
-  width: 500px;
-  height: 500px;
-  margin: 0 8px 0 8px;
+const SquareFrame = styled.div`
+  padding-top: 100%;
+  position: relative;
 `
 
 const StartButton = styled(SecondaryButton)`
@@ -66,9 +31,13 @@ const FlexContainerColumnCenter = styled(FlexContainerAlignCenter)`
   margin: 1rem 0;
 `
 
-const StartEffectTag = styled.div`
+const StartEffectTag = styled(LocationText)`
   animation: ${FocusInExpandFwd} 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   text-align: center;
+`
+
+const Padding = styled.div`
+  padding: 2rem 0;
 `
 
 function HomePage() {
@@ -76,24 +45,28 @@ function HomePage() {
 
   return (
     <PageHead>
-      <FlexContainerColumnCenter>
-        <ClientSideLink href="/tests">
-          <StartImg src="/simli_main.jpg" />
-        </ClientSideLink>
-        <StartButton onClick={goToTestsPage}>심리테스트 시작</StartButton>
-        <FlexContainerAlignCenter>
-          <LocationText>
-            <StartEffectTag>쟤도 날 좋아할까? 그/그녀의 심리를 알고 싶다면?</StartEffectTag>
-            <LocationText>
-              나는 타고난 어그로 꾼인가? 당신의 숨겨진 정체를 깨닫고 싶다면?
-            </LocationText>
-            <LocationText>
-              이 말을 가짜라고 생각하고 무시한다면 정말 안 좋은 사고가 꼭 일어납니다.
-            </LocationText>
-            지금 당장 시작하세요.
-          </LocationText>
-        </FlexContainerAlignCenter>
-      </FlexContainerColumnCenter>
+      <Padding>
+        <SquareFrame>
+          <ClientSideLink href="/tests">
+            <Image src="/simli-main.jpg" alt="main-image" layout="fill" objectFit="cover" />
+          </ClientSideLink>
+        </SquareFrame>
+        <FlexContainerColumnCenter>
+          <StartButton onClick={goToTestsPage}>심리테스트 시작</StartButton>
+          <FlexContainerAlignCenter>
+            <div>
+              <StartEffectTag>쟤도 날 좋아할까? 그/그녀의 심리를 알고 싶다면?</StartEffectTag>
+              <LocationText>
+                나는 타고난 어그로 꾼인가? 당신의 숨겨진 정체를 깨닫고 싶다면?
+              </LocationText>
+              <LocationText>
+                이 말을 가짜라고 생각하고 무시한다면 정말 안 좋은 사고가 꼭 일어납니다.
+              </LocationText>
+              <LocationText>지금 당장 시작하세요.</LocationText>
+            </div>
+          </FlexContainerAlignCenter>
+        </FlexContainerColumnCenter>
+      </Padding>
     </PageHead>
   )
 }
