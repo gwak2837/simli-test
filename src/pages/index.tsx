@@ -5,8 +5,9 @@ import { FlexContainerBetween, FlexContainerAlignCenter } from 'src/styles/FlexC
 import { HEADER_HEIGHT, TABLET_MIN_WIDTH } from 'src/models/constants'
 import ClientSideLink from 'src/components/atoms/ClientSideLink'
 import { GlobalContext } from './_app'
-import { SecondaryButton } from 'src/components/atoms/Button'
+import { PrimaryButton, SecondaryButton } from 'src/components/atoms/Button'
 import { FocusInExpandFwd } from 'src/styles/SpecialEffect'
+import useGoToPage from 'src/hooks/useGoToPage'
 
 const LocationText = styled.h3`
   margin: 1rem;
@@ -45,8 +46,8 @@ const FixedPosition = styled.div`
 `
 
 export const IconImg = styled.img`
-  width: 20px;
-  height: 20px;
+  width: 700px;
+  height: 400px;
   margin: 0;
 `
 
@@ -70,12 +71,22 @@ const StartEffectTag = styled.div`
   text-align: center;
 `
 
+const TestSelectButton = styled(PrimaryButton)``
+
 function HomePage() {
   const { data, data2 } = useContext(GlobalContext)
+
+  const goToTestFisrtTest = useGoToPage('/tests/Test_1')
+  const goToTestSecondTest = useGoToPage('/tests/Test_2')
+  const goToTestThirdTest = useGoToPage('/tests/Test_3')
+  const goToTestFourthTest = useGoToPage('/tests/Test_4')
 
   return (
     <PageHead>
       <FlexContainerColumnCenter>
+        <ClientSideLink href="/users/username/regulars">
+          <StartImg src="/simli_main.png" />
+        </ClientSideLink>
         <StartButton>심리테스트 시작</StartButton>
         <FlexContainerAlignCenter>
           <LocationText>
@@ -88,6 +99,12 @@ function HomePage() {
             </LocationText>
             지금 당장 시작하세요.
           </LocationText>
+          <div>
+            <TestSelectButton onClick={goToTestFisrtTest}>심리Test1</TestSelectButton>
+            <TestSelectButton onClick={goToTestSecondTest}>심리Test2</TestSelectButton>
+            <TestSelectButton onClick={goToTestThirdTest}>심리Test3</TestSelectButton>
+            <TestSelectButton onClick={goToTestFourthTest}>심리Test4</TestSelectButton>
+          </div>
         </FlexContainerAlignCenter>
       </FlexContainerColumnCenter>
     </PageHead>
