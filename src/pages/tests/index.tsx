@@ -12,12 +12,44 @@ export const TestSelectImg = styled.img`
     background-color: black;
   }
 `
+
+const RelativePosition = styled.div`
+  position: relative;
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  :hover {
+    > text {
+      animation-name: fadeIn;
+      animation-duration: 2.4s;
+    }
+    > img {
+      animation-name: fadeOut;
+      animation-duration: 2.4s;
+    }
+  }
+`
+
 const TestExplainText = styled.text`
-  margin: 5px 5px 5px 5px;
-  position: center center;
-  text-align: center;
-  opacity: 1;
-  font-size: 15px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  font-size: 1.4rem;
 `
 
 const TestSelectGridContainer = styled.nav`
@@ -40,27 +72,22 @@ function TestsPage() {
     <PageHead title="심리테스트 - 테스트 목록" description={description}>
       <h1>원하는 테스트를 골라보세요</h1>
       <TestSelectGridContainer>
-        <div>
+        <RelativePosition>
           <TestExplainText>TV중독TEST</TestExplainText>
-
-          <TestSelectImg src="/TV_addict.jpg" onClick={goToTestFisrtTest} />
-        </div>
-
-        <div>
+          <TestSelectImg src="/TV_addict.jpg" onClick={goToTestFisrtTest}></TestSelectImg>
+        </RelativePosition>
+        <RelativePosition>
           <TestExplainText>스마트폰중독TEST</TestExplainText>
-
-          <TestSelectImg src="/Phone_addict.jpg" onClick={goToTestSecondTest} />
-        </div>
-        <div>
+          <TestSelectImg src="/Phone_addict.jpg" onClick={goToTestSecondTest}></TestSelectImg>
+        </RelativePosition>
+        <RelativePosition>
           <TestExplainText>성격TEST</TestExplainText>
-
-          <TestSelectImg src="/Personality.jpg" onClick={goToTestThirdTest} />
-        </div>
-        <div>
+          <TestSelectImg src="/Personality.jpg" onClick={goToTestThirdTest}></TestSelectImg>
+        </RelativePosition>
+        <RelativePosition>
           <TestExplainText>성격에 맞는직업TEST</TestExplainText>
-
-          <TestSelectImg src="/Personality_JOB.jpg" onClick={goToTestFourthTest} />
-        </div>
+          <TestSelectImg src="/Personality_JOB.jpg" onClick={goToTestFourthTest}></TestSelectImg>
+        </RelativePosition>
       </TestSelectGridContainer>
     </PageHead>
   )
