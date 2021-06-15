@@ -13,83 +13,74 @@ import { GlobalContext } from './_app'
 import { StartButton } from 'src/components/atoms/Button'
 import { StartEffectTag } from 'src/styles/SpecialEffect'
 
-const FlexContainerBetweenCenter = styled(FlexContainerBetween)`
-  align-items: center;
-  height: 100%;
+const Container = styled.div`
+  margin-top: 50px;
+  padding: 20px;
 `
-
-const LocationText = styled.h3`
+const Register = styled.h3`
   margin: 16px 2px 16px 16px;
   font-size: 18px;
   font-weight: bold;
   line-height: 1;
 `
-
-export const IconGridContainer = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  margin: 0 16px 16px 16px;
-  top: 0;
-  align-items: center;
-  height: 100%;
-`
-
-export const GridContainerUl = styled.ul<{ onlyImage: boolean }>`
-  display: grid;
-  grid-template-columns: ${(p) => (p.onlyImage ? '1fr 1fr 1fr' : '1fr')};
-  gap: ${(p) => (p.onlyImage ? 'min(1vw, 0.5rem)' : 'min(2vw, 1rem)')};
-  padding: ${(p) => (p.onlyImage ? 'min(1vw, 0.5rem)' : 'min(2vw, 1rem)')};
-
-  background: #fcfcfc;
-`
-
-const FixedPosition = styled.div`
-  position: fixed;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: ${HEADER_HEIGHT};
-  z-index: 1;
+const Input = styled.input`
+  position: relative;
+  overflow: hidden;
   width: 100%;
-  max-width: ${TABLET_MIN_WIDTH};
-  text-align: right;
+  height: 40px;
+  margin: 0 0 8px;
+  padding: 5px 39px 5px 11px;
+  border: solid 1px #dadada;
+  background: #fff;
+  box-sizing: border-box;
 `
 
-export const IconImg = styled.img`
-  width: 20px;
-  height: 20px;
-  margin: 0;
+const Button = styled.div`
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 49px;
+  display: block;
+  width: 100%;
+  height: 49px;
+  margin: 16px 0 7px;
+  cursor: pointer;
+  text-align: center;
+  color: #fff;
+  border: none;ㄴ
+  border-radius: 0;
+  background-color: #03c75a;
+  ${({ disabled }) =>
+    disabled &&
+    `
+    background-color: #efefef;
+  `}
 `
 
-export const StartImg = styled.img`
-  width: 500px;
-  height: 500px;
-  margin: 0 8px 0 8px;
-`
-
-function HomePage() {
-  const { data, data2 } = useContext(GlobalContext)
-
+function RegisterForm() {
   return (
-    <PageHead>
-      <FlexUpperPadding>
-        <FlexContainerBetweenCenter>
-          <StartButton>심리테스트 시작</StartButton>
-          <FlexContainerAlignCenter>
-            <LocationText>
-              <StartEffectTag>쟤도 날 좋아할까? 그/그녀의 심리를 알고 싶다면?</StartEffectTag>
-              <LocationText>
-                나는 타고난 어그로 꾼인가? 당신의 숨겨진 정체를 깨닫고 싶다면?
-              </LocationText>
-              <LocationText>
-                이 말을 가짜라고 생각하고 무시한다면 정말 안 좋은 사고가 꼭 일어납니다.
-              </LocationText>
-              지금 당장 시작하세요.
-            </LocationText>
-          </FlexContainerAlignCenter>
-        </FlexContainerBetweenCenter>
-      </FlexUpperPadding>
-    </PageHead>
+    <Container>
+      <Register>회원가입</Register>
+      <Register>ID</Register>
+      <Input id="id" name="id" placeholder="아이디를 입력해주세요" />
+      <Register>PassWord</Register>
+      <Input id="password" name="password" type="password" placeholder="비밀번호를 입력해주세요" />
+      <Register>Name</Register>
+      <Input id="Name" name="Name" type="Name" placeholder="이름을 입력해주세요" />
+      <Register>Phone</Register>
+      <Input id="Phone" name="Phone" type="Phone" placeholder="전화번호를 입력해주세요" />
+      <Register>Date of birth </Register>
+      <Input
+        id="Datebirth"
+        name="Datebirth"
+        type="Datebirth"
+        placeholder="생년월일을 입력해주세요"
+      />
+      <Register>Address</Register>
+      <Input id="Address" name="Address" type="Address" placeholder="주소를 입력해주세요" />
+
+      <Button>회원가입 완료!</Button>
+    </Container>
   )
 }
 
-export default HomePage
+export default RegisterForm
