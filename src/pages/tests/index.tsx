@@ -34,11 +34,13 @@ const RelativePosition = styled.div`
   :hover {
     > text {
       animation-name: fadeIn;
-      animation-duration: 2.4s;
+      animation-duration: 1s;
+      opacity: 1;
     }
     > img {
       animation-name: fadeOut;
-      animation-duration: 2.4s;
+      animation-duration: 1s;
+      opacity: 0;
     }
   }
 `
@@ -74,19 +76,35 @@ function TestsPage() {
       <TestSelectGridContainer>
         <RelativePosition>
           <TestExplainText>TV중독TEST</TestExplainText>
-          <TestSelectImg src="/TV_addict.jpg" onClick={goToTestFisrtTest}></TestSelectImg>
+          <TestSelectImg
+            src="/TV_addict.jpg"
+            alt="TV_addict-image"
+            onClick={goToTestFisrtTest}
+          ></TestSelectImg>
         </RelativePosition>
         <RelativePosition>
           <TestExplainText>스마트폰중독TEST</TestExplainText>
-          <TestSelectImg src="/Phone_addict.jpg" onClick={goToTestSecondTest}></TestSelectImg>
+          <TestSelectImg
+            src="/Phone_addict.jpg"
+            alt="Phone_addict-image"
+            onClick={goToTestSecondTest}
+          ></TestSelectImg>
         </RelativePosition>
         <RelativePosition>
           <TestExplainText>성격TEST</TestExplainText>
-          <TestSelectImg src="/Personality.jpg" onClick={goToTestThirdTest}></TestSelectImg>
+          <TestSelectImg
+            src="/Personality.jpg"
+            alt="Personality-image"
+            onClick={goToTestThirdTest}
+          ></TestSelectImg>
         </RelativePosition>
         <RelativePosition>
           <TestExplainText>성격에 맞는직업TEST</TestExplainText>
-          <TestSelectImg src="/Personality_JOB.jpg" onClick={goToTestFourthTest}></TestSelectImg>
+          <TestSelectImg
+            src="/Personality_JOB.jpg"
+            alt="Personality_JOB-image"
+            onClick={goToTestFourthTest}
+          ></TestSelectImg>
         </RelativePosition>
       </TestSelectGridContainer>
     </PageHead>
