@@ -13,6 +13,7 @@ export const TestSelectImg = styled.img`
   }
 `
 const TestExplainText = styled.text`
+  margin: 5px 5px 5px 5px;
   position: center center;
   text-align: center;
   opacity: 1;
