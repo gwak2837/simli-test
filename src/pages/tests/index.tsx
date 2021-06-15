@@ -3,10 +3,12 @@ import styled from 'styled-components'
 import Image from 'next/image'
 import ClientSideLink from 'src/components/atoms/ClientSideLink'
 import { SquareFrame } from '..'
+import { fadeIn } from 'src/styles/SpecialEffect'
 
 const RelativePosition = styled.div`
   position: relative;
-  @keyframes fadeOut {
+
+  @keyframes fadeOut1 {
     from {
       opacity: 1;
     }
@@ -14,23 +16,15 @@ const RelativePosition = styled.div`
       opacity: 0.1;
     }
   }
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
 
   :hover {
     > text {
-      animation-name: fadeIn;
+      animation-name: ${fadeIn};
       animation-duration: 1s;
       opacity: 1;
     }
     > a > div > img {
-      animation-name: fadeOut;
+      animation-name: fadeOut1;
       animation-duration: 1s;
       opacity: 0.1;
     }
