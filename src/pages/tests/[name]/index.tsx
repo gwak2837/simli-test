@@ -21,12 +21,13 @@ function TestPage() {
   }, [router.query.name])
 
   const questions = tests[testName]?.questions
+  const question = questions?.[questionNumber]
 
   return (
     <PageHead title={`심리테스트 - ${router.query.name ?? ''}`} description={description}>
       <h2>{router.query.name}</h2>
       <BinaryQuestionAnswer
-        question={questions?.[questionNumber]}
+        question={question.question}
         onYes={() => {
           if (questionNumber >= questions.length - 1) {
             router.push(`/tests/${testName}/result`)
