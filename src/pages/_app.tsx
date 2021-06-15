@@ -2,13 +2,7 @@ import { AppProps } from 'next/app'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 import { createContext, ReactNode, useEffect } from 'react'
-import {
-  BASIC_TEXT_COLOR,
-  PRIMARY_BACKGROUND_COLOR,
-  PRIMARY_TEXT_COLOR,
-  SECONDARY_BACKGROUND_COLOR,
-  TABLET_MIN_WIDTH,
-} from 'src/models/constants'
+import { BASIC_TEXT_COLOR, PRIMARY_TEXT_COLOR, TABLET_MIN_WIDTH } from 'src/models/constants'
 import { pageview } from 'src/utils/google-analytics'
 import styled, { createGlobalStyle } from 'styled-components'
 import { ToastContainer, cssTransition } from 'react-toastify'
