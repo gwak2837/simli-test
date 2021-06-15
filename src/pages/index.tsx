@@ -2,16 +2,12 @@ import styled from 'styled-components'
 import NavigationLayout from '../components/layouts/NavigationLayout'
 import PageHead from '../components/layouts/PageHead'
 import { useContext } from 'react'
-import {
-  FlexContainerBetween,
-  FlexContainerAlignCenter,
-  FlexUpperPadding,
-} from 'src/styles/FlexContainer'
+import { FlexContainerBetween, FlexContainerAlignCenter } from 'src/styles/FlexContainer'
 import { HEADER_HEIGHT, TABLET_MIN_WIDTH } from 'src/models/constants'
 import ClientSideLink from 'src/components/atoms/ClientSideLink'
 import { GlobalContext } from './_app'
 import { SecondaryButton } from 'src/components/atoms/Button'
-import { StartEffectTag } from 'src/styles/SpecialEffect'
+import { FocusInExpandFwd } from 'src/styles/SpecialEffect'
 
 const FlexContainerBetweenCenter = styled(FlexContainerBetween)`
   align-items: center;
@@ -19,10 +15,9 @@ const FlexContainerBetweenCenter = styled(FlexContainerBetween)`
 `
 
 const LocationText = styled.h3`
-  margin: 16px 2px 16px 16px;
-  font-size: 18px;
+  margin: 1rem;
+  font-size: 1.1rem;
   font-weight: bold;
-  line-height: 1;
 `
 
 export const IconGridContainer = styled.div`
@@ -67,21 +62,17 @@ export const StartImg = styled.img`
 `
 
 const StartButton = styled(SecondaryButton)`
-  animation: focus-in-expand-fwd 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: ${FocusInExpandFwd} 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+`
 
-  @keyframes focus-in-expand-fwd {
-    0% {
-      letter-spacing: -0.5em;
-      transform: translateZ(-800px);
-      filter: blur(12px);
-      opacity: 0;
-    }
-    100% {
-      transform: translateZ(0);
-      filter: blur(0);
-      opacity: 1;
-    }
-  }
+const FlexContainerColumnCenter = styled(FlexContainerAlignCenter)`
+  flex-flow: column nowrap;
+  padding: 10rem 0;
+`
+
+const StartEffectTag = styled.div`
+  animation: ${FocusInExpandFwd} 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  text-align: center;
 `
 
 function HomePage() {
@@ -89,23 +80,21 @@ function HomePage() {
 
   return (
     <PageHead>
-      <FlexUpperPadding>
-        <FlexContainerBetweenCenter>
-          <StartButton>심리테스트 시작</StartButton>
-          <FlexContainerAlignCenter>
+      <FlexContainerColumnCenter>
+        <StartButton>심리테스트 시작</StartButton>
+        <FlexContainerAlignCenter>
+          <LocationText>
+            <StartEffectTag>쟤도 날 좋아할까? 그/그녀의 심리를 알고 싶다면?</StartEffectTag>
             <LocationText>
-              <StartEffectTag>쟤도 날 좋아할까? 그/그녀의 심리를 알고 싶다면?</StartEffectTag>
-              <LocationText>
-                나는 타고난 어그로 꾼인가? 당신의 숨겨진 정체를 깨닫고 싶다면?
-              </LocationText>
-              <LocationText>
-                이 말을 가짜라고 생각하고 무시한다면 정말 안 좋은 사고가 꼭 일어납니다.
-              </LocationText>
-              지금 당장 시작하세요.
+              나는 타고난 어그로 꾼인가? 당신의 숨겨진 정체를 깨닫고 싶다면?
             </LocationText>
-          </FlexContainerAlignCenter>
-        </FlexContainerBetweenCenter>
-      </FlexUpperPadding>
+            <LocationText>
+              이 말을 가짜라고 생각하고 무시한다면 정말 안 좋은 사고가 꼭 일어납니다.
+            </LocationText>
+            지금 당장 시작하세요.
+          </LocationText>
+        </FlexContainerAlignCenter>
+      </FlexContainerColumnCenter>
     </PageHead>
   )
 }

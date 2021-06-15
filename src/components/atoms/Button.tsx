@@ -51,7 +51,7 @@ export const SecondaryButton = styled(StyledButton)`
 
   :active,
   :hover {
-    background: #eee;
+    background: #fff;
     border-color: ${SECONDARY_TEXT_COLOR};
     color: ${SECONDARY_TEXT_COLOR};
   }
