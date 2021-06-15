@@ -1,7 +1,15 @@
 import { AppProps } from 'next/app'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
-import { createContext, ReactNode, useEffect } from 'react'
+import {
+  createContext,
+  Dispatch,
+  ReactNode,
+  SetStateAction,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react'
 import { BASIC_TEXT_COLOR, PRIMARY_TEXT_COLOR, TABLET_MIN_WIDTH } from 'src/models/constants'
 import { pageview } from 'src/utils/google-analytics'
 import styled, { createGlobalStyle } from 'styled-components'
@@ -64,13 +72,13 @@ const GlobalStyle = createGlobalStyle`
 `
 
 type GlobalContextValues = {
-  data: boolean
-  data2: number
+  result: Record<string, number>
+  setResult: Dispatch<SetStateAction<Record<string, number>>>
 }
 
 export const GlobalContext = createContext<GlobalContextValues>({
-  data: false,
-  data2: 1,
+  result: {},
+  setResult: () => null,
 })
 
 type GlobalProviderProps = {
@@ -78,10 +86,15 @@ type GlobalProviderProps = {
 }
 
 function GlobalProvider({ children }: GlobalProviderProps) {
-  const value = {
-    data: false,
-    data2: 2,
-  }
+  const [result, setResult] = useState({})
+
+  const value = useMemo(
+    () => ({
+      result: result,
+      setResult: setResult,
+    }),
+    [result]
+  )
 
   return <GlobalContext.Provider value={value}>{children}</GlobalContext.Provider>
 }
