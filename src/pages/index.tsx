@@ -10,7 +10,7 @@ import {
 import { HEADER_HEIGHT, TABLET_MIN_WIDTH } from 'src/models/constants'
 import ClientSideLink from 'src/components/atoms/ClientSideLink'
 import { GlobalContext } from './_app'
-import { StartButton } from 'src/components/atoms/Button'
+import { SecondaryButton } from 'src/components/atoms/Button'
 import { StartEffectTag } from 'src/styles/SpecialEffect'
 
 const FlexContainerBetweenCenter = styled(FlexContainerBetween)`
@@ -64,6 +64,24 @@ export const StartImg = styled.img`
   width: 500px;
   height: 500px;
   margin: 0 8px 0 8px;
+`
+
+const StartButton = styled(SecondaryButton)`
+  animation: focus-in-expand-fwd 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+
+  @keyframes focus-in-expand-fwd {
+    0% {
+      letter-spacing: -0.5em;
+      transform: translateZ(-800px);
+      filter: blur(12px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateZ(0);
+      filter: blur(0);
+      opacity: 1;
+    }
+  }
 `
 
 function HomePage() {
