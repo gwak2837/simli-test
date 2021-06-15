@@ -56,30 +56,6 @@ export const SecondaryButton = styled(StyledButton)`
     color: ${SECONDARY_TEXT_COLOR};
   }
 `
-export const TestSelectButton = styled(Button)`
-  margin: 1rem 0;
-  padding: 0.8rem;
-  width: 175px;
-  height: 130px;
-
-  border-radius: 0.3rem;
-  font-size: 1rem;
-  font-weight: 500;
-  color: ${BASIC_TEXT_COLOR};
-
-  :focus {
-    background: ${PRIMARY_BACKGROUND_COLOR};
-    border-color: ${PRIMARY_BACKGROUND_COLOR};
-    color: ${BASIC_TEXT_COLOR};
-  }
-
-  :active,
-  :hover {
-    background: ${SECONDARY_BACKGROUND_COLOR};
-    border-color: ${PRIMARY_TEXT_COLOR};
-    color: ${PRIMARY_TEXT_COLOR};
-  }
-`
 
 export const FixedButton = styled(PrimaryButton)`
   position: fixed !important;
