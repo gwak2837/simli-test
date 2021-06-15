@@ -85,7 +85,7 @@ function HomePage() {
     <PageHead>
       <FlexContainerColumnCenter>
         <ClientSideLink href="/users/username/regulars">
-          <StartImg src="/simli_main.png" />
+          <StartImg src="/simli_main.jpg" />
         </ClientSideLink>
         <StartButton>심리테스트 시작</StartButton>
         <FlexContainerAlignCenter>
@@ -99,13 +99,13 @@ function HomePage() {
             </LocationText>
             지금 당장 시작하세요.
           </LocationText>
-          <div>
-            <TestSelectButton onClick={goToTestFisrtTest}>심리Test1</TestSelectButton>
-            <TestSelectButton onClick={goToTestSecondTest}>심리Test2</TestSelectButton>
-            <TestSelectButton onClick={goToTestThirdTest}>심리Test3</TestSelectButton>
-            <TestSelectButton onClick={goToTestFourthTest}>심리Test4</TestSelectButton>
-          </div>
         </FlexContainerAlignCenter>
+        <div>
+          <TestSelectButton onClick={goToTestFisrtTest}>심리Test1</TestSelectButton>
+          <TestSelectButton onClick={goToTestSecondTest}>심리Test2</TestSelectButton>
+          <TestSelectButton onClick={goToTestThirdTest}>심리Test3</TestSelectButton>
+          <TestSelectButton onClick={goToTestFourthTest}>심리Test4</TestSelectButton>
+        </div>
       </FlexContainerColumnCenter>
     </PageHead>
   )
