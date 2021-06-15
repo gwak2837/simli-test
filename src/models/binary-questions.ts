@@ -34,35 +34,120 @@ export const tests: Record<string, Test> = {
     questions: [
       {
         id: '1',
-        question: 'Q. 당신은 점심 먹었나요?',
+        question: 'Q. 나는 중독자다. 일 중독자.',
         onYes: [
-          { id: '1', name: '평온', value: 10 },
-          { id: '2', name: '짜증', value: -10 },
+          { id: '1', name: '중독', value: 10 },
+          { id: '2', name: '게으름', value: -10 },
         ],
         onNo: [
-          { id: '1', name: '평온', value: -10 },
-          { id: '2', name: '짜증', value: 10 },
+          { id: '1', name: '중독', value: -10 },
+          { id: '2', name: '게으름', value: 10 },
         ],
       },
       {
         id: '2',
-        question: 'Q. 당신은 저녁 먹었나요?',
+        question:
+          'Q. 일은 곧 나요. 나는 곧 일이다. 일과 나는 하나다. 일즉나 나즉일 -조선의 왕 정조(?).',
         onYes: [
-          { id: '1', name: '평온', value: 10 },
-          { id: '2', name: '짜증', value: -10 },
+          { id: '1', name: '중독', value: 10 },
+          { id: '2', name: '게으름', value: -10 },
         ],
         onNo: [
-          { id: '1', name: '평온', value: -10 },
-          { id: '2', name: '짜증', value: 10 },
+          { id: '1', name: '중독', value: -10 },
+          { id: '2', name: '게으름', value: 10 },
+        ],
+      },
+      {
+        id: '3',
+        question: 'Q. "일용할 양식을 주옵시고"는 "일을 주옵시고"다.',
+        onYes: [
+          { id: '1', name: '중독', value: 10 },
+          { id: '2', name: '게으름', value: -10 },
+        ],
+        onNo: [
+          { id: '1', name: '중독', value: -10 },
+          { id: '2', name: '게으름', value: 10 },
+        ],
+      },
+      {
+        id: '4',
+        question: 'Q. 쉰다는 것. 그것은 곧 나에게 죽음이다. 일이 아니면 죽음을 달라.',
+        onYes: [
+          { id: '1', name: '중독', value: 10 },
+          { id: '2', name: '게으름', value: -10 },
+        ],
+        onNo: [
+          { id: '1', name: '중독', value: -10 },
+          { id: '2', name: '게으름', value: 10 },
+        ],
+      },
+      {
+        id: '5',
+        question: 'Q. 당신의 친구가 주말 여행을 가자고 조른다. 당신은 그와 여행을 갈 것인가?',
+        onYes: [
+          { id: '1', name: '중독', value: -10 },
+          { id: '2', name: '게으름', value: 10 },
+        ],
+        onNo: [
+          { id: '1', name: '중독', value: -10 },
+          { id: '2', name: '게으름', value: 10 },
+        ],
+      },
+      {
+        id: '6',
+        question: 'Q. 오늘의 일은 휴식의 니코틴보다 향기롭다.',
+        onYes: [
+          { id: '1', name: '중독', value: 20 },
+          { id: '2', name: '게으름', value: -10 },
+        ],
+        onNo: [
+          { id: '1', name: '중독', value: -10 },
+          { id: '2', name: '게으름', value: 10 },
+        ],
+      },
+      {
+        id: '7',
+        question: 'Q. 나는 알코올보다 일에 취하는 편이다.',
+        onYes: [
+          { id: '1', name: '중독', value: 20 },
+          { id: '2', name: '게으름', value: -10 },
+        ],
+        onNo: [
+          { id: '1', name: '중독', value: -10 },
+          { id: '2', name: '게으름', value: 10 },
+        ],
+      },
+      {
+        id: '8',
+        question: 'Q. 나는 일주일 중 월요일이 가장 설렌다.',
+        onYes: [
+          { id: '1', name: '중독', value: 20 },
+          { id: '2', name: '게으름', value: -10 },
+        ],
+        onNo: [
+          { id: '1', name: '중독', value: -10 },
+          { id: '2', name: '게으름', value: 10 },
         ],
       },
     ],
     results: [
       {
         id: '1',
-        title: '당신은 배가 고픕니다.',
+        title: '일에 미친 당신,',
         imageUrl: '',
-        contents: [{ id: '1', content: '빨리 밥을 먹으세요' }],
+        contents: [{ id: '1', content: '손모가지 절단만이 답입니다.' }],
+      },
+      {
+        id: '2',
+        title: '열심히 일한 당신,',
+        imageUrl: '',
+        contents: [{ id: '1', content: '당신은 일꾼입니다. 미네랄을 캐세요.' }],
+      },
+      {
+        id: '3',
+        title: '자유로운 영혼의 소유자,',
+        imageUrl: '',
+        contents: [{ id: '1', content: '선비의 정신을 가졌군요! 다음 심리테스트도 해보세요!' }],
       },
     ],
   },
