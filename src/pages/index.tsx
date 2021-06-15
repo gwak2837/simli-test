@@ -3,7 +3,7 @@ import PageHead from '../components/layouts/PageHead'
 import { FlexContainerAlignCenter } from 'src/styles/FlexContainer'
 import ClientSideLink from 'src/components/atoms/ClientSideLink'
 import { SecondaryButton } from 'src/components/atoms/Button'
-import { FocusInExpandFwd } from 'src/styles/SpecialEffect'
+import { focusInExpandFwd } from 'src/styles/SpecialEffect'
 import useGoToPage from 'src/hooks/useGoToPage'
 import Image from 'next/image'
 
@@ -20,7 +20,7 @@ export const SquareFrame = styled.div`
 `
 
 const StartButton = styled(SecondaryButton)`
-  animation: ${FocusInExpandFwd} 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: ${focusInExpandFwd} 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 `
 
 const FlexContainerColumnCenter = styled(FlexContainerAlignCenter)`
@@ -29,7 +29,7 @@ const FlexContainerColumnCenter = styled(FlexContainerAlignCenter)`
 `
 
 const StartEffectTag = styled(LocationText)`
-  animation: ${FocusInExpandFwd} 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: ${focusInExpandFwd} 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   text-align: center;
 `
 

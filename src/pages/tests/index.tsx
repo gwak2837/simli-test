@@ -38,7 +38,7 @@ const RelativePosition = styled.div`
       animation-name: fadeIn;
       animation-duration: 2.4s;
     }
-    > img {
+    > a > img {
       animation-name: fadeOut;
       animation-duration: 2.4s;
     }
@@ -60,6 +60,11 @@ const TestSelectGridContainer = styled.nav`
   grid-template-rows: 1fr 1fr;
   margin: 0;
   padding: 0;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
 `
 
 const description = '테스트 목록을 확인해보세요'
