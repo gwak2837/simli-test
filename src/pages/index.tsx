@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import NavigationLayout from '../components/layouts/NavigationLayout'
 import PageHead from '../components/layouts/PageHead'
 import { useContext } from 'react'
 import { FlexContainerBetween, FlexContainerAlignCenter } from 'src/styles/FlexContainer'
@@ -9,15 +8,11 @@ import { GlobalContext } from './_app'
 import { SecondaryButton } from 'src/components/atoms/Button'
 import { FocusInExpandFwd } from 'src/styles/SpecialEffect'
 
-const FlexContainerBetweenCenter = styled(FlexContainerBetween)`
-  align-items: center;
-  height: 100%;
-`
-
 const LocationText = styled.h3`
   margin: 1rem;
   font-size: 1.1rem;
   font-weight: bold;
+  text-align: center;
 `
 
 export const IconGridContainer = styled.div`
