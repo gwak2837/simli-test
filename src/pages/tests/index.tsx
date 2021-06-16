@@ -58,15 +58,15 @@ function TestsPage() {
       <h1>원하는 테스트를 골라보세요</h1>
       <GridContainer>
         <RelativePosition>
-          <TestExplainText>조선시대 당신의 신분은?</TestExplainText>
+          <TestExplainText>일중독 TEST</TestExplainText>
           <ClientSideLink href="/tests/Test_1">
-            <Image src="/joseon.jpg" alt="test-1-image" layout="fill" objectFit="cover" />
+            <Image src="/workaholic.jpg" alt="test-image" layout="fill" objectFit="cover" />
           </ClientSideLink>
         </RelativePosition>
         <RelativePosition>
-          <TestExplainText>일중독 TEST</TestExplainText>
+          <TestExplainText>조선시대 당신의 신분은?</TestExplainText>
           <ClientSideLink href="/tests/Test_2">
-            <Image src="/workaholic.jpg" alt="test-image" layout="fill" objectFit="cover" />
+            <Image src="/joseon.jpg" alt="test-image" layout="fill" objectFit="cover" />
           </ClientSideLink>
         </RelativePosition>
         <RelativePosition>
