@@ -49,10 +49,6 @@ function TestResultPage() {
   const goToHomePage = useGoToPage('/')
   const goToTestsPage = useGoToPage('/tests')
 
-  const results = Object.entries(result)
-  const maxResult = Math.max(...results.map((result) => result[1])) + correction
-  const minResult = Math.min(...results.map((result) => result[1])) - correction
-
   const r = tests[(query.name ?? '') as string]?.results[0]
 
   console.log(r)
@@ -80,6 +76,10 @@ function TestResultPage() {
       </PageHead>
     )
   }
+
+  const results = Object.entries(result)
+  const maxResult = Math.max(...results.map((result) => result[1])) + correction
+  const minResult = Math.min(...results.map((result) => result[1])) - correction
 
   return (
     <PageHead title={`심리테스트 - ${query.name ?? ''} 결과`} description={description}>
