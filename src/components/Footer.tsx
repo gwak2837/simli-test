@@ -62,10 +62,10 @@ function Footer() {
             <b>주소 :</b> 서울특별시 서초구 서초중앙로20길 23
           </div>
           <div>
-            <b>E-mail :</b> XXXX@gmail.com
+            <b>E-mail :</b> gwak2837@kakao.com
           </div>
           <div>
-            <b>고객센터 :</b> 010-XXXX-XXXX
+            <b>고객센터 :</b> 010-9203-2837
           </div>
           <div>평일 09~18시 (점심시간 12~13시), 주말/공휴일 휴무</div>
         </div>
