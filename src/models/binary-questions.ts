@@ -323,7 +323,7 @@ export const tests: Record<string, Test> = {
           { id: '1', name: '선비 정신', value: 70, type: '이상' },
           { id: '2', name: '힙 정신', value: 49, type: '이하' },
         ],
-        imageUrl: 'result-sunbi-3.jpg',
+        imageUrl: '/result-sunbi-3.jpg',
         contents: [{ id: '1', content: '기분 좋으세요?' }],
       },
     ],
