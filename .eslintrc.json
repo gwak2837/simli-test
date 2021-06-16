@@ -12,6 +12,8 @@
     "plugin:promise/recommended",
     "standard",
 
+    "next",
+    "next/core-web-vitals",
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
     "plugin:jsx-a11y/recommended",
@@ -20,7 +22,6 @@
     // Rules related with Prettier MUST be at the last of the array
     "plugin:prettier/recommended"
   ],
-  "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -28,7 +29,6 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": ["react", "@typescript-eslint"],
   "root": true,
   "rules": {
     "no-console": [
@@ -79,14 +79,5 @@
         "argsIgnorePattern": "^_"
       }
     ]
-  },
-  "settings": {
-    "react": {
-      // React version. "detect" automatically picks the version you have installed.
-      // You can also use `16.0`, `16.3`, etc, if you want to override the detected value.
-      // default to latest and warns if missing
-      // It will default to "detect" in the future
-      "version": "detect"
-    }
   }
 }

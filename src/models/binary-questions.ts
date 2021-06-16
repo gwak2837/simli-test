@@ -14,6 +14,12 @@ type Question = {
 type Result = {
   id: string
   title: string
+  conditions: {
+    id: string
+    name: string
+    value: number
+    type: string
+  }[]
   imageUrl: string
   contents: {
     id: string
@@ -133,19 +139,31 @@ export const tests: Record<string, Test> = {
     results: [
       {
         id: '1',
-        title: '일에 미친 당신,',
+        title: '일에 미친 당신',
+        conditions: [
+          { id: '1', name: '중독', value: 20, type: '이상' },
+          { id: '2', name: '중독', value: 40, type: '이하' },
+        ],
         imageUrl: '',
         contents: [{ id: '1', content: '손모가지 절단만이 답입니다.' }],
       },
       {
         id: '2',
-        title: '열심히 일한 당신,',
+        title: '열심히 일한 당신',
+        conditions: [
+          { id: '1', name: '중독', value: 20, type: '이상' },
+          { id: '2', name: '중독', value: 40, type: '이하' },
+        ],
         imageUrl: '',
         contents: [{ id: '1', content: '당신은 일꾼입니다. 미네랄을 캐세요.' }],
       },
       {
         id: '3',
-        title: '자유로운 영혼의 소유자,',
+        title: '자유로운 영혼의 소유자',
+        conditions: [
+          { id: '1', name: '중독', value: 20, type: '이상' },
+          { id: '2', name: '중독', value: 40, type: '이하' },
+        ],
         imageUrl: '',
         contents: [{ id: '1', content: '선비의 정신을 가졌군요! 다음 심리테스트도 해보세요!' }],
       },
@@ -286,18 +304,30 @@ export const tests: Record<string, Test> = {
       {
         id: '1',
         title: '당신은 조선의 무법자입니다.',
+        conditions: [
+          { id: '1', name: '중독', value: 20, type: '이상' },
+          { id: '2', name: '중독', value: 40, type: '이하' },
+        ],
         imageUrl: '',
         contents: [{ id: '1', content: '가끔 셧다운이 필요할 것 같군요.' }],
       },
       {
         id: '2',
         title: '당신은 조선의 노예입니다.',
+        conditions: [
+          { id: '1', name: '중독', value: 20, type: '이상' },
+          { id: '2', name: '중독', value: 40, type: '이하' },
+        ],
         imageUrl: '',
         contents: [{ id: '1', content: '가끔 주인에게 열폭하는 것도 장수의 비결!' }],
       },
       {
         id: '3',
         title: '당신은 조선의 선비입니다.',
+        conditions: [
+          { id: '1', name: '중독', value: 20, type: '이상' },
+          { id: '2', name: '중독', value: 40, type: '이하' },
+        ],
         imageUrl: '',
         contents: [{ id: '1', content: '기분 좋으세요?' }],
       },
@@ -446,6 +476,10 @@ export const tests: Record<string, Test> = {
       {
         id: '1',
         title: '날개 없는 천사 , 티 없는 흑우!!!',
+        conditions: [
+          { id: '1', name: '중독', value: 20, type: '이상' },
+          { id: '2', name: '중독', value: 40, type: '이하' },
+        ],
         imageUrl: '',
         contents: [
           { id: '1', content: '모든 것을 양보하고 배려해주는 당신 이 시대의 진정한 인격자' },
@@ -454,6 +488,10 @@ export const tests: Record<string, Test> = {
       {
         id: '2',
         title: '경주 최 부잣집 마인드 돈에 있어서 만큼은 나도 호구!!!',
+        conditions: [
+          { id: '1', name: '중독', value: 20, type: '이상' },
+          { id: '2', name: '중독', value: 40, type: '이하' },
+        ],
         imageUrl: '',
         contents: [
           {
@@ -465,6 +503,10 @@ export const tests: Record<string, Test> = {
       {
         id: '3',
         title: '마더 테레사 있는 것은 아낌없이 양보하고 나눠주고 싶은 호구!!!',
+        conditions: [
+          { id: '1', name: '중독', value: 20, type: '이상' },
+          { id: '2', name: '중독', value: 40, type: '이하' },
+        ],
         imageUrl: '',
         contents: [
           {
@@ -477,6 +519,10 @@ export const tests: Record<string, Test> = {
       {
         id: '4',
         title: '개가 짖어도 기차는 간다 원리원칙을 중요시하는 NO 호구!!! ',
+        conditions: [
+          { id: '1', name: '중독', value: 20, type: '이상' },
+          { id: '2', name: '중독', value: 40, type: '이하' },
+        ],
         imageUrl: '',
         contents: [
           {
