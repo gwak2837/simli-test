@@ -11,15 +11,18 @@ const FlexContainerColumn = styled.div`
 `
 
 type Props = {
+  number: string
   question: string
   onYes: () => void
   onNo: () => void
 }
 
-function BinaryQuestionAnswer({ question, onYes, onNo }: Props) {
+function BinaryQuestionAnswer({ number, question, onYes, onNo }: Props) {
   return (
     <Padding>
-      <h3>{question}</h3>
+      <h3>
+        Q{number}. {question}
+      </h3>
       <Padding />
       <FlexContainerColumn>
         <PrimaryButton onClick={onYes}>네</PrimaryButton>

@@ -70,6 +70,7 @@ function TestPage() {
       </FlexContainerBetweenCenter>
       <Padding>
         <BinaryQuestionAnswer
+          number={question?.id}
           question={question?.question}
           onYes={updateResult('onYes')}
           onNo={updateResult('onNo')}
