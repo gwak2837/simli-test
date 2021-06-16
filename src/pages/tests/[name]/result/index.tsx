@@ -16,6 +16,8 @@ const GridContainerUl = styled.ul`
 const FlexContainerColumn = styled.div`
   display: flex;
   flex-flow: column nowrap;
+
+  padding: 1rem;
 `
 
 const gradientBlueGreen = {
@@ -38,9 +40,6 @@ function TestResultPage() {
   const results = Object.entries(result)
   const maxResult = Math.max(...results.map((result) => result[1])) + correction
   const minResult = Math.min(...results.map((result) => result[1])) - correction
-
-  console.log(results)
-  console.log(minResult, maxResult)
 
   return (
     <PageHead title={`심리테스트 - ${query.name ?? ''} 결과`} description={description}>

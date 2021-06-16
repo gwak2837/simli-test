@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router'
 import { useContext, useEffect, useState } from 'react'
 import ClientSideLink from 'src/components/atoms/ClientSideLink'
+import { Padding } from 'src/components/atoms/Styles'
 import BinaryQuestionAnswer from 'src/components/BinaryQuestionAnswer'
 import PageHead from 'src/components/layouts/PageHead'
 import { tests } from 'src/models/binary-questions'
@@ -67,11 +68,13 @@ function TestPage() {
           <div>홈으로</div>
         </ClientSideLink>
       </FlexContainerBetweenCenter>
-      <BinaryQuestionAnswer
-        question={question?.question}
-        onYes={updateResult('onYes')}
-        onNo={updateResult('onNo')}
-      />
+      <Padding>
+        <BinaryQuestionAnswer
+          question={question?.question}
+          onYes={updateResult('onYes')}
+          onNo={updateResult('onNo')}
+        />
+      </Padding>
     </PageHead>
   )
 }
