@@ -45,6 +45,7 @@ const GridContainer = styled.nav`
   grid-template-rows: 1fr 1fr;
 
   width: 100%;
+  height: 100vh; // aspect-ratio 가 지원될 때까지 넣어 놓기
   aspect-ratio: 1 / 1;
   background: #eee;
 `
