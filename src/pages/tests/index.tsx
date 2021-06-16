@@ -58,27 +58,27 @@ function TestsPage() {
       <h1>원하는 테스트를 골라보세요</h1>
       <GridContainer>
         <RelativePosition>
-          <TestExplainText>TV중독TEST</TestExplainText>
+          <TestExplainText>조선시대 당신의 신분은?</TestExplainText>
           <ClientSideLink href="/tests/Test_1">
-            <Image src="/TV_addict.jpg" alt="test-1-image" layout="fill" objectFit="cover" />
+            <Image src="/Joseon.jpg" alt="test-1-image" layout="fill" objectFit="cover" />
           </ClientSideLink>
         </RelativePosition>
         <RelativePosition>
-          <TestExplainText>스마트폰중독TEST</TestExplainText>
+          <TestExplainText>일중독 TEST</TestExplainText>
           <ClientSideLink href="/tests/Test_2">
-            <Image src="/Phone_addict.jpg" alt="test-1-image" layout="fill" objectFit="cover" />
+            <Image src="/workaholic.jpg" alt="test-image" layout="fill" objectFit="cover" />
           </ClientSideLink>
         </RelativePosition>
         <RelativePosition>
-          <TestExplainText>성격TEST</TestExplainText>
+          <TestExplainText>호구 TEST</TestExplainText>
           <ClientSideLink href="/tests/Test_3">
-            <Image src="/Personality.jpg" alt="test-image" layout="fill" objectFit="cover" />
+            <Image src="/hogu.jpg" alt="test-image" layout="fill" objectFit="cover" />
           </ClientSideLink>
         </RelativePosition>
         <RelativePosition>
-          <TestExplainText>성격에 맞는직업TEST</TestExplainText>
+          <TestExplainText>자아도취 TEST</TestExplainText>
           <ClientSideLink href="/tests/Test_4">
-            <Image src="/Personality_JOB.jpg" alt="test-image" layout="fill" objectFit="cover" />
+            <Image src="/narcissim.jpg" alt="test-image" layout="fill" objectFit="cover" />
           </ClientSideLink>
         </RelativePosition>
       </GridContainer>
