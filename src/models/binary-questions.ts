@@ -325,42 +325,48 @@ export const tests: Record<string, Test> = {
         id: '1',
         question: '조별과제에서 팀원들과 의견이 다를 경우 이를 말한다.',
         onYes: [
-          { id: '1', name: '자신감', value: 5 },
-          { id: '2', name: '호구력', value: -5 },
-          { id: '3', name: '호구력(인간)', value: -5 },
+          { id: '1', name: '자신감', value: 10 },
+          { id: '2', name: '호구력', value: -10 },
+          { id: '3', name: '호구력(인간)', value: -30 },
+          { id: '1', name: '배려심', value: 0 },
         ],
         onNo: [
-          { id: '1', name: '배려심', value: 5 },
-          { id: '2', name: '호구력', value: 5 },
-          { id: '3', name: '호구력(인간)', value: 5 },
+          { id: '1', name: '배려심', value: 10 },
+          { id: '2', name: '호구력', value: 10 },
+          { id: '3', name: '호구력(인간)', value: 30 },
+          { id: '1', name: '자신감', value: 0 },
         ],
       },
       {
         id: '2',
         question: '친구가 돈을 빌려가고 기한안에 안갚을 때 나는 3일 안에 돈을 갚으라고 요구한다',
         onYes: [
-          { id: '1', name: '자신감', value: 5 },
-          { id: '2', name: '호구력', value: -5 },
-          { id: '3', name: '호구력(돈)', value: -5 },
+          { id: '1', name: '자신감', value: 10 },
+          { id: '2', name: '호구력', value: -10 },
+          { id: '3', name: '호구력(돈)', value: -30 },
+          
         ],
         onNo: [
-          { id: '1', name: '배려심', value: 5 },
-          { id: '2', name: '호구력', value: 5 },
-          { id: '3', name: '호구력(돈)', value: 5 },
+          { id: '1', name: '배려심', value: 10 },
+          { id: '2', name: '호구력', value: 10 },
+          { id: '3', name: '호구력(돈)', value: 30 },
+          
         ],
       },
       {
         id: '3',
         question: '최신 전자기기를 산 후 미세한 불량이 발생했을 경우 즉각 환불한다.',
         onYes: [
-          { id: '1', name: '자신감', value: 5 },
-          { id: '2', name: '호구력', value: -5 },
-          { id: '3', name: '호구력(돈)', value: -5 },
+          { id: '1', name: '자신감', value: 10 },
+          { id: '2', name: '호구력', value: -10 },
+          { id: '3', name: '호구력(돈)', value: -10 },
+          { id: '1', name: '배려심', value: 0 },
         ],
         onNo: [
-          { id: '1', name: '배려심', value: 5 },
-          { id: '2', name: '호구력', value: 5 },
-          { id: '3', name: '호구력(돈)', value: 5 },
+          { id: '1', name: '배려심', value: 10 },
+          { id: '2', name: '호구력', value: 10 },
+          { id: '3', name: '호구력(돈)', value: 30 },
+          
         ],
       },
       {
@@ -368,14 +374,16 @@ export const tests: Record<string, Test> = {
         question:
           '맛있게 저녁을 먹고 집에 왔는데 음료수 하나가 추가 계산된 사실을 알게 되었을 경우 바로 결제취소를 요구한다.',
         onYes: [
-          { id: '1', name: '자신감', value: 5 },
-          { id: '2', name: '호구력', value: -5 },
-          { id: '3', name: '호구력(돈)', value: -5 },
+          { id: '1', name: '자신감', value: 10 },
+          { id: '2', name: '호구력', value: 10 },
+          { id: '3', name: '호구력(돈)', value: -30 },
+          
         ],
         onNo: [
-          { id: '1', name: '배려심', value: 5 },
-          { id: '2', name: '호구력', value: 5 },
-          { id: '3', name: '호구력(돈)', value: 5 },
+          { id: '1', name: '배려심', value: 10 },
+          { id: '2', name: '호구력', value: 10 },
+          { id: '3', name: '호구력(돈)', value: 30 },
+          
         ],
       },
       {
@@ -383,52 +391,60 @@ export const tests: Record<string, Test> = {
         question:
           '친구들과의 모임에서 식사할 때 원치 않은 메뉴로 결정되면 먹기 싫다고 강하게 주장한다.',
         onYes: [
-          { id: '1', name: '자신감', value: 5 },
-          { id: '2', name: '호구력', value: -5 },
-          { id: '3', name: '호구력(인간)', value: -5 },
+          { id: '1', name: '자신감', value: 10 },
+          { id: '2', name: '호구력', value: -10 },
+          { id: '3', name: '호구력(인간)', value: -30 },
+          
         ],
         onNo: [
-          { id: '1', name: '배려심', value: 5 },
-          { id: '2', name: '호구력', value: 5 },
-          { id: '3', name: '호구력(인간)', value: 5 },
+          { id: '1', name: '배려심', value: 10 },
+          { id: '2', name: '호구력', value: 10 },
+          { id: '3', name: '호구력(인간)', value: 30 },
+          
         ],
       },
       {
         id: '6',
         question: '친구가 2주 연속 하루전에 아르바이트를 대신해달라고 한다. 해주시겠습니가?',
         onYes: [
-          { id: '1', name: '배려심', value: 5 },
-          { id: '2', name: '호구력', value: 5 },
-          { id: '3', name: '호구력(인간)', value: 5 },
+          { id: '1', name: '배려심', value: 10 },
+          { id: '2', name: '호구력', value: 10 },
+          { id: '3', name: '호구력(인간)', value: 30 },
+          
         ],
         onNo: [
-          { id: '1', name: '자신감', value: 5 },
-          { id: '2', name: '호구력', value: -5 },
-          { id: '3', name: '호구력(인간)', value: -5 },
+          { id: '1', name: '자신감', value: 10 },
+          { id: '2', name: '호구력', value: -10 },
+          { id: '3', name: '호구력(인간)', value: -30 },
+          
         ],
       },
       {
         id: '7',
         question: '길에서 누군가 도를 아시냐고 물어왔다 응답해주시나요?',
         onYes: [
-          { id: '1', name: '배려심', value: 5 },
-          { id: '2', name: '호구력', value: 5 },
+          { id: '1', name: '배려심', value: 10 },
+          { id: '2', name: '호구력', value: 10 },
+          
         ],
         onNo: [
-          { id: '1', name: '자신감', value: 5 },
-          { id: '2', name: '호구력', value: -5 },
+          { id: '1', name: '자신감', value: 10 },
+          { id: '2', name: '호구력', value: -10 },
+          
         ],
       },
       {
         id: '8',
         question: '지하철을 타고 있는데 누군가 볼펜을 사라고 권유하면 산다.',
         onYes: [
-          { id: '1', name: '배려심', value: 5 },
-          { id: '2', name: '호구력', value: 5 },
+          { id: '1', name: '배려심', value: 10 },
+          { id: '2', name: '호구력', value: 10 },
+          
         ],
         onNo: [
-          { id: '1', name: '자신감', value: 5 },
-          { id: '2', name: '호구력', value: -5 },
+          { id: '1', name: '자신감', value: 10 },
+          { id: '2', name: '호구력', value: -10 },
+          
         ],
       },
       {
@@ -436,24 +452,28 @@ export const tests: Record<string, Test> = {
         question:
           '버스에서 누군가 당신의 새로산 신발을 밟았다. 상대방이 미안함의 표시를 안할 경우 따진다.',
         onYes: [
-          { id: '1', name: '자신감', value: 5 },
-          { id: '2', name: '호구력', value: -5 },
+          { id: '1', name: '자신감', value: 10 },
+          { id: '2', name: '호구력', value: -10 },
+          
         ],
         onNo: [
-          { id: '1', name: '배려심', value: 5 },
-          { id: '2', name: '호구력', value: 5 },
+          { id: '1', name: '배려심', value: 10 },
+          { id: '2', name: '호구력', value: 10 },
+          
         ],
       },
       {
         id: '10',
         question: '음식점에서 음식을 먹다 머리카락이 나왔을 경우 바꿔달라고 요청한다.',
         onYes: [
-          { id: '1', name: '자신감', value: 5 },
-          { id: '2', name: '호구력', value: -5 },
+          { id: '1', name: '자신감', value: 10 },
+          { id: '2', name: '호구력', value: -10 },
+          
         ],
         onNo: [
-          { id: '1', name: '배려심', value: 5 },
-          { id: '2', name: '호구력', value: 5 },
+          { id: '1', name: '배려심', value: 10 },
+          { id: '2', name: '호구력', value: 10 },
+          
         ],
       },
     ],
@@ -462,8 +482,8 @@ export const tests: Record<string, Test> = {
         id: '1',
         title: '날개 없는 천사 , 티 없는 흑우!!!',
         conditions: [
-          { id: '1', name: '중독', value: 20, type: '이상' },
-          { id: '2', name: '중독', value: 40, type: '이하' },
+          { id: '1', name: '호구력', value: 75, type: '이상' },
+          { id: '2', name: '호구력', value: 100, type: '이하' },
         ],
         imageUrl: '',
         contents: [
@@ -474,8 +494,8 @@ export const tests: Record<string, Test> = {
         id: '2',
         title: '경주 최 부잣집 마인드 돈에 있어서 만큼은 나도 호구!!!',
         conditions: [
-          { id: '1', name: '중독', value: 20, type: '이상' },
-          { id: '2', name: '중독', value: 40, type: '이하' },
+          { id: '1', name: '호구력(돈)', value: 80, type: '이상' },
+          { id: '2', name: '호구력(돈)', value: 100, type: '이하' },
         ],
         imageUrl: '',
         contents: [
@@ -487,10 +507,10 @@ export const tests: Record<string, Test> = {
       },
       {
         id: '3',
-        title: '마더 테레사 있는 것은 아낌없이 양보하고 나눠주고 싶은 호구!!!',
+        title: '마더 테레사 있는 것은 아낌없이 양보하고 나눠주고 싶은 호구양!!!!',
         conditions: [
-          { id: '1', name: '중독', value: 20, type: '이상' },
-          { id: '2', name: '중독', value: 40, type: '이하' },
+          { id: '1', name: '호구력(인간)', value: 80, type: '이상' },
+          { id: '2', name: '호구력(인간)', value: 100, type: '이하' },
         ],
         imageUrl: '',
         contents: [
@@ -505,8 +525,8 @@ export const tests: Record<string, Test> = {
         id: '4',
         title: '개가 짖어도 기차는 간다 원리원칙을 중요시하는 NO 호구!!! ',
         conditions: [
-          { id: '1', name: '중독', value: 20, type: '이상' },
-          { id: '2', name: '중독', value: 40, type: '이하' },
+          { id: '1', name: '호구력', value: 0, type: '이상' },
+          { id: '2', name: '호구력', value: 74, type: '이하' },
         ],
         imageUrl: '',
         contents: [
