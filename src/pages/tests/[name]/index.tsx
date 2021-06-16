@@ -19,21 +19,18 @@ const FlexContainerBetweenCenter = styled.div`
 const description = '심리 테스트를 진행해보아요'
 
 function TestPage() {
-  const { result, setResult } = useContext(GlobalContext)
+  const { selections, setSelections } = useContext(GlobalContext)
 
   const [questionNumber, setQuestionNumber] = useState(0)
 
   const router = useRouter()
 
-  const [testName, setTestName] = useState('')
+  const testName = (router.query.name ?? '') as string
+  const testNameWithSpace = testName.replaceAll('-', ' ')
 
   useEffect(() => {
-    setResult({})
-  }, [setResult])
-
-  useEffect(() => {
-    setTestName((router.query.name ?? '') as string)
-  }, [router.query.name])
+    setSelections(null)
+  }, [setSelections])
 
   const questions = tests[testName]?.questions
   const question = questions?.[questionNumber]
@@ -43,7 +40,7 @@ function TestPage() {
       if (questionNumber >= questions.length - 1) {
         router.push(`/tests/${testName}/result`)
       } else {
-        const newResult = { ...result }
+        const newResult = { ...selections }
 
         question[yesOrNo].forEach((action) => {
           if (!newResult[action.name]) {
@@ -52,20 +49,18 @@ function TestPage() {
           newResult[action.name] += action.value
         })
 
-        setResult(newResult)
+        setSelections(newResult)
         setQuestionNumber((prev) => prev + 1)
       }
     }
   }
 
   return (
-    <PageHead title={`심리테스트 - ${router.query.name ?? ''}`} description={description}>
+    <PageHead title={`심리테스트 - ${testNameWithSpace}`} description={description}>
       <FlexContainerBetweenCenter>
+        <h2>{testNameWithSpace}</h2>
         <ClientSideLink href="/tests">
-          <h2>{router.query.name}</h2>
-        </ClientSideLink>
-        <ClientSideLink href="/">
-          <div>홈으로</div>
+          <div>다른 테스트 하기</div>
         </ClientSideLink>
       </FlexContainerBetweenCenter>
       <Padding>

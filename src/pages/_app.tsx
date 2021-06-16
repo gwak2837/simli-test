@@ -71,14 +71,16 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
+type NullableObject = Record<string, number> | null
+
 type GlobalContextValues = {
-  result: Record<string, number>
-  setResult: Dispatch<SetStateAction<Record<string, number>>>
+  selections: NullableObject
+  setSelections: Dispatch<SetStateAction<NullableObject>>
 }
 
 export const GlobalContext = createContext<GlobalContextValues>({
-  result: {},
-  setResult: () => null,
+  selections: null,
+  setSelections: () => null,
 })
 
 type GlobalProviderProps = {
@@ -86,14 +88,14 @@ type GlobalProviderProps = {
 }
 
 function GlobalProvider({ children }: GlobalProviderProps) {
-  const [result, setResult] = useState({})
+  const [selections, setSelections] = useState<NullableObject>(null)
 
   const value = useMemo(
     () => ({
-      result: result,
-      setResult: setResult,
+      selections,
+      setSelections,
     }),
-    [result]
+    [selections]
   )
 
   return <GlobalContext.Provider value={value}>{children}</GlobalContext.Provider>

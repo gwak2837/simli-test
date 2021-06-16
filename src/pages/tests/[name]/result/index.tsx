@@ -50,20 +50,20 @@ const correction = 20
 const description = '결과를 확인해 보아요'
 
 function TestResultPage() {
-  const { result } = useContext(GlobalContext)
-
-  const { query } = useRouter()
+  const { selections } = useContext(GlobalContext)
 
   const goToHomePage = useGoToPage('/')
   const goToTestsPage = useGoToPage('/tests')
 
-  const r = tests[(query.name ?? '') as string]?.results[0]
+  const { query } = useRouter()
 
-  console.log(r)
+  const result = tests[(query.name ?? '') as string]?.results[0]
 
-  if (!r) {
+  const title = `심리테스트 - ${query.name ?? ''} 결과`
+
+  if (!result) {
     return (
-      <PageHead title={`심리테스트 - ${query.name ?? ''} 결과`} description={description}>
+      <PageHead title={title} description={description}>
         <CenterPaddingH1>{query.name ?? ''} 테스트는 존재하지 않아요</CenterPaddingH1>
         <FlexContainerColumn>
           <PrimaryButton onClick={goToHomePage}>홈으로 가기</PrimaryButton>
@@ -73,9 +73,9 @@ function TestResultPage() {
     )
   }
 
-  if (Object.keys(result).length === 0) {
+  if (!selections) {
     return (
-      <PageHead title={`심리테스트 - ${query.name ?? ''} 결과`} description={description}>
+      <PageHead title={title} description={description}>
         <CenterPaddingH1>테스트를 모두 진행해야 결과를 볼 수 있어요</CenterPaddingH1>
         <FlexContainerColumn>
           <PrimaryButton onClick={goToHomePage}>홈으로 가기</PrimaryButton>
@@ -85,36 +85,38 @@ function TestResultPage() {
     )
   }
 
-  const results = Object.entries(result)
-  const maxResult = Math.max(...results.map((result) => result[1])) + correction
-  const minResult = Math.min(...results.map((result) => result[1])) - correction
+  const selectionsEntries = Object.entries(selections)
+  const maxSelection =
+    Math.max(...selectionsEntries.map((selectionsEntry) => selectionsEntry[1])) + correction
+  const minSelection =
+    Math.min(...selectionsEntries.map((selectionsEntry) => selectionsEntry[1])) - correction
 
   return (
-    <PageHead title={`심리테스트 - ${query.name ?? ''} 결과`} description={description}>
-      <CenterPaddingH1>{r.title}</CenterPaddingH1>
+    <PageHead title={title} description={description}>
+      <CenterPaddingH1>{result.title}</CenterPaddingH1>
 
       <GridContainerUl>
-        {results.map((result, index) => (
+        {selectionsEntries.map((selectionsEntry, index) => (
           <li key={index}>
-            <h4>{result[0]}</h4>
+            <h4>{selectionsEntry[0]}</h4>
             <Progress
               format={(percent) => Math.round((percent ?? 0) * 10) / 10}
-              percent={((result[1] - minResult) * 100) / (maxResult - minResult)}
-              status={result[1] === maxResult - correction ? 'active' : 'normal'}
+              percent={((selectionsEntry[1] - minSelection) * 100) / (maxSelection - minSelection)}
+              status={selectionsEntry[1] === maxSelection - correction ? 'active' : 'normal'}
               strokeColor={gradientBlueGreen}
             />
           </li>
         ))}
       </GridContainerUl>
 
-      {r.imageUrl && (
+      {result.imageUrl && (
         <Frame16x9>
-          <Image src={r.imageUrl} alt={r.imageUrl} layout="fill" objectFit="cover" />
+          <Image src={result.imageUrl} alt={result.imageUrl} layout="fill" objectFit="cover" />
         </Frame16x9>
       )}
 
       <GridContainerGap>
-        {r.contents.map((content) =>
+        {result.contents.map((content) =>
           content?.tag === 'div' ? (
             <div key={content.id}>{content.content}</div>
           ) : (
