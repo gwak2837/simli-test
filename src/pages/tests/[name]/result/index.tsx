@@ -7,16 +7,24 @@ import useGoToPage from 'src/hooks/useGoToPage'
 import { tests } from 'src/models/binary-questions'
 import { GlobalContext } from 'src/pages/_app'
 import styled from 'styled-components'
+import Image from 'next/image'
 
-const CenterPaddingH2 = styled.h2`
-  padding: 2rem 1rem;
+const CenterPaddingH2 = styled.h1`
+  padding: 3rem 1rem;
   text-align: center;
 `
 
 const GridContainerUl = styled.ul`
   display: grid;
   gap: 2rem;
-  padding: 2rem 1rem;
+  padding: 1rem;
+`
+
+const Frame16x9 = styled.div`
+  position: relative;
+  padding-top: 56.25%;
+
+  margin: 3rem 1rem;
 `
 
 const GridContainerGap = styled.div`
@@ -84,6 +92,7 @@ function TestResultPage() {
   return (
     <PageHead title={`심리테스트 - ${query.name ?? ''} 결과`} description={description}>
       <CenterPaddingH2>{r.title}</CenterPaddingH2>
+
       <GridContainerUl>
         {results.map((result, index) => (
           <li key={index}>
@@ -97,6 +106,13 @@ function TestResultPage() {
           </li>
         ))}
       </GridContainerUl>
+
+      {r.imageUrl && (
+        <Frame16x9>
+          <Image src={r.imageUrl} alt={r.imageUrl} layout="fill" objectFit="cover" />
+        </Frame16x9>
+      )}
+
       <GridContainerGap>
         {r.contents.map((content) =>
           content?.tag === 'div' ? (
@@ -106,6 +122,7 @@ function TestResultPage() {
           )
         )}
       </GridContainerGap>
+
       <FlexContainerColumn>
         <PrimaryButton onClick={goToHomePage}>홈으로 가기</PrimaryButton>
         <PrimaryButton onClick={goToTestsPage}>다른 테스트 하기</PrimaryButton>

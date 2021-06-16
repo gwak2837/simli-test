@@ -326,15 +326,17 @@ export const tests: Record<string, Test> = {
         question: '조별과제에서 팀원들과 의견이 다를 경우 이를 말한다.',
         onYes: [
           { id: '1', name: '자신감', value: 10 },
-          { id: '2', name: '호구력', value: -10 },
-          { id: '3', name: '호구력(인간)', value: -30 },
-          { id: '1', name: '배려심', value: 0 },
+          { id: '2', name: '배려심', value: 0 },
+          { id: '3', name: '호구력', value: -10 },
+          { id: '4', name: '호구력(인간)', value: -30 },
+          { id: '5', name: '호구력(돈)', value: 0 },
         ],
         onNo: [
-          { id: '1', name: '배려심', value: 10 },
-          { id: '2', name: '호구력', value: 10 },
-          { id: '3', name: '호구력(인간)', value: 30 },
           { id: '1', name: '자신감', value: 0 },
+          { id: '2', name: '배려심', value: 10 },
+          { id: '3', name: '호구력', value: 10 },
+          { id: '4', name: '호구력(인간)', value: 30 },
+          { id: '5', name: '호구력(돈)', value: 0 },
         ],
       },
       {
@@ -344,13 +346,11 @@ export const tests: Record<string, Test> = {
           { id: '1', name: '자신감', value: 10 },
           { id: '2', name: '호구력', value: -10 },
           { id: '3', name: '호구력(돈)', value: -30 },
-          
         ],
         onNo: [
           { id: '1', name: '배려심', value: 10 },
           { id: '2', name: '호구력', value: 10 },
           { id: '3', name: '호구력(돈)', value: 30 },
-          
         ],
       },
       {
@@ -360,13 +360,11 @@ export const tests: Record<string, Test> = {
           { id: '1', name: '자신감', value: 10 },
           { id: '2', name: '호구력', value: -10 },
           { id: '3', name: '호구력(돈)', value: -10 },
-          { id: '1', name: '배려심', value: 0 },
         ],
         onNo: [
           { id: '1', name: '배려심', value: 10 },
           { id: '2', name: '호구력', value: 10 },
           { id: '3', name: '호구력(돈)', value: 30 },
-          
         ],
       },
       {
@@ -377,13 +375,11 @@ export const tests: Record<string, Test> = {
           { id: '1', name: '자신감', value: 10 },
           { id: '2', name: '호구력', value: 10 },
           { id: '3', name: '호구력(돈)', value: -30 },
-          
         ],
         onNo: [
           { id: '1', name: '배려심', value: 10 },
           { id: '2', name: '호구력', value: 10 },
           { id: '3', name: '호구력(돈)', value: 30 },
-          
         ],
       },
       {
@@ -394,13 +390,11 @@ export const tests: Record<string, Test> = {
           { id: '1', name: '자신감', value: 10 },
           { id: '2', name: '호구력', value: -10 },
           { id: '3', name: '호구력(인간)', value: -30 },
-          
         ],
         onNo: [
           { id: '1', name: '배려심', value: 10 },
           { id: '2', name: '호구력', value: 10 },
           { id: '3', name: '호구력(인간)', value: 30 },
-          
         ],
       },
       {
@@ -410,13 +404,11 @@ export const tests: Record<string, Test> = {
           { id: '1', name: '배려심', value: 10 },
           { id: '2', name: '호구력', value: 10 },
           { id: '3', name: '호구력(인간)', value: 30 },
-          
         ],
         onNo: [
           { id: '1', name: '자신감', value: 10 },
           { id: '2', name: '호구력', value: -10 },
           { id: '3', name: '호구력(인간)', value: -30 },
-          
         ],
       },
       {
@@ -425,12 +417,10 @@ export const tests: Record<string, Test> = {
         onYes: [
           { id: '1', name: '배려심', value: 10 },
           { id: '2', name: '호구력', value: 10 },
-          
         ],
         onNo: [
           { id: '1', name: '자신감', value: 10 },
           { id: '2', name: '호구력', value: -10 },
-          
         ],
       },
       {
@@ -439,12 +429,10 @@ export const tests: Record<string, Test> = {
         onYes: [
           { id: '1', name: '배려심', value: 10 },
           { id: '2', name: '호구력', value: 10 },
-          
         ],
         onNo: [
           { id: '1', name: '자신감', value: 10 },
           { id: '2', name: '호구력', value: -10 },
-          
         ],
       },
       {
@@ -454,12 +442,10 @@ export const tests: Record<string, Test> = {
         onYes: [
           { id: '1', name: '자신감', value: 10 },
           { id: '2', name: '호구력', value: -10 },
-          
         ],
         onNo: [
           { id: '1', name: '배려심', value: 10 },
           { id: '2', name: '호구력', value: 10 },
-          
         ],
       },
       {
@@ -468,12 +454,10 @@ export const tests: Record<string, Test> = {
         onYes: [
           { id: '1', name: '자신감', value: 10 },
           { id: '2', name: '호구력', value: -10 },
-          
         ],
         onNo: [
           { id: '1', name: '배려심', value: 10 },
           { id: '2', name: '호구력', value: 10 },
-          
         ],
       },
     ],
