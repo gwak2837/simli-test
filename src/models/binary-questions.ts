@@ -487,4 +487,132 @@ export const tests: Record<string, Test> = {
       },
     ],
   },
+  Test_4: {
+    id: '4',
+    questions: [
+      {
+        id: '1',
+        question: 'Q. 오늘 하루도 거울을 보면서 행복을 느꼈나요?.',
+        onYes: [
+          { id: '1', name: '자아도취감', value: 30 },
+          { id: '2', name: '자신감', value: 15 },
+        ],
+        onNo: [
+          { id: '1', name: '자아도취감', value: -10 },
+          { id: '2', name: '자신감', value: -5 },
+        ],
+      },
+      {
+        id: '2',
+        question: 'Q. 길거리를 지나다니면서 다른 사람의 경외감어린 시선을 느껴본적 있나요?',
+        onYes: [{ id: '1', name: '자아도취감', value: 30 }],
+        onNo: [{ id: '1', name: '자아도취감', value: -10 }],
+      },
+      {
+        id: '3',
+        question: 'Q. 어떤 일을 할 때 나는 반드시 해낸다고 했다가 실패한 경험이 있나요?',
+        onYes: [{ id: '1', name: '자아도취감', value: -20 }],
+        onNo: [{ id: '1', name: '자아도취감', value: 30 }],
+      },
+      {
+        id: '4',
+        question: 'Q. 잠자리에 들때 오늘도 내가 무언가 해냈다는 생각이 드나요?',
+        onYes: [
+          { id: '1', name: '자아도취감', value: 30 },
+          { id: '2', name: '자신감', value: 15 },
+        ],
+        onNo: [
+          { id: '1', name: '자아도취감', value: -10 },
+          { id: '2', name: '자신감', value: -5 },
+        ],
+      },
+      {
+        id: '5',
+        question: 'Q. 누군가 당신을 쳐다볼때 오늘도 나의 외모가 빛나고 있다고 느끼나요?',
+        onYes: [{ id: '1', name: '자아도취감', value: 30 }],
+        onNo: [{ id: '1', name: '자아도취감', value: -15 }],
+      },
+      {
+        id: '6',
+        question: 'Q. 상대방이 나에 대해 비난을 해도 그저 비웃음으로 응수하시나요?',
+        onYes: [{ id: '1', name: '자아도취감', value: 40 }],
+        onNo: [{ id: '1', name: '자아도취감', value: -10 }],
+      },
+      {
+        id: '7',
+        question:
+          'Q. 어떤 대결에서 이겼을 때 "이것이 너와 나 와의 눈높이다" 대사를 치고 싶은 적이 있었나요?',
+        onYes: [{ id: '1', name: '자아도취감', value: 100 }],
+        onNo: [{ id: '1', name: '자아도취감', value: -50 }],
+      },
+      {
+        id: '8',
+        question: 'Q. 누군가 당신의 단점을 물었을 때 도저히 찾지 못해 당황한 적 있었나요?!',
+        onYes: [{ id: '1', name: '자아도취감', value: 50 }],
+        onNo: [{ id: '1', name: '자아도취감', value: -30 }],
+      },
+      {
+        id: '9',
+        question: 'Q. 당신을 사랑하는 사람이 수도없이 많을 것이라 생각하나요?',
+        onYes: [
+          { id: '1', name: '자아도취감', value: 30 },
+          { id: '2', name: '자신감', value: 15 },
+        ],
+        onNo: [
+          { id: '1', name: '자아도취감', value: -10 },
+          { id: '2', name: '자신감', value: -5 },
+        ],
+      },
+      {
+        id: '10',
+        question: 'Q. 어떤 일을 처음 시작해도 조금만 시간이 있다면 충분히 해낼 것이라 생각하나요?',
+        onYes: [
+          { id: '1', name: '자아도취감', value: 30 },
+          { id: '2', name: '자신감', value: 15 },
+        ],
+        onNo: [
+          { id: '1', name: '자아도취감', value: 30 },
+          { id: '2', name: '자신감', value: -10 },
+        ],
+      },
+    ],
+    results: [
+      {
+        id: '1',
+        title: '당신은 심각한 자아도취증이시군요.',
+        imageUrl: '',
+        contents: [
+          {
+            id: '1',
+            content:
+              '나르시시즘이란 단어를 당신의 이름으로 바꿔야 할 정도의 엄청난 자아도취 상태입니다',
+          },
+        ],
+      },
+      {
+        id: '2',
+        title: '당신은 넘치는 자신감으로 자아도취증 상태로 진행중이군요!',
+        imageUrl: '',
+        contents: [
+          {
+            id: '1',
+            content:
+              '주변 사람들의 시선을 신경쓰지 않고 당당한 당신! 꾸준한 노력과 약간의 겸손이 더해진다면 훌륭한 인재가 될것입니다',
+          },
+        ],
+      },
+      {
+        id: '3',
+        title: '당신은 평범합니다. 당신에겐 자아도취는 과도한 수식어!.',
+        imageUrl: '',
+        contents: [
+          {
+            id: '1',
+            content:
+              '누구나 자아도취 해본적 있지않나요? 적어도 화장실 앞에선 내 모습이 한결 빛난다던지?',
+          },
+        ],
+      },
+    ],
+  },
 }
