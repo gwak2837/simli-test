@@ -626,6 +626,10 @@ export const tests: Record<string, Test> = {
       {
         id: '1',
         title: '당신은 심각한 자아도취증이시군요.',
+        conditions: [
+          { id: '1', name: '중독', value: 20, type: '이상' },
+          { id: '2', name: '중독', value: 40, type: '이하' },
+        ],
         imageUrl: '',
         contents: [
           {
@@ -638,6 +642,10 @@ export const tests: Record<string, Test> = {
       {
         id: '2',
         title: '당신은 넘치는 자신감으로 자아도취증 상태로 진행중이군요!',
+        conditions: [
+          { id: '1', name: '중독', value: 20, type: '이상' },
+          { id: '2', name: '중독', value: 40, type: '이하' },
+        ],
         imageUrl: '',
         contents: [
           {
@@ -650,6 +658,10 @@ export const tests: Record<string, Test> = {
       {
         id: '3',
         title: '당신은 평범합니다. 당신에겐 자아도취는 과도한 수식어!.',
+        conditions: [
+          { id: '1', name: '중독', value: 20, type: '이상' },
+          { id: '2', name: '중독', value: 40, type: '이하' },
+        ],
         imageUrl: '',
         contents: [
           {
