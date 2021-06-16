@@ -22,7 +22,6 @@ const GridContainerGap = styled.div`
   display: grid;
   gap: 1rem;
 
-  background-color: #fcfcfc;
   padding: 1rem;
   font-size: 0.8rem;
   color: #6c6c6c;
