@@ -3,9 +3,11 @@ import PageHead from '../components/layouts/PageHead'
 import { FlexContainerAlignCenter } from 'src/styles/FlexContainer'
 import ClientSideLink from 'src/components/atoms/ClientSideLink'
 import { SecondaryButton } from 'src/components/atoms/Button'
+import Footer from 'src/components/Footer'
 import { focusInExpandFwd } from 'src/styles/SpecialEffect'
 import useGoToPage from 'src/hooks/useGoToPage'
 import Image from 'next/image'
+import React from 'react'
 
 const LocationText = styled.h3`
   margin: 1rem;
@@ -63,6 +65,7 @@ function HomePage() {
             </div>
           </FlexContainerAlignCenter>
         </FlexContainerColumnCenter>
+        <Footer />
       </Padding>
     </PageHead>
   )
