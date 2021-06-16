@@ -11,7 +11,7 @@ type Question = {
   onNo: Answer[] // '아니요' 클릭 시 수행할 계산
 }
 
-type Result = {
+export type Result = {
   id: string
   title: string
   conditions: {
