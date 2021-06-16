@@ -1,8 +1,8 @@
 {
   "name": "심리테스트 (Simli Test)",
   "short_name": "심리테스트",
-  "theme_color": "#ffdf3e",
-  "background_color": "#fcfcfc",
+  "theme_color": "#FFEA80",
+  "background_color": "#FCFCFC",
   "display": "fullscreen",
   "orientation": "portrait",
   "scope": "/",
@@ -11,6 +11,23 @@
     {
       "src": "favicon.ico",
       "sizes": "256x256",
+      "type": "image/webp"
+    },
+    {
+      "src": "maskable-icon-144.webp",
+      "sizes": "144x144",
+      "type": "image/webp",
+      "purpose": "maskable"
+    },
+    {
+      "src": "maskable-icon-192.webp",
+      "sizes": "192x192",
+      "type": "image/webp",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
       "type": "image/webp"
     }
   ]
