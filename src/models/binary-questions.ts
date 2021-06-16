@@ -161,7 +161,7 @@ export const tests: Record<string, Test> = {
           return overdose < 50 && laziness > 40
         },
         imageUrl: '/result-workerholic-3.jpg',
-        contents: [{ id: '1', content: '선비의 정신을 가졌군요! 다음 심리테스트도 해보세요!' }],
+        contents: [{ id: '1', content: '자유로운 정신을 가졌군요! 다음 심리테스트도 해보세요!' }],
       },
     ],
   },
@@ -317,7 +317,7 @@ export const tests: Record<string, Test> = {
         title: '당신은 조선의 선비입니다.',
         condition: (answers) => {
           const hip = answers['힙 정신']
-          const seonbi = answers['힙 정신']
+          const seonbi = answers['선비 정신']
           return hip <= 49 && seonbi >= 70
         },
         imageUrl: '/result-sunbi-3.jpg',
