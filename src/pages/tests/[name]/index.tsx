@@ -19,18 +19,17 @@ const FlexContainerBetweenCenter = styled.div`
 const description = '심리 테스트를 진행해보아요'
 
 function TestPage() {
-  const { selections, setSelections } = useContext(GlobalContext)
+  const { answers, setAnswers } = useContext(GlobalContext)
 
   const [questionNumber, setQuestionNumber] = useState(0)
 
   const router = useRouter()
-
   const testName = (router.query.name ?? '') as string
   const testNameWithSpace = testName.replace(/-/g, ' ')
 
   useEffect(() => {
-    setSelections(null)
-  }, [setSelections])
+    setAnswers(null)
+  }, [setAnswers])
 
   const questions = tests[testName]?.questions
   const question = questions?.[questionNumber]
@@ -40,16 +39,16 @@ function TestPage() {
       if (questionNumber >= questions.length - 1) {
         router.push(`/tests/${testName}/result`)
       } else {
-        const newResult = { ...selections }
+        const newAnswers = { ...answers }
 
         question[yesOrNo].forEach((action) => {
-          if (!newResult[action.name]) {
-            newResult[action.name] = 0
+          if (!newAnswers[action.name]) {
+            newAnswers[action.name] = 0
           }
-          newResult[action.name] += action.value
+          newAnswers[action.name] += action.value
         })
 
-        setSelections(newResult)
+        setAnswers(newAnswers)
         setQuestionNumber((prev) => prev + 1)
       }
     }
