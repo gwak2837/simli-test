@@ -627,8 +627,8 @@ export const tests: Record<string, Test> = {
         id: '1',
         title: '당신은 심각한 자아도취증이시군요.',
         conditions: [
-          { id: '1', name: '중독', value: 20, type: '이상' },
-          { id: '2', name: '중독', value: 40, type: '이하' },
+          { id: '1', name: '자아도취감', value: 200, type: '이상' },
+          { id: '2', name: '자신감', value: 30, type: '미만' },
         ],
         imageUrl: '',
         contents: [
@@ -643,8 +643,8 @@ export const tests: Record<string, Test> = {
         id: '2',
         title: '당신은 넘치는 자신감으로 자아도취증 상태로 진행중이군요!',
         conditions: [
-          { id: '1', name: '중독', value: 20, type: '이상' },
-          { id: '2', name: '중독', value: 40, type: '이하' },
+          { id: '1', name: '자아도취감', value: 200, type: '이상' },
+          { id: '2', name: '자신감', value: 30, type: '이상' },
         ],
         imageUrl: '',
         contents: [
@@ -659,8 +659,8 @@ export const tests: Record<string, Test> = {
         id: '3',
         title: '당신은 평범합니다. 당신에겐 자아도취는 과도한 수식어!.',
         conditions: [
-          { id: '1', name: '중독', value: 20, type: '이상' },
-          { id: '2', name: '중독', value: 40, type: '이하' },
+          { id: '1', name: '자아도취감', value: 200, type: '미만' },
+          { id: '2', name: '자신감', value: 30, type: '이상' },
         ],
         imageUrl: '',
         contents: [
@@ -668,6 +668,23 @@ export const tests: Record<string, Test> = {
             id: '1',
             content:
               '누구나 자아도취 해본적 있지않나요? 적어도 화장실 앞에선 내 모습이 한결 빛난다던지?',
+          },
+        ],
+      },
+
+      {
+        id: '4',
+        title: '자아도취는 커녕 자신감마저 부족한 상태네요',
+        conditions: [
+          { id: '1', name: '자아도취감', value: 200, type: '미만' },
+          { id: '2', name: '자신감', value: 30, type: '미만' },
+        ],
+        imageUrl: '/result-narcissim-4.jpg',
+        contents: [
+          {
+            id: '1',
+            content:
+              '당신에겐 근거없는 자신감이라도 필요합니다! 자신에 대한 부정적인 생각은 털어버리세요',
           },
         ],
       },
