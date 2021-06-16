@@ -630,7 +630,7 @@ export const tests: Record<string, Test> = {
           { id: '1', name: '자아도취감', value: 200, type: '이상' },
           { id: '2', name: '자신감', value: 30, type: '미만' },
         ],
-        imageUrl: '',
+        imageUrl: '/result-narcissim-1.jpg',
         contents: [
           {
             id: '1',
@@ -646,7 +646,7 @@ export const tests: Record<string, Test> = {
           { id: '1', name: '자아도취감', value: 200, type: '이상' },
           { id: '2', name: '자신감', value: 30, type: '이상' },
         ],
-        imageUrl: '',
+        imageUrl: '/result-narcissim-2.jpg',
         contents: [
           {
             id: '1',
@@ -662,7 +662,7 @@ export const tests: Record<string, Test> = {
           { id: '1', name: '자아도취감', value: 200, type: '미만' },
           { id: '2', name: '자신감', value: 30, type: '이상' },
         ],
-        imageUrl: '',
+        imageUrl: '/result-narcissim-3.jpg',
         contents: [
           {
             id: '1',
