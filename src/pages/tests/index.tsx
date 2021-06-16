@@ -60,7 +60,7 @@ function TestsPage() {
         <RelativePosition>
           <TestExplainText>조선시대 당신의 신분은?</TestExplainText>
           <ClientSideLink href="/tests/Test_1">
-            <Image src="/Joseon.jpg" alt="test-1-image" layout="fill" objectFit="cover" />
+            <Image src="/joseon.jpg" alt="test-1-image" layout="fill" objectFit="cover" />
           </ClientSideLink>
         </RelativePosition>
         <RelativePosition>

@@ -6,9 +6,9 @@
 
 - macOS 11.2
 - Git 2.31
-- Node 14.16
+- Node LTS
 - Yarn 1.22
-- Visual Studio Code 1.54
+- Visual Studio Code 1.57
 - Chrome 89.0, Safari 14.0, Whale 2.9, Firefox 87.0
 
 ### 프로젝트 다운로드
