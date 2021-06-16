@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import Image from 'next/image'
 import ClientSideLink from 'src/components/atoms/ClientSideLink'
 import { fadeIn } from 'src/styles/SpecialEffect'
-import React from 'react'
 import { CenterPaddingH1 } from './[name]/result'
 
 const RelativePosition = styled.div`

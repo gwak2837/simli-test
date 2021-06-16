@@ -7,7 +7,6 @@ import Footer from 'src/components/Footer'
 import { focusInExpandFwd } from 'src/styles/SpecialEffect'
 import useGoToPage from 'src/hooks/useGoToPage'
 import Image from 'next/image'
-import React from 'react'
 
 const LocationText = styled.h3`
   margin: 1rem;
