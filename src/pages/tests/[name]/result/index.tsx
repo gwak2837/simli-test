@@ -9,7 +9,7 @@ import { GlobalContext } from 'src/pages/_app'
 import styled from 'styled-components'
 import Image from 'next/image'
 
-const CenterPaddingH2 = styled.h1`
+export const CenterPaddingH1 = styled.h1`
   padding: 3rem 1rem;
   text-align: center;
 `
@@ -24,7 +24,7 @@ const Frame16x9 = styled.div`
   position: relative;
   padding-top: 56.25%;
 
-  margin: 3rem 1rem;
+  margin: 3rem 0;
 `
 
 const GridContainerGap = styled.div`
@@ -64,7 +64,7 @@ function TestResultPage() {
   if (!r) {
     return (
       <PageHead title={`심리테스트 - ${query.name ?? ''} 결과`} description={description}>
-        <CenterPaddingH2>{query.name ?? ''} 테스트는 존재하지 않아요</CenterPaddingH2>
+        <CenterPaddingH1>{query.name ?? ''} 테스트는 존재하지 않아요</CenterPaddingH1>
         <FlexContainerColumn>
           <PrimaryButton onClick={goToHomePage}>홈으로 가기</PrimaryButton>
           <PrimaryButton onClick={goToTestsPage}>테스트 하러 가기</PrimaryButton>
@@ -76,7 +76,7 @@ function TestResultPage() {
   if (Object.keys(result).length === 0) {
     return (
       <PageHead title={`심리테스트 - ${query.name ?? ''} 결과`} description={description}>
-        <CenterPaddingH2>테스트를 모두 진행해야 결과를 볼 수 있어요</CenterPaddingH2>
+        <CenterPaddingH1>테스트를 모두 진행해야 결과를 볼 수 있어요</CenterPaddingH1>
         <FlexContainerColumn>
           <PrimaryButton onClick={goToHomePage}>홈으로 가기</PrimaryButton>
           <PrimaryButton onClick={goToTestsPage}>테스트 하러 가기</PrimaryButton>
@@ -91,7 +91,7 @@ function TestResultPage() {
 
   return (
     <PageHead title={`심리테스트 - ${query.name ?? ''} 결과`} description={description}>
-      <CenterPaddingH2>{r.title}</CenterPaddingH2>
+      <CenterPaddingH1>{r.title}</CenterPaddingH1>
 
       <GridContainerUl>
         {results.map((result, index) => (
