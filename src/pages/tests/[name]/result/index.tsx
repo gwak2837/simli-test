@@ -85,16 +85,12 @@ function TestResultPage() {
     )
   }
 
-  console.log(answers)
-
   const resultIndex = test.results.findIndex((result) => result.condition(answers))
   const result = test.results[resultIndex] ?? test.results[0]
 
   const answersEntries = Object.entries(answers)
   const maxAnswer = Math.max(...answersEntries.map((answersEntry) => answersEntry[1])) + correction
   const minAnswer = Math.min(...answersEntries.map((answersEntry) => answersEntry[1])) - correction
-
-  console.log(result)
 
   return (
     <PageHead title={title} description={description}>
