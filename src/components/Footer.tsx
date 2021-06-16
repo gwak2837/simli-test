@@ -39,7 +39,7 @@ function Footer() {
         <Line />
       </GridContainer>
       <GridContainerGap>
-        <h3>Copyright © {new Date().getUTCFullYear()} Simli Test, Inc. All rights reserved.</h3>
+        <h3>Copyright © {new Date().getUTCFullYear()} 아마존의 눈물, Inc. All rights reserved.</h3>
         <h4>
           자주 묻는 질문 |{' '}
           <ClientSideLink href="/documents/terms-of-service" style={anchorStyle}>
@@ -52,7 +52,7 @@ function Footer() {
         </h4>
         <div>
           <div>
-            <b>Cloud 2 (대표 : XXX)</b>
+            <b>(주) 아마존의 눈물 (대표 : 곽태욱)</b>
           </div>
           <div>
             <b>사업자등록번호 :</b> XXX-XX-XXXXX <button>사업자정보확인</button>
