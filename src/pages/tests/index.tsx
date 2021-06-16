@@ -63,8 +63,8 @@ function TestsPage() {
       <CenterPaddingH1>원하는 테스트를 골라보세요</CenterPaddingH1>
       <GridContainer>
         <RelativePosition>
-          <AbsolutePositionH2>일중독 TEST</AbsolutePositionH2>
-          <ClientSideLink href="/tests/Test_1">
+          <AbsolutePositionH2>일 중독 TEST</AbsolutePositionH2>
+          <ClientSideLink href="/tests/일-중독">
             <Image
               src="/workaholic.jpg"
               alt="/workaholic.jpg"
@@ -75,20 +75,20 @@ function TestsPage() {
           </ClientSideLink>
         </RelativePosition>
         <RelativePosition>
-          <AbsolutePositionH2>조선시대 당신의 신분은?</AbsolutePositionH2>
-          <ClientSideLink href="/tests/Test_2">
+          <AbsolutePositionH2>당신의 조선시대 신분은?</AbsolutePositionH2>
+          <ClientSideLink href="/tests/조선시대-신분">
             <Image src="/joseon.jpg" alt="/joseon.jpg" width="300" height="300" objectFit="cover" />
           </ClientSideLink>
         </RelativePosition>
         <RelativePosition>
-          <AbsolutePositionH2>호구 TEST</AbsolutePositionH2>
-          <ClientSideLink href="/tests/Test_3">
+          <AbsolutePositionH2>나는 호구인가?</AbsolutePositionH2>
+          <ClientSideLink href="/tests/호구">
             <Image src="/hogu.jpg" alt="/hogu.jpg" width="300" height="300" objectFit="cover" />
           </ClientSideLink>
         </RelativePosition>
         <RelativePosition>
           <AbsolutePositionH2>자아도취 TEST</AbsolutePositionH2>
-          <ClientSideLink href="/tests/Test_4">
+          <ClientSideLink href="/tests/자아도취">
             <Image
               src="/narcissism.jpg"
               alt="test-image"

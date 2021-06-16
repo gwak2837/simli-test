@@ -35,7 +35,7 @@ type Test = {
 }
 
 export const tests: Record<string, Test> = {
-  Test_1: {
+  '일-중독': {
     id: '1',
     questions: [
       {
@@ -169,7 +169,7 @@ export const tests: Record<string, Test> = {
       },
     ],
   },
-  Test_2: {
+  '조선시대-신분': {
     id: '1',
     questions: [
       {
@@ -318,7 +318,7 @@ export const tests: Record<string, Test> = {
       },
     ],
   },
-  Test_3: {
+  호구: {
     id: '3',
     questions: [
       {
@@ -522,7 +522,7 @@ export const tests: Record<string, Test> = {
       },
     ],
   },
-  Test_4: {
+  자아도취: {
     id: '4',
     questions: [
       {
