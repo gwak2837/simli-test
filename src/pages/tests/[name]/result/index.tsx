@@ -50,59 +50,60 @@ const correction = 20
 const description = '결과를 확인해 보아요'
 
 function TestResultPage() {
-  const { selections } = useContext(GlobalContext)
+  const { answers } = useContext(GlobalContext)
 
   const goToHomePage = useGoToPage('/')
   const goToTestsPage = useGoToPage('/tests')
 
   const { query } = useRouter()
+  const testName = (query.name ?? '') as string
+  const test = tests[testName]
 
-  const result = tests[(query.name ?? '') as string]?.results[0]
+  const title = `심리테스트 - ${testName} 결과`
 
-  const title = `심리테스트 - ${query.name ?? ''} 결과`
-
-  if (!result) {
+  if (!test) {
     return (
       <PageHead title={title} description={description}>
-        <CenterPaddingH1>{query.name ?? ''} 테스트는 존재하지 않아요</CenterPaddingH1>
+        <CenterPaddingH1>{testName} 테스트는 존재하지 않아요</CenterPaddingH1>
         <FlexContainerColumn>
           <PrimaryButton onClick={goToHomePage}>홈으로 가기</PrimaryButton>
-          <PrimaryButton onClick={goToTestsPage}>테스트 하러 가기</PrimaryButton>
+          <PrimaryButton onClick={goToTestsPage}>심리 테스트 하기</PrimaryButton>
         </FlexContainerColumn>
       </PageHead>
     )
   }
 
-  if (!selections) {
+  if (!answers) {
     return (
       <PageHead title={title} description={description}>
         <CenterPaddingH1>테스트를 모두 진행해야 결과를 볼 수 있어요</CenterPaddingH1>
         <FlexContainerColumn>
           <PrimaryButton onClick={goToHomePage}>홈으로 가기</PrimaryButton>
-          <PrimaryButton onClick={goToTestsPage}>테스트 하러 가기</PrimaryButton>
+          <PrimaryButton onClick={goToTestsPage}>심리 테스트 하기</PrimaryButton>
         </FlexContainerColumn>
       </PageHead>
     )
   }
 
-  const selectionsEntries = Object.entries(selections)
-  const maxSelection =
-    Math.max(...selectionsEntries.map((selectionsEntry) => selectionsEntry[1])) + correction
-  const minSelection =
-    Math.min(...selectionsEntries.map((selectionsEntry) => selectionsEntry[1])) - correction
+  const resultIndex = test.results.findIndex((result) => result.condition(answers))
+  const result = test.results[resultIndex] ?? test.results[0]
+
+  const answersEntries = Object.entries(answers)
+  const maxAnswer = Math.max(...answersEntries.map((answersEntry) => answersEntry[1])) + correction
+  const minAnswer = Math.min(...answersEntries.map((answersEntry) => answersEntry[1])) - correction
 
   return (
     <PageHead title={title} description={description}>
       <CenterPaddingH1>{result.title}</CenterPaddingH1>
 
       <GridContainerUl>
-        {selectionsEntries.map((selectionsEntry, index) => (
+        {answersEntries.map((answersEntry, index) => (
           <li key={index}>
-            <h4>{selectionsEntry[0]}</h4>
+            <h4>{answersEntry[0]}</h4>
             <Progress
               format={(percent) => Math.round((percent ?? 0) * 10) / 10}
-              percent={((selectionsEntry[1] - minSelection) * 100) / (maxSelection - minSelection)}
-              status={selectionsEntry[1] === maxSelection - correction ? 'active' : 'normal'}
+              percent={((answersEntry[1] - minAnswer) * 100) / (maxAnswer - minAnswer)}
+              status={answersEntry[1] === maxAnswer - correction ? 'active' : 'normal'}
               strokeColor={gradientBlueGreen}
             />
           </li>

@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import Image from 'next/image'
 import ClientSideLink from 'src/components/atoms/ClientSideLink'
 import { fadeIn } from 'src/styles/SpecialEffect'
-import React from 'react'
 import { CenterPaddingH1 } from './[name]/result'
 
 const RelativePosition = styled.div`
@@ -49,9 +48,6 @@ const GridContainer = styled.nav`
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
 
-  width: 100%;
-  /* height: 100vh; // 모든 브라우저에서 aspect-ratio 가 지원될 때까지 넣어 놓기 */
-  /* aspect-ratio: 1 / 1; */
   background: #eee;
 `
 
