@@ -78,7 +78,7 @@ function TestsPage() {
         <RelativePosition>
           <TestExplainText>자아도취 TEST</TestExplainText>
           <ClientSideLink href="/tests/Test_4">
-            <Image src="/narcissim.jpg" alt="test-image" layout="fill" objectFit="cover" />
+            <Image src="/narcissism.jpg" alt="test-image" layout="fill" objectFit="cover" />
           </ClientSideLink>
         </RelativePosition>
       </GridContainer>
