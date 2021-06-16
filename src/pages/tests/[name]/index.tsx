@@ -1,9 +1,19 @@
 import { useRouter } from 'next/router'
 import { useContext, useEffect, useState } from 'react'
+import ClientSideLink from 'src/components/atoms/ClientSideLink'
 import BinaryQuestionAnswer from 'src/components/BinaryQuestionAnswer'
 import PageHead from 'src/components/layouts/PageHead'
 import { tests } from 'src/models/binary-questions'
 import { GlobalContext } from 'src/pages/_app'
+import styled from 'styled-components'
+
+const FlexContainerBetweenCenter = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 1rem;
+`
 
 const description = '심리 테스트를 진행해보아요'
 
@@ -49,7 +59,14 @@ function TestPage() {
 
   return (
     <PageHead title={`심리테스트 - ${router.query.name ?? ''}`} description={description}>
-      <h2>{router.query.name}</h2>
+      <FlexContainerBetweenCenter>
+        <ClientSideLink href="/tests">
+          <h2>{router.query.name}</h2>
+        </ClientSideLink>
+        <ClientSideLink href="/">
+          <div>홈으로</div>
+        </ClientSideLink>
+      </FlexContainerBetweenCenter>
       <BinaryQuestionAnswer
         question={question?.question}
         onYes={updateResult('onYes')}
