@@ -144,7 +144,7 @@ export const tests: Record<string, Test> = {
           { id: '1', name: '중독', value: 70, type: '이상' },
           { id: '2', name: '중독', value: 100, type: '이하' },
         ],
-        imageUrl: '',
+        imageUrl: 'result-workerholic-1.jpg',
         contents: [{ id: '1', content: '손모가지 절단만이 답입니다.' }],
       },
       {
@@ -154,7 +154,7 @@ export const tests: Record<string, Test> = {
           { id: '1', name: '중독', value: 50, type: '이상' },
           { id: '2', name: '중독', value: 69, type: '이하' },
         ],
-        imageUrl: '',
+        imageUrl: 'result-workerholic-2.png',
         contents: [{ id: '1', content: '당신은 일꾼입니다. 미네랄을 캐세요.' }],
       },
       {
@@ -164,7 +164,7 @@ export const tests: Record<string, Test> = {
           { id: '1', name: '게으름', value: 50, type: '이상' },
           { id: '2', name: '중독', value: 40, type: '이하' },
         ],
-        imageUrl: '',
+        imageUrl: 'result-workerholic-3.jpg',
         contents: [{ id: '1', content: '선비의 정신을 가졌군요! 다음 심리테스트도 해보세요!' }],
       },
     ],
