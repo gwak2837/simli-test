@@ -299,7 +299,7 @@ export const tests: Record<string, Test> = {
           const hip = answers['힙 정신']
           return hip >= 50 && hip < 80
         },
-        imageUrl: '/result-sunbi-1.png',
+        imageUrl: '/result-sunbi-1.jpg',
         contents: [{ id: '1', content: '옷 좀 사 입고 해요...' }],
       },
       {
