@@ -55,11 +55,11 @@ export const tests: Record<string, Test> = {
         question:
           '일은 곧 나요. 나는 곧 일이다. 일과 나는 하나다. 정조대왕 말씀하시길 일즉나 나즉일(?).',
         onYes: [
-          { id: '1', name: '중독', value: 10 },
+          { id: '1', name: '중독', value: 50 },
           { id: '2', name: '게으름', value: -10 },
         ],
         onNo: [
-          { id: '1', name: '중독', value: -10 },
+          { id: '1', name: '중독', value: -50 },
           { id: '2', name: '게으름', value: 10 },
         ],
       },
@@ -67,11 +67,11 @@ export const tests: Record<string, Test> = {
         id: '3',
         question: '"일용할 양식을 주옵시고"는 "일을 주옵시고"다.',
         onYes: [
-          { id: '1', name: '중독', value: 10 },
+          { id: '1', name: '중독', value: 50 },
           { id: '2', name: '게으름', value: -10 },
         ],
         onNo: [
-          { id: '1', name: '중독', value: -10 },
+          { id: '1', name: '중독', value: -50 },
           { id: '2', name: '게으름', value: 10 },
         ],
       },
@@ -79,11 +79,11 @@ export const tests: Record<string, Test> = {
         id: '4',
         question: '쉰다는 것. 그것은 곧 나에게 죽음이다. 일이 아니면 죽음을 달라.',
         onYes: [
-          { id: '1', name: '중독', value: 10 },
+          { id: '1', name: '중독', value: 50 },
           { id: '2', name: '게으름', value: -10 },
         ],
         onNo: [
-          { id: '1', name: '중독', value: -10 },
+          { id: '1', name: '중독', value: -50 },
           { id: '2', name: '게으름', value: 10 },
         ],
       },
@@ -91,11 +91,11 @@ export const tests: Record<string, Test> = {
         id: '5',
         question: '당신의 친구가 주말 여행을 가자고 조른다. 당신은 그와 여행을 갈 것인가?',
         onYes: [
-          { id: '1', name: '중독', value: -10 },
+          { id: '1', name: '중독', value: -30 },
           { id: '2', name: '게으름', value: -10 },
         ],
         onNo: [
-          { id: '1', name: '중독', value: 0 },
+          { id: '1', name: '중독', value: 30 },
           { id: '2', name: '게으름', value: 10 },
         ],
       },
@@ -107,7 +107,7 @@ export const tests: Record<string, Test> = {
           { id: '2', name: '게으름', value: -10 },
         ],
         onNo: [
-          { id: '1', name: '중독', value: -10 },
+          { id: '1', name: '중독', value: -20 },
           { id: '2', name: '게으름', value: 10 },
         ],
       },
@@ -119,7 +119,7 @@ export const tests: Record<string, Test> = {
           { id: '2', name: '게으름', value: -10 },
         ],
         onNo: [
-          { id: '1', name: '중독', value: -10 },
+          { id: '1', name: '중독', value: -20 },
           { id: '2', name: '게으름', value: 10 },
         ],
       },
@@ -161,8 +161,8 @@ export const tests: Record<string, Test> = {
         id: '3',
         title: '자유로운 영혼의 소유자',
         conditions: [
-          { id: '1', name: '게으름', value: 50, type: '이상' },
-          { id: '2', name: '중독', value: 40, type: '이하' },
+          { id: '1', name: '게으름', value: 60, type: '이상' },
+          { id: '2', name: '중독', value: 40, type: '미만' },
         ],
         imageUrl: '/result-workerholic-3.jpg',
         contents: [{ id: '1', content: '선비의 정신을 가졌군요! 다음 심리테스트도 해보세요!' }],
@@ -303,17 +303,27 @@ export const tests: Record<string, Test> = {
           { id: '1', name: '힙 정신', value: 50, type: '이상' },
           { id: '2', name: '힙 정신', value: 79, type: '이하' },
         ],
-        imageUrl: '',
+        imageUrl: '/result-sunbi-1.png',
         contents: [{ id: '1', content: '옷 좀 사 입고 해요...' }],
+      },
+      {
+        id: '2',
+        title: '당신은 조선의 추노입니다.',
+        conditions: [
+          { id: '1', name: '힙 정신', value: 80, type: '이상' },
+          { id: '2', name: '힙 정신', value: 100, type: '이하' },
+        ],
+        imageUrl: '/result-sunbi-2.png',
+        contents: [{ id: '1', content: '도망쳐...' }],
       },
       {
         id: '3',
         title: '당신은 조선의 선비입니다.',
         conditions: [
-          { id: '1', name: '힙 정신', value: 0, type: '이상' },
+          { id: '1', name: '선비 정신', value: 70, type: '이상' },
           { id: '2', name: '힙 정신', value: 49, type: '이하' },
         ],
-        imageUrl: '',
+        imageUrl: 'result-sunbi-3.jpg',
         contents: [{ id: '1', content: '기분 좋으세요?' }],
       },
     ],
