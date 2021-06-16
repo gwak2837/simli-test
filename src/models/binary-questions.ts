@@ -14,12 +14,7 @@ type Question = {
 export type Result = {
   id: string
   title: string
-  conditions: {
-    id: string
-    name: string
-    value: number
-    type: string
-  }[]
+  condition: (answers: Record<string, number>) => boolean
   imageUrl: string
   contents: {
     id: string
@@ -140,30 +135,31 @@ export const tests: Record<string, Test> = {
       {
         id: '1',
         title: '일에 미친 당신',
-        conditions: [
-          { id: '1', name: '중독', value: 70, type: '이상' },
-          { id: '2', name: '중독', value: 100, type: '이하' },
-        ],
+        condition: (answers) => {
+          const overdose = answers['중독']
+          return 100 <= overdose
+        },
         imageUrl: '/result-workerholic-1.jpg',
         contents: [{ id: '1', content: '손모가지 절단만이 답입니다.' }],
       },
       {
         id: '2',
         title: '열심히 일한 당신',
-        conditions: [
-          { id: '1', name: '중독', value: 50, type: '이상' },
-          { id: '2', name: '중독', value: 69, type: '이하' },
-        ],
+        condition: (answers) => {
+          const overdose = answers['중독']
+          return 50 <= overdose && overdose < 100
+        },
         imageUrl: '/result-workerholic-2.png',
         contents: [{ id: '1', content: '당신은 일꾼입니다. 미네랄을 캐세요.' }],
       },
       {
         id: '3',
         title: '자유로운 영혼의 소유자',
-        conditions: [
-          { id: '1', name: '게으름', value: 60, type: '이상' },
-          { id: '2', name: '중독', value: 40, type: '미만' },
-        ],
+        condition: (answers) => {
+          const overdose = answers['중독']
+          const laziness = answers['게으름']
+          return overdose < 50 && 40 < laziness
+        },
         imageUrl: '/result-workerholic-3.jpg',
         contents: [{ id: '1', content: '선비의 정신을 가졌군요! 다음 심리테스트도 해보세요!' }],
       },
@@ -299,30 +295,31 @@ export const tests: Record<string, Test> = {
       {
         id: '1',
         title: '당신은 조선의 노비입니다.',
-        conditions: [
-          { id: '1', name: '힙 정신', value: 50, type: '이상' },
-          { id: '2', name: '힙 정신', value: 79, type: '이하' },
-        ],
+        condition: (answers) => {
+          const hip = answers['힙 정신']
+          return 50 <= hip && hip < 80
+        },
         imageUrl: '/result-sunbi-1.png',
         contents: [{ id: '1', content: '옷 좀 사 입고 해요...' }],
       },
       {
         id: '2',
         title: '당신은 조선의 추노입니다.',
-        conditions: [
-          { id: '1', name: '힙 정신', value: 80, type: '이상' },
-          { id: '2', name: '힙 정신', value: 100, type: '이하' },
-        ],
+        condition: (answers) => {
+          const hip = answers['힙 정신']
+          return 80 <= hip && hip < 100
+        },
         imageUrl: '/result-sunbi-2.png',
         contents: [{ id: '1', content: '도망쳐...' }],
       },
       {
         id: '3',
         title: '당신은 조선의 선비입니다.',
-        conditions: [
-          { id: '1', name: '선비 정신', value: 70, type: '이상' },
-          { id: '2', name: '힙 정신', value: 49, type: '이하' },
-        ],
+        condition: (answers) => {
+          const hip = answers['힙 정신']
+          const seonbi = answers['힙 정신']
+          return hip <= 49 && 70 <= seonbi
+        },
         imageUrl: '/result-sunbi-3.jpg',
         contents: [{ id: '1', content: '기분 좋으세요?' }],
       },
@@ -475,10 +472,10 @@ export const tests: Record<string, Test> = {
       {
         id: '1',
         title: '날개 없는 천사 , 티 없는 흑우!!!',
-        conditions: [
-          { id: '1', name: '호구력', value: 75, type: '이상' },
-          { id: '2', name: '호구력', value: 100, type: '이하' },
-        ],
+        condition: (answers) => {
+          const hogu = answers['호구력']
+          return 75 <= hogu && hogu <= 100
+        },
         imageUrl: '/angel.jpg',
         contents: [
           { id: '1', content: '모든 것을 양보하고 배려해주는 당신 이 시대의 진정한 인격자' },
@@ -487,10 +484,10 @@ export const tests: Record<string, Test> = {
       {
         id: '2',
         title: '경주 최 부잣집 마인드 돈에 있어서 만큼은 나도 호구!!!',
-        conditions: [
-          { id: '1', name: '호구력(돈)', value: 80, type: '이상' },
-          { id: '2', name: '호구력(돈)', value: 100, type: '이하' },
-        ],
+        condition: (answers) => {
+          const hogu = answers['호구력(돈)']
+          return 80 <= hogu && hogu <= 100
+        },
         imageUrl: '/choi.jpg',
         contents: [
           {
@@ -502,10 +499,10 @@ export const tests: Record<string, Test> = {
       {
         id: '3',
         title: '마더 테레사 있는 것은 아낌없이 양보하고 나눠주고 싶은 호구양!!!!',
-        conditions: [
-          { id: '1', name: '호구력(인간)', value: 80, type: '이상' },
-          { id: '2', name: '호구력(인간)', value: 100, type: '이하' },
-        ],
+        condition: (answers) => {
+          const hogu = answers['호구력(인간)']
+          return 80 <= hogu && hogu <= 100
+        },
         imageUrl: '/teresa.jpg',
         contents: [
           {
@@ -518,10 +515,10 @@ export const tests: Record<string, Test> = {
       {
         id: '4',
         title: '개가 짖어도 기차는 간다 원리원칙을 중요시하는 NO 호구!!! ',
-        conditions: [
-          { id: '1', name: '호구력', value: 0, type: '이상' },
-          { id: '2', name: '호구력', value: 74, type: '이하' },
-        ],
+        condition: (answers) => {
+          const hogu = answers['호구력']
+          return 0 <= hogu && hogu < 75
+        },
         imageUrl: '/me.jpg',
         contents: [
           {
@@ -625,10 +622,11 @@ export const tests: Record<string, Test> = {
       {
         id: '1',
         title: '당신은 심각한 자아도취증이시군요.',
-        conditions: [
-          { id: '1', name: '자아도취감', value: 200, type: '이상' },
-          { id: '2', name: '자신감', value: 30, type: '미만' },
-        ],
+        condition: (answers) => {
+          const narcissism = answers['자아도취감']
+          const selfConfidence = answers['자아도취감']
+          return 200 <= narcissism && selfConfidence < 30
+        },
         imageUrl: '/result-narcissism-1.jpg',
         contents: [
           {
@@ -641,10 +639,11 @@ export const tests: Record<string, Test> = {
       {
         id: '2',
         title: '당신은 넘치는 자신감으로 자아도취증 상태로 진행중이군요!',
-        conditions: [
-          { id: '1', name: '자아도취감', value: 200, type: '이상' },
-          { id: '2', name: '자신감', value: 30, type: '이상' },
-        ],
+        condition: (answers) => {
+          const narcissism = answers['자아도취감']
+          const selfConfidence = answers['자신감']
+          return 200 <= narcissism && 30 <= selfConfidence
+        },
         imageUrl: '/result-narcissism-2.jpg',
         contents: [
           {
@@ -657,10 +656,11 @@ export const tests: Record<string, Test> = {
       {
         id: '3',
         title: '당신은 평범합니다. 당신에겐 자아도취는 과도한 수식어!.',
-        conditions: [
-          { id: '1', name: '자아도취감', value: 200, type: '미만' },
-          { id: '2', name: '자신감', value: 30, type: '이상' },
-        ],
+        condition: (answers) => {
+          const narcissism = answers['자아도취감']
+          const selfConfidence = answers['자신감']
+          return narcissism < 200 && 30 <= selfConfidence
+        },
         imageUrl: '/result-narcissism-3.jpg',
         contents: [
           {
@@ -673,10 +673,11 @@ export const tests: Record<string, Test> = {
       {
         id: '4',
         title: '자아도취는 커녕 자신감마저 부족한 상태네요',
-        conditions: [
-          { id: '1', name: '자아도취감', value: 200, type: '미만' },
-          { id: '2', name: '자신감', value: 30, type: '미만' },
-        ],
+        condition: (answers) => {
+          const narcissism = answers['자아도취감']
+          const selfConfidence = answers['자신감']
+          return narcissism < 200 && selfConfidence < 30
+        },
         imageUrl: '/result-narcissism-4.jpg',
         contents: [
           {
