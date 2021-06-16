@@ -479,7 +479,7 @@ export const tests: Record<string, Test> = {
           { id: '1', name: '호구력', value: 75, type: '이상' },
           { id: '2', name: '호구력', value: 100, type: '이하' },
         ],
-        imageUrl: '',
+        imageUrl: '/angel.jpg',
         contents: [
           { id: '1', content: '모든 것을 양보하고 배려해주는 당신 이 시대의 진정한 인격자' },
         ],
@@ -491,7 +491,7 @@ export const tests: Record<string, Test> = {
           { id: '1', name: '호구력(돈)', value: 80, type: '이상' },
           { id: '2', name: '호구력(돈)', value: 100, type: '이하' },
         ],
-        imageUrl: '',
+        imageUrl: '/choi.jpg',
         contents: [
           {
             id: '1',
@@ -506,7 +506,7 @@ export const tests: Record<string, Test> = {
           { id: '1', name: '호구력(인간)', value: 80, type: '이상' },
           { id: '2', name: '호구력(인간)', value: 100, type: '이하' },
         ],
-        imageUrl: '',
+        imageUrl: '/teresa.jpg',
         contents: [
           {
             id: '1',
@@ -522,7 +522,7 @@ export const tests: Record<string, Test> = {
           { id: '1', name: '호구력', value: 0, type: '이상' },
           { id: '2', name: '호구력', value: 74, type: '이하' },
         ],
-        imageUrl: '',
+        imageUrl: '/me.jpg',
         contents: [
           {
             id: '1',
