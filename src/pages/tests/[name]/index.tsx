@@ -26,7 +26,7 @@ function TestPage() {
   const router = useRouter()
 
   const testName = (router.query.name ?? '') as string
-  const testNameWithSpace = testName.replaceAll('-', ' ')
+  const testNameWithSpace = testName.replace(/-/g, ' ')
 
   useEffect(() => {
     setSelections(null)
