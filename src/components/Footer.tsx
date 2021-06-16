@@ -6,7 +6,6 @@ const GridContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 4rem 1fr;
   align-items: center;
-  background-color: #fcfcfc;
 `
 
 const Line = styled.div`
