@@ -1,12 +1,17 @@
+import { Progress } from 'antd'
 import { useRouter } from 'next/router'
 import { useContext, useEffect, useState } from 'react'
+import { PrimaryButton } from 'src/components/atoms/Button'
 import ClientSideLink from 'src/components/atoms/ClientSideLink'
 import { Padding } from 'src/components/atoms/Styles'
 import BinaryQuestionAnswer from 'src/components/BinaryQuestionAnswer'
 import PageHead from 'src/components/layouts/PageHead'
+import useGoToPage from 'src/hooks/useGoToPage'
 import { tests } from 'src/models/binary-questions'
 import { GlobalContext } from 'src/pages/_app'
+import { FlexContainerColumn } from 'src/styles/FlexContainer'
 import styled from 'styled-components'
+import { CenterPaddingH1, gradientBlueGreen } from './result'
 
 const FlexContainerBetweenCenter = styled.div`
   display: flex;
@@ -16,23 +21,44 @@ const FlexContainerBetweenCenter = styled.div`
   padding: 1rem;
 `
 
+const FlexContainerColumnPadding = styled(FlexContainerColumn)`
+  padding: 2rem;
+`
+
 const description = '심리 테스트를 진행해보아요'
 
 function TestPage() {
   const { answers, setAnswers } = useContext(GlobalContext)
+
+  const goToHomePage = useGoToPage('/')
+  const goToTestsPage = useGoToPage('/tests')
 
   const [questionNumber, setQuestionNumber] = useState(0)
 
   const router = useRouter()
   const testName = (router.query.name ?? '') as string
   const testNameWithSpace = testName.replace(/-/g, ' ')
+  const test = tests[testName]
+  const title = `심리테스트 - ${testNameWithSpace}`
 
   useEffect(() => {
     setAnswers(null)
   }, [setAnswers])
 
-  const questions = tests[testName]?.questions
-  const question = questions?.[questionNumber]
+  if (!test) {
+    return (
+      <PageHead title={title} description={description}>
+        <CenterPaddingH1>{testNameWithSpace} 테스트는 존재하지 않아요</CenterPaddingH1>
+        <FlexContainerColumnPadding>
+          <PrimaryButton onClick={goToHomePage}>홈으로 가기</PrimaryButton>
+          <PrimaryButton onClick={goToTestsPage}>심리 테스트 하기</PrimaryButton>
+        </FlexContainerColumnPadding>
+      </PageHead>
+    )
+  }
+
+  const questions = test.questions
+  const question = questions[questionNumber]
 
   function updateResult(yesOrNo: 'onYes' | 'onNo') {
     return () => {
@@ -55,7 +81,7 @@ function TestPage() {
   }
 
   return (
-    <PageHead title={`심리테스트 - ${testNameWithSpace}`} description={description}>
+    <PageHead title={title} description={description}>
       <FlexContainerBetweenCenter>
         <h2>{testNameWithSpace}</h2>
         <ClientSideLink href="/tests">
@@ -63,9 +89,17 @@ function TestPage() {
         </ClientSideLink>
       </FlexContainerBetweenCenter>
       <Padding>
+        <Progress
+          format={() => `${question.id}/${questions.length}`}
+          percent={(+question.id * 100) / questions.length}
+          status="normal"
+          strokeColor={gradientBlueGreen}
+        />
+      </Padding>
+      <Padding>
         <BinaryQuestionAnswer
-          number={question?.id}
-          question={question?.question}
+          number={question.id}
+          question={question.question}
           onYes={updateResult('onYes')}
           onNo={updateResult('onNo')}
         />
