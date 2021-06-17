@@ -173,7 +173,7 @@ export const tests: Record<string, Test> = {
           const overdose = answers['중독']
           return overdose >= 50 && overdose < 100
         },
-        imageUrl: '/result-workerholic-2.png',
+        imageUrl: '/result-workerholic-2.jpg',
         contents: [{ id: '1', content: '당신은 일꾼입니다. 미네랄을 캐세요.' }],
       },
       {
@@ -327,7 +327,7 @@ export const tests: Record<string, Test> = {
           const seonbi = answers['선비 정신']
           return seonbi <= -30
         },
-        imageUrl: '/result-sunbi-1.png',
+        imageUrl: '/result-sunbi-1.jpg',
         contents: [{ id: '1', content: '도망쳐...' }],
       },
       {
