@@ -82,6 +82,8 @@ function TestResultPage() {
     )
   }
 
+  console.log(answers)
+
   const resultIndex = test.results.findIndex((result) => result.condition(answers))
   const result = test.results[resultIndex] ?? test.results[0]
 

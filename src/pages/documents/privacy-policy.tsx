@@ -1,11 +1,19 @@
+import ClientSideLink from 'src/components/atoms/ClientSideLink'
 import PageHead from 'src/components/layouts/PageHead'
 import { GridContainerGap } from 'src/styles/GridContainer'
+import { FlexContainerBetweenCenter } from '../tests/[name]'
 
 const description = ''
 
 function PrivacyPolicyPage() {
   return (
     <PageHead title="심리테스트 - 개인정보보호정책" description={description}>
+      <FlexContainerBetweenCenter>
+        <h2>개인정보보호정책</h2>
+        <ClientSideLink href="/">
+          <div>홈으로 가기</div>
+        </ClientSideLink>
+      </FlexContainerBetweenCenter>
       <GridContainerGap>
         <h1>우리는 개인 정보를 보호하기 위해 최선을 다합니다.</h1>
         <div>
