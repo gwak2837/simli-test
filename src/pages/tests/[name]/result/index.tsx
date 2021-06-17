@@ -35,7 +35,7 @@ const GridContainerGap = styled.div`
 `
 
 const FlexContainerColumnPadding = styled(FlexContainerColumn)`
-  padding: 2rem;
+  padding: 1rem;
 `
 
 export const gradientBlueGreen = {

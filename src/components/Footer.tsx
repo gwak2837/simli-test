@@ -45,7 +45,7 @@ function Footer() {
           </ClientSideLink>{' '}
           |{' '}
           <ClientSideLink href="/documents/privacy-policy" style={anchorStyle}>
-            개인정보처리방침
+            개인정보보호정책
           </ClientSideLink>
         </h4>
         <div>
