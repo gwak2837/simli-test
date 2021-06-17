@@ -2,6 +2,7 @@ import { Progress } from 'antd'
 import { useRouter } from 'next/router'
 import { useContext } from 'react'
 import { PrimaryButton } from 'src/components/atoms/Button'
+import { FlexContainerColumn } from 'src/styles/FlexContainer'
 import PageHead from 'src/components/layouts/PageHead'
 import useGoToPage from 'src/hooks/useGoToPage'
 import { tests } from 'src/models/binary-questions'
@@ -33,14 +34,11 @@ const GridContainerGap = styled.div`
   padding: 2rem 1rem;
 `
 
-const FlexContainerColumn = styled.div`
-  display: flex;
-  flex-flow: column nowrap;
-
-  padding: 1rem;
+const FlexContainerColumnPadding = styled(FlexContainerColumn)`
+  padding: 2rem;
 `
 
-const gradientBlueGreen = {
+export const gradientBlueGreen = {
   '0%': '#108ee9',
   '100%': '#87d068',
 }
@@ -58,17 +56,16 @@ function TestResultPage() {
   const { query } = useRouter()
   const testName = (query.name ?? '') as string
   const test = tests[testName]
-
   const title = `심리테스트 - ${testName} 결과`
 
   if (!test) {
     return (
       <PageHead title={title} description={description}>
         <CenterPaddingH1>{testName} 테스트는 존재하지 않아요</CenterPaddingH1>
-        <FlexContainerColumn>
+        <FlexContainerColumnPadding>
           <PrimaryButton onClick={goToHomePage}>홈으로 가기</PrimaryButton>
           <PrimaryButton onClick={goToTestsPage}>심리 테스트 하기</PrimaryButton>
-        </FlexContainerColumn>
+        </FlexContainerColumnPadding>
       </PageHead>
     )
   }
@@ -77,10 +74,10 @@ function TestResultPage() {
     return (
       <PageHead title={title} description={description}>
         <CenterPaddingH1>테스트를 모두 진행해야 결과를 볼 수 있어요</CenterPaddingH1>
-        <FlexContainerColumn>
+        <FlexContainerColumnPadding>
           <PrimaryButton onClick={goToHomePage}>홈으로 가기</PrimaryButton>
           <PrimaryButton onClick={goToTestsPage}>심리 테스트 하기</PrimaryButton>
-        </FlexContainerColumn>
+        </FlexContainerColumnPadding>
       </PageHead>
     )
   }
@@ -126,10 +123,10 @@ function TestResultPage() {
         )}
       </GridContainerGap>
 
-      <FlexContainerColumn>
+      <FlexContainerColumnPadding>
         <PrimaryButton onClick={goToHomePage}>홈으로 가기</PrimaryButton>
         <PrimaryButton onClick={goToTestsPage}>다른 테스트 하기</PrimaryButton>
-      </FlexContainerColumn>
+      </FlexContainerColumnPadding>
     </PageHead>
   )
 }

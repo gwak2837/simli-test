@@ -1,8 +1,9 @@
 import styled from 'styled-components'
 import { PrimaryButton } from './atoms/Button'
 
-const Padding = styled.div`
-  padding: 2rem;
+const GridContainer = styled.div`
+  display: grid;
+  grid-template-rows: 1fr 1fr;
 `
 
 const FlexContainerColumn = styled.div`
@@ -19,16 +20,15 @@ type Props = {
 
 function BinaryQuestionAnswer({ number, question, onYes, onNo }: Props) {
   return (
-    <Padding>
+    <GridContainer>
       <h3>
         Q{number}. {question}
       </h3>
-      <Padding />
       <FlexContainerColumn>
         <PrimaryButton onClick={onYes}>네</PrimaryButton>
         <PrimaryButton onClick={onNo}>아니요</PrimaryButton>
       </FlexContainerColumn>
-    </Padding>
+    </GridContainer>
   )
 }
 
