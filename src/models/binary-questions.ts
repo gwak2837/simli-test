@@ -37,7 +37,7 @@ export const tests: Record<string, Test> = {
         id: '1',
         question: '나는 중독자다. 일 중독자.',
         onYes: [
-          { id: '1', name: '중독', value: 10 },
+          { id: '1', name: '중독', value: 30 },
           { id: '2', name: '게으름', value: -10 },
         ],
         onNo: [
@@ -130,6 +130,30 @@ export const tests: Record<string, Test> = {
           { id: '2', name: '게으름', value: 10 },
         ],
       },
+      {
+        id: '9',
+        question: '나는 출근길에 개미는 뚠뚠 노래를 부른다.',
+        onYes: [
+          { id: '1', name: '중독', value: 20 },
+          { id: '2', name: '게으름', value: -10 },
+        ],
+        onNo: [
+          { id: '1', name: '중독', value: -10 },
+          { id: '2', name: '게으름', value: 10 },
+        ],
+      },
+      {
+        id: '10',
+        question: '나는 길을 가다 베짱이를 보면 즈려밟는다.',
+        onYes: [
+          { id: '1', name: '중독', value: 20 },
+          { id: '2', name: '게으름', value: -10 },
+        ],
+        onNo: [
+          { id: '1', name: '중독', value: -10 },
+          { id: '2', name: '게으름', value: 10 },
+        ],
+      },
     ],
     results: [
       {
@@ -199,10 +223,14 @@ export const tests: Record<string, Test> = {
         onYes: [
           { id: '1', name: '평온', value: 10 },
           { id: '2', name: '짜증', value: -10 },
+          { id: '1', name: '선비 정신', value: 10 },
+          { id: '2', name: '힙 정신', value: -10 },
         ],
         onNo: [
           { id: '1', name: '평온', value: -10 },
           { id: '2', name: '짜증', value: 10 },
+          { id: '1', name: '선비 정신', value: -10 },
+          { id: '2', name: '힙 정신', value: 10 },
         ],
       },
       {
@@ -257,7 +285,7 @@ export const tests: Record<string, Test> = {
         id: '8',
         question: '나는 이성을 돌부처 보듯이 한다.',
         onYes: [
-          { id: '1', name: '선비 정신', value: 10 },
+          { id: '1', name: '선비 정신', value: 20 },
           { id: '2', name: '힙 정신', value: -10 },
         ],
         onNo: [
@@ -269,7 +297,7 @@ export const tests: Record<string, Test> = {
         id: '9',
         question: '로맨스가 왠 말이냐. 남녀칠세부동석.',
         onYes: [
-          { id: '1', name: '선비 정신', value: 10 },
+          { id: '1', name: '선비 정신', value: 20 },
           { id: '2', name: '힙 정신', value: -10 },
         ],
         onNo: [
@@ -294,31 +322,30 @@ export const tests: Record<string, Test> = {
     results: [
       {
         id: '1',
-        title: '당신은 조선의 노비입니다.',
+        title: '당신은 조선의 추노입니다.',
         condition: (answers) => {
-          const hip = answers['힙 정신']
-          return hip >= 50 && hip < 80
+          const seonbi = answers['선비 정신']
+          return seonbi <= -30
         },
-        imageUrl: '/result-sunbi-1.jpg',
-        contents: [{ id: '1', content: '옷 좀 사 입고 해요...' }],
+        imageUrl: '/result-sunbi-1.png',
+        contents: [{ id: '1', content: '도망쳐...' }],
       },
       {
         id: '2',
-        title: '당신은 조선의 추노입니다.',
+        title: '당신은 조선의 노비입니다.',
         condition: (answers) => {
-          const hip = answers['힙 정신']
-          return hip >= 80 && hip < 100
+          const seonbi = answers['선비 정신']
+          return seonbi >= 0 && seonbi < 30
         },
-        imageUrl: '/result-sunbi-2.png',
-        contents: [{ id: '1', content: '도망쳐...' }],
+        imageUrl: '/result-sunbi-2.jpg',
+        contents: [{ id: '1', content: '총각..옷 좀 사주까?...' }],
       },
       {
         id: '3',
         title: '당신은 조선의 선비입니다.',
         condition: (answers) => {
-          const hip = answers['힙 정신']
           const seonbi = answers['선비 정신']
-          return hip <= 49 && seonbi >= 70
+          return seonbi >= 30
         },
         imageUrl: '/result-sunbi-3.jpg',
         contents: [{ id: '1', content: '기분 좋으세요?' }],

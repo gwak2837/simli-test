@@ -95,7 +95,6 @@ function TestResultPage() {
   return (
     <PageHead title={title} description={description}>
       <CenterPaddingH1>{result.title}</CenterPaddingH1>
-
       <GridContainerUl>
         {answersEntries.map((answersEntry, index) => (
           <li key={index}>
