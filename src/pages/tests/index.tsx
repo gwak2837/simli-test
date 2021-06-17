@@ -8,6 +8,7 @@ import { CenterPaddingH1 } from './[name]/result'
 const RelativePosition = styled.div`
   position: relative;
   line-height: 0;
+  outline: #ccc solid 1px;
 
   @keyframes fadeOut1 {
     from {

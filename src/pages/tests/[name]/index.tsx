@@ -13,7 +13,7 @@ import { FlexContainerColumn } from 'src/styles/FlexContainer'
 import styled from 'styled-components'
 import { CenterPaddingH1, gradientBlueGreen } from './result'
 
-const FlexContainerBetweenCenter = styled.div`
+export const FlexContainerBetweenCenter = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;

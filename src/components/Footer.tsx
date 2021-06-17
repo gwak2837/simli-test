@@ -46,6 +46,10 @@ function Footer() {
           |{' '}
           <ClientSideLink href="/documents/privacy-policy" style={anchorStyle}>
             개인정보보호정책
+          </ClientSideLink>{' '}
+          |{' '}
+          <ClientSideLink href="/about" style={anchorStyle}>
+            팀 소개
           </ClientSideLink>
         </h4>
         <div>
