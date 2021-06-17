@@ -624,7 +624,7 @@ export const tests: Record<string, Test> = {
         title: '당신은 심각한 자아도취증이시군요.',
         condition: (answers) => {
           const narcissism = answers['자아도취감']
-          const selfConfidence = answers['자아도취감']
+          const selfConfidence = answers['자신감']
           return narcissism >= 200 && selfConfidence < 30
         },
         imageUrl: '/result-narcissism-1.jpg',
