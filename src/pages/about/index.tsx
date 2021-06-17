@@ -1,4 +1,3 @@
-import React from 'react'
 import ClientSideLink from 'src/components/atoms/ClientSideLink'
 import PageHead from 'src/components/layouts/PageHead'
 import styled from 'styled-components'
