@@ -474,7 +474,9 @@ export const tests: Record<string, Test> = {
         title: '날개 없는 천사 , 티 없는 흑우!!!',
         condition: (answers) => {
           const hogu = answers['호구력']
-          return hogu >= 75 && hogu <= 100
+          const hoguM = answers['호구력(돈)']
+          const hoguH = answers['호구력(인간)']
+          return hogu >= 80 && hoguM >= 80 && hoguH >= 80
         },
         imageUrl: '/angel.jpg',
         contents: [
@@ -485,8 +487,8 @@ export const tests: Record<string, Test> = {
         id: '2',
         title: '경주 최 부잣집 마인드 돈에 있어서 만큼은 나도 호구!!!',
         condition: (answers) => {
-          const hogu = answers['호구력(돈)']
-          return hogu >= 80 && hogu <= 100
+          const hoguM = answers['호구력(돈)']
+          return hoguM >= 80
         },
         imageUrl: '/choi.jpg',
         contents: [
@@ -500,8 +502,8 @@ export const tests: Record<string, Test> = {
         id: '3',
         title: '마더 테레사 있는 것은 아낌없이 양보하고 나눠주고 싶은 호구양!!!!',
         condition: (answers) => {
-          const hogu = answers['호구력(인간)']
-          return hogu >= 80 && hogu <= 100
+          const hoguH = answers['호구력(인간)']
+          return hoguH >= 80
         },
         imageUrl: '/teresa.jpg',
         contents: [
@@ -517,7 +519,9 @@ export const tests: Record<string, Test> = {
         title: '개가 짖어도 기차는 간다 원리원칙을 중요시하는 NO 호구!!! ',
         condition: (answers) => {
           const hogu = answers['호구력']
-          return hogu >= 0 && hogu < 75
+          const hoguM = answers['호구력(돈)']
+          const hoguH = answers['호구력(인간)']
+          return hogu < 80 && hoguM < 80 && hoguH < 80
         },
         imageUrl: '/me.jpg',
         contents: [
@@ -624,7 +628,7 @@ export const tests: Record<string, Test> = {
         title: '당신은 심각한 자아도취증이시군요.',
         condition: (answers) => {
           const narcissism = answers['자아도취감']
-          const selfConfidence = answers['자신감']
+          const selfConfidence = answers['자아도취감']
           return narcissism >= 200 && selfConfidence < 30
         },
         imageUrl: '/result-narcissism-1.jpg',
