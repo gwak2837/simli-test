@@ -568,10 +568,14 @@ export const tests: Record<string, Test> = {
         question: '오늘 하루도 거울을 보면서 행복을 느꼈나요?.',
         onYes: [
           { id: '1', name: '자아도취감', value: 20 },
+          { id: '2', name: '셀프디스', value: 0 },
           { id: '3', name: '자신감', value: 40 },
+          { id: '4', name: '자괴감', value: 0 },
         ],
         onNo: [
+          { id: '1', name: '자아도취감', value: 0 },
           { id: '2', name: '셀프디스', value: 20 },
+          { id: '3', name: '자신감', value: 0 },
           { id: '4', name: '자괴감', value: 40 },
         ],
       },
