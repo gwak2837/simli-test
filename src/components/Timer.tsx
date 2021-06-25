@@ -5,7 +5,7 @@ type Props = {
 }
 
 function Timer({ onTimeout }: Props) {
-  const [counter, setCounter] = useState(10)
+  const [counter, setCounter] = useState(30)
 
   useEffect(() => {
     if (counter > 0) {

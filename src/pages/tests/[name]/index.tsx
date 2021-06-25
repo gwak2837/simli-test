@@ -41,6 +41,7 @@ function TestPage() {
   const testNameWithSpace = testName.replace(/-/g, ' ')
   const test = tests[testName]
   const title = `심리테스트 - ${testNameWithSpace}`
+  const timer = (router.query.time ?? '') as string
 
   useEffect(() => {
     setAnswers(null)
@@ -85,7 +86,7 @@ function TestPage() {
     <PageHead title={title} description={description}>
       <FlexContainerBetweenCenter>
         <h2>{testNameWithSpace}</h2>
-        <Timer onTimeout={() => router.push(`/tests/${testName}/result`)} />
+        <Timer onTimeout={() => router.push(`/tests/${testName}/result/timeout`)} />
         <ClientSideLink href="/tests">
           <div>다른 테스트 하기</div>
         </ClientSideLink>
