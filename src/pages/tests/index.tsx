@@ -79,6 +79,7 @@ function TestsPage() {
           </RelativePosition>
         ))}
       </GridContainer>
+      {error && '오류 발생...'}
     </PageHead>
   )
 }

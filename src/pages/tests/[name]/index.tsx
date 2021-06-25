@@ -124,6 +124,7 @@ function TestPage() {
           onNo={updateResult('onNo')}
         />
       </Padding>
+      {error && '오류 발생'}
     </PageHead>
   )
 }
