@@ -5,10 +5,10 @@ import { PrimaryButton } from 'src/components/atoms/Button'
 import { FlexContainerColumn } from 'src/styles/FlexContainer'
 import PageHead from 'src/components/layouts/PageHead'
 import useGoToPage from 'src/hooks/useGoToPage'
-import { tests } from 'src/models/binary-questions'
 import { GlobalContext } from 'src/pages/_app'
 import styled from 'styled-components'
 import Image from 'next/image'
+import { tests } from 'src/models/binary-questions'
 
 export const CenterPaddingH1 = styled.h1`
   padding: 3rem 1rem;

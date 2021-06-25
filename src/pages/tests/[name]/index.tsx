@@ -8,11 +8,13 @@ import BinaryQuestionAnswer from 'src/components/BinaryQuestionAnswer'
 import PageHead from 'src/components/layouts/PageHead'
 import Timer from 'src/components/Timer'
 import useGoToPage from 'src/hooks/useGoToPage'
-import { tests } from 'src/models/binary-questions'
 import { GlobalContext } from 'src/pages/_app'
 import { FlexContainerColumn } from 'src/styles/FlexContainer'
 import styled from 'styled-components'
 import { CenterPaddingH1, gradientBlueGreen } from './result'
+import useSwr from 'swr'
+import { Response } from 'src/pages/api/tests/[name]'
+import { fetcher } from 'src/utils/commons'
 
 export const FlexContainerBetweenCenter = styled.div`
   display: flex;
@@ -39,12 +41,28 @@ function TestPage() {
   const router = useRouter()
   const testName = (router.query.name ?? '') as string
   const testNameWithSpace = testName.replace(/-/g, ' ')
-  const test = tests[testName]
   const title = `심리테스트 - ${testNameWithSpace}`
+
+  const { data: test, error } = useSwr<Response>(`/api/tests/${testNameWithSpace}`, fetcher)
+  const isTestsLoading = !test && !error
 
   useEffect(() => {
     setAnswers(null)
   }, [setAnswers])
+
+  if (isTestsLoading) {
+    return (
+      <PageHead title={title} description={description}>
+        <FlexContainerBetweenCenter>
+          <h2>{testNameWithSpace}</h2>
+          <ClientSideLink href="/tests">
+            <div>다른 테스트 하기</div>
+          </ClientSideLink>
+        </FlexContainerBetweenCenter>
+        loading...
+      </PageHead>
+    )
+  }
 
   if (!test) {
     return (

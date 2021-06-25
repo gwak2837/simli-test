@@ -33,7 +33,8 @@
     "react-dom": "^17.0.2",
     "react-hook-form": "^7.8.8",
     "react-toastify": "^7.0.4",
-    "styled-components": "^5.2.3"
+    "styled-components": "^5.2.3",
+    "swr": "^0.5.6"
   },
   "devDependencies": {
     "@types/gtag.js": "^0.0.5",

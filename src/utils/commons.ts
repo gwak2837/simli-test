@@ -41,3 +41,8 @@ export async function digestMessageWithSHA256(message: string) {
 }
 
 export const { ko2en } = new Inko()
+
+export async function fetcher(url: string) {
+  const res = await fetch(url)
+  return await res.json()
+}
