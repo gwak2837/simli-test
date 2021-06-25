@@ -6,6 +6,7 @@ import ClientSideLink from 'src/components/atoms/ClientSideLink'
 import { Padding } from 'src/components/atoms/Styles'
 import BinaryQuestionAnswer from 'src/components/BinaryQuestionAnswer'
 import PageHead from 'src/components/layouts/PageHead'
+import Timer from 'src/components/Timer'
 import useGoToPage from 'src/hooks/useGoToPage'
 import { tests } from 'src/models/binary-questions'
 import { GlobalContext } from 'src/pages/_app'
@@ -84,6 +85,7 @@ function TestPage() {
     <PageHead title={title} description={description}>
       <FlexContainerBetweenCenter>
         <h2>{testNameWithSpace}</h2>
+        <Timer onTimeout={() => router.push(`/tests/${testName}/result`)} />
         <ClientSideLink href="/tests">
           <div>다른 테스트 하기</div>
         </ClientSideLink>
