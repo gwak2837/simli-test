@@ -103,7 +103,10 @@ function TestPage() {
     <PageHead title={title} description={description}>
       <FlexContainerBetweenCenter>
         <h2>{testNameWithSpace}</h2>
-        <Timer onTimeout={() => router.push(`/tests/${testName}/result`)} />
+        <Timer
+          onTimeout={() => router.push(`/tests/${testName}/timeout`)}
+          seconds={questions.length * 5}
+        />
         <ClientSideLink href="/tests">
           <div>다른 테스트 하기</div>
         </ClientSideLink>
