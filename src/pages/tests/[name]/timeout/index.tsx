@@ -38,8 +38,8 @@ function TimeoutPage() {
       <CenterPaddingH1> 빨리해 느려...</CenterPaddingH1>
       <FlexContainerColumnPadding>
         <PrimaryButton onClick={goToTestPage}>다시 하기</PrimaryButton>
-        <PrimaryButton onClick={goToHomePage}>홈으로 가기</PrimaryButton>
         <PrimaryButton onClick={goToTestsPage}>다른 테스트 하기</PrimaryButton>
+        <PrimaryButton onClick={goToHomePage}>홈으로 가기</PrimaryButton>
       </FlexContainerColumnPadding>
     </PageHead>
   )

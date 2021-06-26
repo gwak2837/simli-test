@@ -8,7 +8,8 @@ export type Response = {
 
 function TestQuestions(req: NextApiRequest, res: NextApiResponse<Response>) {
   const name = (req.query.name ?? '') as string
-  const test = tests.find((test) => test.name === name)
+  const nameWithSpace = name.replace(/-/g, ' ')
+  const test = tests.find((test) => test.name === nameWithSpace)
 
   if (!test) {
     res.status(404).send(null)

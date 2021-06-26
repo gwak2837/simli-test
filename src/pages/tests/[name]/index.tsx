@@ -43,7 +43,7 @@ function TestPage() {
   const testNameWithSpace = testName.replace(/-/g, ' ')
   const title = `심리테스트 - ${testNameWithSpace}`
 
-  const { data: test, error } = useSwr<Response>(`/api/tests/${testNameWithSpace}`, fetcher)
+  const { data: test, error } = useSwr<Response>(`/api/tests/${testName}`, fetcher)
   const isTestsLoading = !test && !error
 
   useEffect(() => {
@@ -69,8 +69,8 @@ function TestPage() {
       <PageHead title={title} description={description}>
         <CenterPaddingH1>{testNameWithSpace} 테스트는 존재하지 않아요</CenterPaddingH1>
         <FlexContainerColumnPadding>
-          <PrimaryButton onClick={goToHomePage}>홈으로 가기</PrimaryButton>
           <PrimaryButton onClick={goToTestsPage}>심리 테스트 하기</PrimaryButton>
+          <PrimaryButton onClick={goToHomePage}>홈으로 가기</PrimaryButton>
         </FlexContainerColumnPadding>
       </PageHead>
     )

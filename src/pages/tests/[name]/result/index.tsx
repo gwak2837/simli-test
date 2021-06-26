@@ -58,13 +58,15 @@ function TestResultPage() {
   const test = tests[testName]
   const title = `심리테스트 - ${testName} 결과`
 
+  // const { data: test, error } = useSwr<Response>(`/api/tests/${testNameWithSpace}`, fetcher)
+
   if (!test) {
     return (
       <PageHead title={title} description={description}>
         <CenterPaddingH1>{testName} 테스트는 존재하지 않아요</CenterPaddingH1>
         <FlexContainerColumnPadding>
-          <PrimaryButton onClick={goToHomePage}>홈으로 가기</PrimaryButton>
           <PrimaryButton onClick={goToTestsPage}>심리 테스트 하기</PrimaryButton>
+          <PrimaryButton onClick={goToHomePage}>홈으로 가기</PrimaryButton>
         </FlexContainerColumnPadding>
       </PageHead>
     )
@@ -75,8 +77,8 @@ function TestResultPage() {
       <PageHead title={title} description={description}>
         <CenterPaddingH1>테스트를 모두 진행해야 결과를 볼 수 있어요</CenterPaddingH1>
         <FlexContainerColumnPadding>
-          <PrimaryButton onClick={goToHomePage}>홈으로 가기</PrimaryButton>
           <PrimaryButton onClick={goToTestsPage}>심리 테스트 하기</PrimaryButton>
+          <PrimaryButton onClick={goToHomePage}>홈으로 가기</PrimaryButton>
         </FlexContainerColumnPadding>
       </PageHead>
     )
@@ -125,8 +127,8 @@ function TestResultPage() {
       </GridContainerGap>
 
       <FlexContainerColumnPadding>
-        <PrimaryButton onClick={goToHomePage}>홈으로 가기</PrimaryButton>
         <PrimaryButton onClick={goToTestsPage}>다른 테스트 하기</PrimaryButton>
+        <PrimaryButton onClick={goToHomePage}>홈으로 가기</PrimaryButton>
       </FlexContainerColumnPadding>
     </PageHead>
   )
