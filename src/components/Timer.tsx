@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 type Props = {
   onTimeout?: () => any
@@ -7,17 +7,27 @@ type Props = {
 
 function Timer({ onTimeout, seconds }: Props) {
   const [counter, setCounter] = useState(seconds ?? 30)
+  const timer = useRef<NodeJS.Timeout | undefined>()
 
   useEffect(() => {
     if (counter > 0) {
-      setTimeout(() => {
+      timer.current = setTimeout(() => {
         setCounter(counter - 1)
       }, 1000)
     } else {
-      onTimeout && onTimeout()
+      if (onTimeout) {
+        onTimeout()
+      }
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [counter])
+  }, [counter, onTimeout])
+
+  useEffect(() => {
+    return () => {
+      if (timer.current) {
+        clearTimeout(timer.current)
+      }
+    }
+  }, [])
 
   return <div>Timer {counter}</div>
 }
