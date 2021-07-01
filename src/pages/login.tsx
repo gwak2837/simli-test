@@ -11,7 +11,7 @@ const Container = styled.div`
   padding: 1rem;
 `
 
-const GridContainerForm = styled.form`
+export const GridContainerForm = styled.form`
   display: grid;
   gap: 1rem;
 
@@ -20,7 +20,7 @@ const GridContainerForm = styled.form`
   }
 `
 
-const PrimaryButtonWidth100 = styled(PrimaryButton)`
+export const PrimaryButtonWidth100 = styled(PrimaryButton)`
   width: 100%;
 `
 

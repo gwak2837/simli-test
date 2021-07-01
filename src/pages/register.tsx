@@ -1,8 +1,11 @@
+import { Input } from 'antd'
+import { useState } from 'react'
+import { Controller, useForm } from 'react-hook-form'
 import styled from 'styled-components'
-import useGoToPage from 'src/hooks/useGoToPage'
-import { PrimaryButton } from 'src/components/atoms/Button'
+import ClientSideLink from 'src/components/atoms/ClientSideLink'
+import { GridContainerForm, PrimaryButtonWidth100 } from './login'
 
-const Container = styled.form`
+const Container = styled.div`
   margin-top: 50px;
   padding: 20px;
 `
@@ -14,43 +17,154 @@ const Register = styled.h3`
   line-height: 1;
 `
 
-const Input = styled.input`
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  height: 40px;
-  margin: 0 0 8px;
-  padding: 5px 39px 5px 11px;
-  border: solid 1px #dadada;
-  background: #fff;
-  box-sizing: border-box;
-`
+const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL ?? ''
+
+type RegisterForm = {
+  email: string
+  password: string
+  name: string
+  phoneNumber: string
+  birth: string
+  address: string
+}
 
 function RegisterPage() {
-  const goToLoginPage = useGoToPage('/')
+  const [isRegisterLoading, setIsRegisterLoading] = useState(false)
+
+  const { control, handleSubmit } = useForm<RegisterForm>({
+    defaultValues: { email: '', password: '', name: '', phoneNumber: '', birth: '', address: '' },
+  })
+
+  async function register({ email, password, name, phoneNumber, birth, address }: RegisterForm) {
+    setIsRegisterLoading(true)
+
+    try {
+      const response = await fetch(`${backendUrl}/register`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password, name, phoneNumber, birth, address }),
+      })
+      const data = await response.json()
+      console.log(data)
+    } catch (error) {
+      console.error(error)
+    }
+
+    setIsRegisterLoading(false)
+
+    // router.back()
+  }
 
   return (
-    <Container action="express backend address">
+    <Container>
       <Register>회원가입</Register>
-      <Register>ID</Register>
-      <Input id="id" name="id" placeholder="아이디를 입력해주세요" />
-      <Register>PassWord</Register>
-      <Input id="password" name="password" type="password" placeholder="비밀번호를 입력해주세요" />
-      <Register>Name</Register>
-      <Input id="Name" name="Name" type="Name" placeholder="이름을 입력해주세요" />
-      <Register>Phone</Register>
-      <Input id="Phone" name="Phone" type="Phone" placeholder="전화번호를 입력해주세요" />
-      <Register>Date of birth </Register>
-      <Input
-        id="Datebirth"
-        name="Datebirth"
-        type="Datebirth"
-        placeholder="생년월일을 입력해주세요"
-      />
-      <Register>Address</Register>
-      <Input id="Address" name="Address" type="Address" placeholder="주소를 입력해주세요" />
 
-      <PrimaryButton onClick={goToLoginPage}>회원가입 완료!</PrimaryButton>
+      <GridContainerForm onSubmit={handleSubmit(register)}>
+        <div>
+          <label htmlFor="email">Email</label>
+          <Controller
+            control={control}
+            name="email"
+            render={({ field }) => (
+              <Input
+                disabled={isRegisterLoading}
+                placeholder="아이디를 입력해주세요"
+                size="large"
+                type="email"
+                {...field}
+              />
+            )}
+          />
+        </div>
+
+        <div>
+          <label htmlFor="password">Password</label>
+          <Controller
+            control={control}
+            name="password"
+            render={({ field }) => (
+              <Input
+                disabled={isRegisterLoading}
+                placeholder="비밀번호를 입력해주세요"
+                size="large"
+                type="password"
+                {...field}
+              />
+            )}
+          />
+        </div>
+
+        <div>
+          <label htmlFor="name">Name</label>
+          <Controller
+            control={control}
+            name="name"
+            render={({ field }) => (
+              <Input
+                disabled={isRegisterLoading}
+                placeholder="이름을 입력해주세요"
+                size="large"
+                {...field}
+              />
+            )}
+          />
+        </div>
+
+        <div>
+          <label htmlFor="phoneNumber">Phone Number</label>
+          <Controller
+            control={control}
+            name="phoneNumber"
+            render={({ field }) => (
+              <Input
+                disabled={isRegisterLoading}
+                placeholder="전화번호를 입력해주세요"
+                size="large"
+                type="tel"
+                {...field}
+              />
+            )}
+          />
+        </div>
+
+        <div>
+          <label htmlFor="birth">Date of Birth</label>
+          <Controller
+            control={control}
+            name="birth"
+            render={({ field }) => (
+              <Input
+                disabled={isRegisterLoading}
+                placeholder="생년월일을 입력해주세요"
+                size="large"
+                type="date"
+                {...field}
+              />
+            )}
+          />
+        </div>
+
+        <div>
+          <label htmlFor="address">Address</label>
+          <Controller
+            control={control}
+            name="address"
+            render={({ field }) => (
+              <Input
+                disabled={isRegisterLoading}
+                placeholder="주소를 입력해주세요"
+                size="large"
+                {...field}
+              />
+            )}
+          />
+        </div>
+
+        <PrimaryButtonWidth100 loading={isRegisterLoading} htmlType="submit">
+          회원가입
+        </PrimaryButtonWidth100>
+        <ClientSideLink href="/login">로그인</ClientSideLink>
+      </GridContainerForm>
     </Container>
   )
 }
