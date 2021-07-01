@@ -4,6 +4,7 @@ import { PrimaryButton } from 'src/components/atoms/Button'
 import ClientSideLink from 'src/components/atoms/ClientSideLink'
 import { Controller, useForm } from 'react-hook-form'
 import { useRouter } from 'next/router'
+import { useState } from 'react'
 
 const Container = styled.div`
   margin-top: 100px;
@@ -39,12 +40,15 @@ type LoginForm = {
 
 function LoginPage() {
   const router = useRouter()
+  const [isLoginLoading, setIsLoginLoading] = useState(false)
 
   const { control, handleSubmit } = useForm<LoginForm>({
     defaultValues: { email: '', password: '' },
   })
 
   async function login({ email, password }: LoginForm) {
+    setIsLoginLoading(true)
+
     const response = await fetch(`${backendUrl}/login`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -52,6 +56,8 @@ function LoginPage() {
     })
 
     const data = await response.json()
+
+    setIsLoginLoading(false)
 
     console.log(data)
 
@@ -68,7 +74,13 @@ function LoginPage() {
             control={control}
             name="email"
             render={({ field }) => (
-              <Input size="large" type="email" placeholder="아이디를 입력해주세요" {...field} />
+              <Input
+                disabled={isLoginLoading}
+                size="large"
+                type="email"
+                placeholder="아이디를 입력해주세요"
+                {...field}
+              />
             )}
           />
         </div>
@@ -80,6 +92,7 @@ function LoginPage() {
             name="password"
             render={({ field }) => (
               <Input
+                disabled={isLoginLoading}
                 size="large"
                 type="password"
                 placeholder="비밀번호를 입력해주세요"
@@ -89,7 +102,9 @@ function LoginPage() {
           />
         </div>
 
-        <PrimaryButtonWidth100 htmlType="submit">로그인</PrimaryButtonWidth100>
+        <PrimaryButtonWidth100 loading={isLoginLoading} htmlType="submit">
+          로그인
+        </PrimaryButtonWidth100>
         <ClientSideLink href="/register">회원가입</ClientSideLink>
       </GridContainerForm>
     </Container>
