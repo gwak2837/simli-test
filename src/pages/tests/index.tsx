@@ -50,7 +50,6 @@ const AbsolutePositionH2 = styled.h2`
 const GridContainer = styled.nav`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  /* grid-template-rows: 1fr 1fr; */
 
   background: #eee;
 `

@@ -1,7 +1,7 @@
 import ClientSideLink from 'src/components/atoms/ClientSideLink'
 import PageHead from 'src/components/layouts/PageHead'
 import styled from 'styled-components'
-import { FlexContainerBetweenCenter } from '../tests/[name]'
+import { FlexContainerBetweenCenter } from './tests/[name]'
 
 const PaddingCenterTd = styled.td`
   text-align: center;

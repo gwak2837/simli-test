@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import useGoToPage from 'src/hooks/useGoToPage'
 import { PrimaryButton } from 'src/components/atoms/Button'
 
-const Container = styled.div`
+const Container = styled.form`
   margin-top: 50px;
   padding: 20px;
 `
@@ -30,7 +30,7 @@ function RegisterPage() {
   const goToLoginPage = useGoToPage('/')
 
   return (
-    <Container>
+    <Container action="express backend address">
       <Register>회원가입</Register>
       <Register>ID</Register>
       <Input id="id" name="id" placeholder="아이디를 입력해주세요" />
