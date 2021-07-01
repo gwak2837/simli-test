@@ -49,17 +49,19 @@ function LoginPage() {
   async function login({ email, password }: LoginForm) {
     setIsLoginLoading(true)
 
-    const response = await fetch(`${backendUrl}/login`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, password }),
-    })
-
-    const data = await response.json()
+    try {
+      const response = await fetch(`${backendUrl}/login`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password }),
+      })
+      const data = await response.json()
+      console.log(data)
+    } catch (error) {
+      console.error(error)
+    }
 
     setIsLoginLoading(false)
-
-    console.log(data)
 
     // router.back()
   }
