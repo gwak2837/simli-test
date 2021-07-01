@@ -30,12 +30,12 @@ function TimeoutPage() {
   const testName = (router.query.name ?? '') as string
 
   const goToTestPage = useGoToPage(`/tests/${testName}`)
-  const goToHomePage = useGoToPage('/')
   const goToTestsPage = useGoToPage('/tests')
+  const goToHomePage = useGoToPage('/')
 
   return (
     <PageHead title={title} description={description}>
-      <CenterPaddingH1> 1분 시간초과입니다. 다시 하실까요?</CenterPaddingH1>
+      <CenterPaddingH1>1분 시간초과입니다. 다시 하실까요?</CenterPaddingH1>
       <FlexContainerColumnPadding>
         <PrimaryButton onClick={goToTestPage}>다시 하기</PrimaryButton>
         <PrimaryButton onClick={goToTestsPage}>다른 테스트 하기</PrimaryButton>
