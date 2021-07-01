@@ -11,7 +11,7 @@ const Container = styled.div`
   padding: 1rem;
 `
 
-const GridContainerForm = styled.form`
+export const GridContainerForm = styled.form`
   display: grid;
   gap: 1rem;
 
@@ -20,7 +20,7 @@ const GridContainerForm = styled.form`
   }
 `
 
-const PrimaryButtonWidth100 = styled(PrimaryButton)`
+export const PrimaryButtonWidth100 = styled(PrimaryButton)`
   width: 100%;
 `
 
@@ -49,17 +49,19 @@ function LoginPage() {
   async function login({ email, password }: LoginForm) {
     setIsLoginLoading(true)
 
-    const response = await fetch(`${backendUrl}/login`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, password }),
-    })
-
-    const data = await response.json()
+    try {
+      const response = await fetch(`${backendUrl}/login`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password }),
+      })
+      const data = await response.json()
+      console.log(data)
+    } catch (error) {
+      console.error(error)
+    }
 
     setIsLoginLoading(false)
-
-    console.log(data)
 
     // router.back()
   }
@@ -76,6 +78,7 @@ function LoginPage() {
             render={({ field }) => (
               <Input
                 disabled={isLoginLoading}
+                required
                 size="large"
                 type="email"
                 placeholder="아이디를 입력해주세요"
@@ -93,6 +96,7 @@ function LoginPage() {
             render={({ field }) => (
               <Input
                 disabled={isLoginLoading}
+                required
                 size="large"
                 type="password"
                 placeholder="비밀번호를 입력해주세요"
