@@ -29,20 +29,20 @@ function AboutPage() {
         </thead>
         <tbody>
           <tr>
+            <PaddingCenterTd>곽태욱(팀장)</PaddingCenterTd>
+            <PaddingCenterTd>gwak2837@kakao.com</PaddingCenterTd>
+            <PaddingCenterTd>
+              <a href="https://github.com/rmfpdlxmtidl" target="_blank" rel="noreferrer">
+                @rmfpdlxmtidl
+              </a>
+            </PaddingCenterTd>
+          </tr>
+          <tr>
             <PaddingCenterTd>강신우</PaddingCenterTd>
             <PaddingCenterTd>birdhk71@gmail.com</PaddingCenterTd>
             <PaddingCenterTd>
               <a href="https://github.com/birdhk71" target="_blank" rel="noreferrer">
                 @birdhk71
-              </a>
-            </PaddingCenterTd>
-          </tr>
-          <tr>
-            <PaddingCenterTd>곽태욱</PaddingCenterTd>
-            <PaddingCenterTd>gwak2837@kakao.com</PaddingCenterTd>
-            <PaddingCenterTd>
-              <a href="https://github.com/rmfpdlxmtidl" target="_blank" rel="noreferrer">
-                @rmfpdlxmtidl
               </a>
             </PaddingCenterTd>
           </tr>
