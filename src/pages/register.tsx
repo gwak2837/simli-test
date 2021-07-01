@@ -69,6 +69,7 @@ function RegisterPage() {
               <Input
                 disabled={isRegisterLoading}
                 placeholder="아이디를 입력해주세요"
+                required
                 size="large"
                 type="email"
                 {...field}
@@ -86,6 +87,7 @@ function RegisterPage() {
               <Input
                 disabled={isRegisterLoading}
                 placeholder="비밀번호를 입력해주세요"
+                required
                 size="large"
                 type="password"
                 {...field}
@@ -103,6 +105,7 @@ function RegisterPage() {
               <Input
                 disabled={isRegisterLoading}
                 placeholder="이름을 입력해주세요"
+                required
                 size="large"
                 {...field}
               />

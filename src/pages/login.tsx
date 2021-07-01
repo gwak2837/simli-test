@@ -76,6 +76,7 @@ function LoginPage() {
             render={({ field }) => (
               <Input
                 disabled={isLoginLoading}
+                required
                 size="large"
                 type="email"
                 placeholder="아이디를 입력해주세요"
@@ -93,6 +94,7 @@ function LoginPage() {
             render={({ field }) => (
               <Input
                 disabled={isLoginLoading}
+                required
                 size="large"
                 type="password"
                 placeholder="비밀번호를 입력해주세요"
