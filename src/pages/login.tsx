@@ -1,9 +1,9 @@
 import { Input } from 'antd'
 import styled from 'styled-components'
-import useGoToPage from 'src/hooks/useGoToPage'
 import { PrimaryButton } from 'src/components/atoms/Button'
 import ClientSideLink from 'src/components/atoms/ClientSideLink'
 import { Controller, useForm } from 'react-hook-form'
+import { useRouter } from 'next/router'
 
 const Container = styled.div`
   margin-top: 100px;
@@ -30,18 +30,32 @@ const LogIn = styled.h3`
   line-height: 1;
 `
 
+const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL ?? ''
+
 type LoginForm = {
   email: string
   password: string
 }
 
 function LoginPage() {
+  const router = useRouter()
+
   const { control, handleSubmit } = useForm<LoginForm>({
     defaultValues: { email: '', password: '' },
   })
 
-  function login({ email, password }: LoginForm) {
-    console.log('login', email, password)
+  async function login({ email, password }: LoginForm) {
+    const response = await fetch(`${backendUrl}/login`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password }),
+    })
+
+    const data = await response.json()
+
+    console.log(data)
+
+    // router.back()
   }
 
   return (
