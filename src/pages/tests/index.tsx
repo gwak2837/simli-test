@@ -2,11 +2,13 @@ import PageHead from 'src/components/layouts/PageHead'
 import styled from 'styled-components'
 import Image from 'next/image'
 import ClientSideLink from 'src/components/atoms/ClientSideLink'
+import { Padding } from 'src/components/atoms/Styles'
 import { fadeIn } from 'src/styles/SpecialEffect'
 import useSwr from 'swr'
 import { CenterPaddingH1 } from './[name]/result'
 import { Response } from 'src/pages/api/tests'
 import { fetcher } from 'src/utils/commons'
+import { FlexContainerPadding } from '../login'
 
 const RelativePosition = styled.div`
   position: relative;
@@ -61,7 +63,15 @@ function TestsPage() {
 
   return (
     <PageHead title="심리테스트 - 테스트 목록" description={description}>
+      <FlexContainerPadding>
+        <ClientSideLink href="/">홈</ClientSideLink>
+        <div>
+          <ClientSideLink href="/register">회원가입</ClientSideLink>
+          <ClientSideLink href="/login">로그인</ClientSideLink>
+        </div>
+      </FlexContainerPadding>
       <CenterPaddingH1>원하는 테스트를 골라보세요</CenterPaddingH1>
+
       <GridContainer>
         {data?.map((test) => (
           <RelativePosition key={test.id}>
@@ -79,6 +89,7 @@ function TestsPage() {
         ))}
       </GridContainer>
       {error && '오류 발생...'}
+      <Padding />
     </PageHead>
   )
 }

@@ -1,14 +1,18 @@
 import { Input } from 'antd'
 import styled from 'styled-components'
 import { PrimaryButton } from 'src/components/atoms/Button'
+import { Padding } from 'src/components/atoms/Styles'
 import ClientSideLink from 'src/components/atoms/ClientSideLink'
 import { Controller, useForm } from 'react-hook-form'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
+import { FlexContainerBetweenCenter } from 'src/styles/FlexContainer'
 
-const Container = styled.div`
-  margin-top: 100px;
-  padding: 1rem;
+export const FlexContainerPadding = styled(FlexContainerBetweenCenter)`
+  h3,
+  a {
+    padding: 1rem;
+  }
 `
 
 export const GridContainerForm = styled.form`
@@ -67,8 +71,12 @@ function LoginPage() {
   }
 
   return (
-    <Container>
-      <LogIn>LOGIN</LogIn>
+    <Padding>
+      <FlexContainerPadding>
+        <h3>로그인</h3>
+        <ClientSideLink href="/">홈</ClientSideLink>
+      </FlexContainerPadding>
+
       <GridContainerForm onSubmit={handleSubmit(login)}>
         <div>
           <label htmlFor="email">Email</label>
@@ -111,7 +119,7 @@ function LoginPage() {
         </PrimaryButtonWidth100>
         <ClientSideLink href="/register">회원가입</ClientSideLink>
       </GridContainerForm>
-    </Container>
+    </Padding>
   )
 }
 

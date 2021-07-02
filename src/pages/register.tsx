@@ -1,21 +1,9 @@
 import { Input } from 'antd'
 import { useState } from 'react'
 import { Controller, useForm } from 'react-hook-form'
-import styled from 'styled-components'
 import ClientSideLink from 'src/components/atoms/ClientSideLink'
-import { GridContainerForm, PrimaryButtonWidth100 } from './login'
-
-const Container = styled.div`
-  margin-top: 50px;
-  padding: 20px;
-`
-
-const Register = styled.h3`
-  margin: 16px 2px 16px 16px;
-  font-size: 18px;
-  font-weight: bold;
-  line-height: 1;
-`
+import { Padding } from 'src/components/atoms/Styles'
+import { GridContainerForm, PrimaryButtonWidth100, FlexContainerPadding } from './login'
 
 const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL ?? ''
 
@@ -56,8 +44,11 @@ function RegisterPage() {
   }
 
   return (
-    <Container>
-      <Register>회원가입</Register>
+    <Padding>
+      <FlexContainerPadding>
+        <h3>회원가입</h3>
+        <ClientSideLink href="/">홈</ClientSideLink>
+      </FlexContainerPadding>
 
       <GridContainerForm onSubmit={handleSubmit(register)}>
         <div>
@@ -168,7 +159,7 @@ function RegisterPage() {
         </PrimaryButtonWidth100>
         <ClientSideLink href="/login">로그인</ClientSideLink>
       </GridContainerForm>
-    </Container>
+    </Padding>
   )
 }
 

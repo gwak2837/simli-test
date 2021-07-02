@@ -47,10 +47,6 @@ const StartEffectTag = styled(LocationText)`
   text-align: center;
 `
 
-const Padding = styled.div`
-  padding: 2rem 0;
-`
-
 function HomePage() {
   const goToTestsPage = useGoToPage('/tests')
 
