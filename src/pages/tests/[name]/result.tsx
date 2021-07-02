@@ -73,7 +73,7 @@ function TestResultPage() {
       <PageHead title={title} description={description}>
         <CenterPaddingH1>테스트를 모두 진행해야 결과를 볼 수 있어요</CenterPaddingH1>
         <FlexContainerColumnPadding>
-          <PrimaryButton onClick={goToTestsPage}>심리 테스트 하기</PrimaryButton>
+          <PrimaryButton onClick={goToTestsPage}>다른 심리 테스트 하기</PrimaryButton>
           <PrimaryButton onClick={goToHomePage}>홈으로 가기</PrimaryButton>
         </FlexContainerColumnPadding>
       </PageHead>
@@ -92,6 +92,10 @@ function TestResultPage() {
     return (
       <PageHead title={title} description={description}>
         네트워크 요청 오류
+        <FlexContainerColumnPadding>
+          <PrimaryButton onClick={goToTestsPage}>다른 심리 테스트 하기</PrimaryButton>
+          <PrimaryButton onClick={goToHomePage}>홈으로 가기</PrimaryButton>
+        </FlexContainerColumnPadding>
       </PageHead>
     )
   }

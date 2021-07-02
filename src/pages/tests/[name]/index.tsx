@@ -11,9 +11,8 @@ import useGoToPage from 'src/hooks/useGoToPage'
 import { GlobalContext } from 'src/pages/_app'
 import { FlexContainerColumn } from 'src/styles/FlexContainer'
 import styled from 'styled-components'
-import { CenterPaddingH1, gradientBlueGreen } from './result'
+import { gradientBlueGreen } from './result'
 import useSwr from 'swr'
-import { Response } from 'src/pages/api/tests/[name]'
 import { fetcher } from 'src/utils/commons'
 
 export const FlexContainerBetweenCenter = styled.div`
@@ -43,14 +42,13 @@ function TestPage() {
   const testNameWithSpace = testName.replace(/-/g, ' ')
   const title = `심리테스트 - ${testNameWithSpace}`
 
-  const { data: test, error } = useSwr<Response>(`/api/tests/${testName}`, fetcher)
-  const isTestsLoading = !test && !error
+  const { data, error } = useSwr(`/api/tests/${testName}`, fetcher)
 
   useEffect(() => {
     setAnswers(null)
   }, [setAnswers])
 
-  if (isTestsLoading) {
+  if (!data && !error) {
     return (
       <PageHead title={title} description={description}>
         <FlexContainerBetweenCenter>
@@ -59,24 +57,36 @@ function TestPage() {
             <div>다른 테스트 하기</div>
           </ClientSideLink>
         </FlexContainerBetweenCenter>
-        loading...
+        테스트 문항 불러오는 중...
       </PageHead>
     )
   }
 
-  if (!test) {
+  if (error) {
     return (
       <PageHead title={title} description={description}>
-        <CenterPaddingH1>{testNameWithSpace} 테스트는 존재하지 않아요</CenterPaddingH1>
+        네트워크 오류 발생
         <FlexContainerColumnPadding>
-          <PrimaryButton onClick={goToTestsPage}>심리 테스트 하기</PrimaryButton>
+          <PrimaryButton onClick={goToTestsPage}>다른 심리 테스트 하기</PrimaryButton>
           <PrimaryButton onClick={goToHomePage}>홈으로 가기</PrimaryButton>
         </FlexContainerColumnPadding>
       </PageHead>
     )
   }
 
-  const questions = test.questions
+  if (data.message) {
+    return (
+      <PageHead title={title} description={description}>
+        <h3 style={{ textAlign: 'center' }}>{data.message}</h3>
+        <FlexContainerColumnPadding>
+          <PrimaryButton onClick={goToTestsPage}>다른 심리 테스트 하기</PrimaryButton>
+          <PrimaryButton onClick={goToHomePage}>홈으로 가기</PrimaryButton>
+        </FlexContainerColumnPadding>
+      </PageHead>
+    )
+  }
+
+  const questions = data.questions
   const question = questions[questionNumber]
 
   function updateResult(yesOrNo: 'onYes' | 'onNo') {
@@ -86,7 +96,7 @@ function TestPage() {
       } else {
         const newAnswers = { ...answers }
 
-        question[yesOrNo].forEach((action) => {
+        question[yesOrNo].forEach((action: any) => {
           if (!newAnswers[action.name]) {
             newAnswers[action.name] = 0
           }
@@ -127,7 +137,6 @@ function TestPage() {
           onNo={updateResult('onNo')}
         />
       </Padding>
-      {error && '오류 발생'}
     </PageHead>
   )
 }
