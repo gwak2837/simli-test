@@ -14,9 +14,10 @@ export const FlexContainerPadding = styled(FlexContainerBetweenCenter)`
   margin: 1rem;
 `
 
-export async function fetcher(url: string) {
+async function fetcher(url: string) {
   const res = await fetch(url, {
     method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ jwt: sessionStorage.getItem('jwt') }),
   })
   return await res.json()
@@ -30,7 +31,7 @@ type Props = {
 }
 
 function NavigationLayout({ children }: Props) {
-  const { data, error } = useSwr(`${BACKEND_URL}/my`, fetcher)
+  const { data, error } = useSwr(`${BACKEND_URL}/me`, fetcher)
 
   console.log(data)
 
@@ -38,7 +39,7 @@ function NavigationLayout({ children }: Props) {
     <>
       <FlexContainerPadding>
         <ClientSideLink href="/">
-          <Image src="/icon-512.webp" alt="/favicon.ico" width="40" height="40" />
+          <Image src="/icon-512.webp" alt="/favicon.ico" width="40" height="40" priority={true} />
         </ClientSideLink>
         {data ? (
           data.name ? (
