@@ -33,8 +33,6 @@ type Props = {
 function NavigationLayout({ children }: Props) {
   const { data, error } = useSwr(`${BACKEND_URL}/me`, fetcher)
 
-  console.log(data)
-
   return (
     <>
       <FlexContainerPadding>

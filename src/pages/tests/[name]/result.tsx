@@ -8,7 +8,8 @@ import useGoToPage from 'src/hooks/useGoToPage'
 import { GlobalContext } from 'src/pages/_app'
 import styled from 'styled-components'
 import Image from 'next/image'
-import { tests } from 'src/models/binary-questions'
+import useSwr from 'swr'
+import { Result } from 'src/pages/api'
 
 export const CenterPaddingH1 = styled.h1`
   padding: 3rem 1rem;
@@ -55,22 +56,17 @@ function TestResultPage() {
 
   const { query } = useRouter()
   const testName = (query.name ?? '') as string
-  const test = tests[testName]
-  const title = `심리테스트 - ${testName} 결과`
+  const testNameWithSpace = testName.replace(/-/g, ' ')
+  const title = `심리테스트 - ${testNameWithSpace} 결과`
 
-  // const { data: test, error } = useSwr<Response>(`/api/tests/${testNameWithSpace}`, fetcher)
-
-  if (!test) {
-    return (
-      <PageHead title={title} description={description}>
-        <CenterPaddingH1>{testName} 테스트는 존재하지 않아요</CenterPaddingH1>
-        <FlexContainerColumnPadding>
-          <PrimaryButton onClick={goToTestsPage}>심리 테스트 하기</PrimaryButton>
-          <PrimaryButton onClick={goToHomePage}>홈으로 가기</PrimaryButton>
-        </FlexContainerColumnPadding>
-      </PageHead>
-    )
-  }
+  const { data: result, error } = useSwr(`/api/tests/${testName}/result`, async (url) => {
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ answers }),
+    })
+    return await response.json()
+  })
 
   if (!answers) {
     return (
@@ -84,10 +80,33 @@ function TestResultPage() {
     )
   }
 
-  console.log(answers)
+  if (!error && !result) {
+    return (
+      <PageHead title={title} description={description}>
+        테스트 결과 불러오는 중...
+      </PageHead>
+    )
+  }
 
-  const resultIndex = test.results.findIndex((result) => result.condition(answers))
-  const result = test.results[resultIndex] ?? test.results[0]
+  if (error) {
+    return (
+      <PageHead title={title} description={description}>
+        네트워크 요청 오류
+      </PageHead>
+    )
+  }
+
+  if (result.message) {
+    return (
+      <PageHead title={title} description={description}>
+        <CenterPaddingH1>{result.message}</CenterPaddingH1>
+        <FlexContainerColumnPadding>
+          <PrimaryButton onClick={goToTestsPage}>심리 테스트 하기</PrimaryButton>
+          <PrimaryButton onClick={goToHomePage}>홈으로 가기</PrimaryButton>
+        </FlexContainerColumnPadding>
+      </PageHead>
+    )
+  }
 
   const answersEntries = Object.entries(answers)
   const maxAnswer = Math.max(...answersEntries.map((answersEntry) => answersEntry[1])) + correction
@@ -117,7 +136,7 @@ function TestResultPage() {
       )}
 
       <GridContainerGap>
-        {result.contents.map((content) =>
+        {result.contents.map((content: Result['contents'][number]) =>
           content?.tag === 'div' ? (
             <div key={content.id}>{content.content}</div>
           ) : (
