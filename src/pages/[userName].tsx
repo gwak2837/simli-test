@@ -1,13 +1,8 @@
 import PageHead from 'src/components/layouts/PageHead'
 import styled from 'styled-components'
 import Image from 'next/image'
-import ClientSideLink from 'src/components/atoms/ClientSideLink'
 import { Padding } from 'src/components/atoms/Styles'
 import { fadeIn } from 'src/styles/SpecialEffect'
-import useSwr from 'swr'
-
-import { Response } from 'src/pages/api/tests'
-import { fetcher } from 'src/utils/commons'
 import NavigationLayout from 'src/components/layouts/NavigationLayout'
 
 const RelativePosition = styled.div`
@@ -58,6 +53,12 @@ const GridContainer = styled.nav`
 
   background: #eee;
 `
+const ResultDescription = styled.div`
+  text-align: center;
+  size: 14px;
+  background-color: white;
+  padding: 1rem 1rem;
+`
 const description = '내가 지금까지 한 심리 테스트를 볼 수 있어요'
 
 function UserPage() {
@@ -74,45 +75,13 @@ function UserPage() {
             <AbsolutePositionH2>테스트결과1</AbsolutePositionH2>
 
             <Image
-              src="/mypage-picture/result-workerholic-1-mypage.jpg"
+              src="/mypage-picture/result-workaholic-1-mypage.jpg"
               alt="테스트결과"
               width="300"
               height="300"
               objectFit="cover"
             />
-          </RelativePosition>
-          <RelativePosition key={2}>
-            <AbsolutePositionH2>테스트결과2</AbsolutePositionH2>
-
-            <Image
-              src="/mypage-picture/result-sunbi-1-mypage.jpg"
-              alt="테스트결과"
-              width="300"
-              height="300"
-              objectFit="cover"
-            />
-          </RelativePosition>
-          <RelativePosition key={3}>
-            <AbsolutePositionH2>테스트결과3</AbsolutePositionH2>
-
-            <Image
-              src="/mypage-picture/me-mypage.jpg"
-              alt="테스트결과"
-              width="300"
-              height="300"
-              objectFit="cover"
-            />
-          </RelativePosition>
-          <RelativePosition key={4}>
-            <AbsolutePositionH2>테스트결과4</AbsolutePositionH2>
-
-            <Image
-              src="/mypage-picture/result-narcissism-1-mypage.jpg"
-              alt="테스트결과"
-              width="300"
-              height="300"
-              objectFit="cover"
-            />
+            <ResultDescription>일에 미친 당신</ResultDescription>
           </RelativePosition>
         </GridContainer>
         <Padding />
