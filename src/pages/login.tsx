@@ -7,6 +7,9 @@ import { Controller, useForm } from 'react-hook-form'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { FlexContainerBetweenCenter } from 'src/styles/FlexContainer'
+import { BACKEND_URL } from 'src/models/constants'
+import PageHead from '../components/layouts/PageHead'
+import NavigationLayout from '../components/layouts/NavigationLayout'
 
 export const FlexContainerPadding = styled(FlexContainerBetweenCenter)`
   h3,
@@ -28,14 +31,7 @@ export const PrimaryButtonWidth100 = styled(PrimaryButton)`
   width: 100%;
 `
 
-const LogIn = styled.h3`
-  margin: 16px 2px 16px 16px;
-  font-size: 18px;
-  font-weight: bold;
-  line-height: 1;
-`
-
-const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL ?? ''
+const description = '심리테스트 로그인 해봐요'
 
 type LoginForm = {
   email: string
@@ -54,72 +50,71 @@ function LoginPage() {
     setIsLoginLoading(true)
 
     try {
-      const response = await fetch(`${backendUrl}/login`, {
+      const response = await fetch(`${BACKEND_URL}/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
       })
       const data = await response.json()
-      console.log(data)
+      sessionStorage.setItem('jwt', data.jwt)
     } catch (error) {
       console.error(error)
     }
 
     setIsLoginLoading(false)
 
-    // router.back()
+    router.push('/')
   }
 
   return (
-    <Padding>
-      <FlexContainerPadding>
-        <h3>로그인</h3>
-        <ClientSideLink href="/">홈</ClientSideLink>
-      </FlexContainerPadding>
-
-      <GridContainerForm onSubmit={handleSubmit(login)}>
-        <div>
-          <label htmlFor="email">Email</label>
-          <Controller
-            control={control}
-            name="email"
-            render={({ field }) => (
-              <Input
-                disabled={isLoginLoading}
-                required
-                size="large"
-                type="email"
-                placeholder="아이디를 입력해주세요"
-                {...field}
+    <PageHead title="심리테스트 - 로그인" description={description}>
+      <NavigationLayout>
+        <Padding>
+          <GridContainerForm onSubmit={handleSubmit(login)}>
+            <div>
+              <label htmlFor="email">Email</label>
+              <Controller
+                control={control}
+                name="email"
+                render={({ field }) => (
+                  <Input
+                    disabled={isLoginLoading}
+                    required
+                    size="large"
+                    type="email"
+                    placeholder="아이디를 입력해주세요"
+                    {...field}
+                  />
+                )}
               />
-            )}
-          />
-        </div>
+            </div>
 
-        <div>
-          <label htmlFor="email">Password</label>
-          <Controller
-            control={control}
-            name="password"
-            render={({ field }) => (
-              <Input
-                disabled={isLoginLoading}
-                required
-                size="large"
-                type="password"
-                placeholder="비밀번호를 입력해주세요"
-                {...field}
+            <div>
+              <label htmlFor="email">Password</label>
+              <Controller
+                control={control}
+                name="password"
+                render={({ field }) => (
+                  <Input
+                    disabled={isLoginLoading}
+                    required
+                    size="large"
+                    type="password"
+                    placeholder="비밀번호를 입력해주세요"
+                    {...field}
+                  />
+                )}
               />
-            )}
-          />
-        </div>
+            </div>
 
-        <PrimaryButtonWidth100 loading={isLoginLoading} htmlType="submit">
-          로그인
-        </PrimaryButtonWidth100>
-        <ClientSideLink href="/register">회원가입</ClientSideLink>
-      </GridContainerForm>
-    </Padding>
+            <PrimaryButtonWidth100 loading={isLoginLoading} htmlType="submit">
+              로그인
+            </PrimaryButtonWidth100>
+            <ClientSideLink href="/register">회원가입</ClientSideLink>
+          </GridContainerForm>
+        </Padding>
+      </NavigationLayout>
+    </PageHead>
   )
 }
 

@@ -14,4 +14,5 @@ export const SECONDARY_TEXT_COLOR = '#E70C0C'
 export const SECONDARY_ACHROMATIC_COLOR = ''
 
 export const BASIC_TEXT_COLOR = '#333333'
-// export const LIGHT_CHOCO_COLOR = '#C1B1A9'
+
+export const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL ?? ''

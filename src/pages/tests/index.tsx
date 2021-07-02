@@ -8,7 +8,7 @@ import useSwr from 'swr'
 import { CenterPaddingH1 } from './[name]/result'
 import { Response } from 'src/pages/api/tests'
 import { fetcher } from 'src/utils/commons'
-import { FlexContainerPadding } from '../login'
+import NavigationLayout from 'src/components/layouts/NavigationLayout'
 
 const RelativePosition = styled.div`
   position: relative;
@@ -63,33 +63,28 @@ function TestsPage() {
 
   return (
     <PageHead title="심리테스트 - 테스트 목록" description={description}>
-      <FlexContainerPadding>
-        <ClientSideLink href="/">홈</ClientSideLink>
-        <div>
-          <ClientSideLink href="/register">회원가입</ClientSideLink>
-          <ClientSideLink href="/login">로그인</ClientSideLink>
-        </div>
-      </FlexContainerPadding>
-      <CenterPaddingH1>원하는 테스트를 골라보세요</CenterPaddingH1>
+      <NavigationLayout>
+        <CenterPaddingH1>원하는 테스트를 골라보세요</CenterPaddingH1>
 
-      <GridContainer>
-        {data?.map((test) => (
-          <RelativePosition key={test.id}>
-            <AbsolutePositionH2>{test.description}</AbsolutePositionH2>
-            <ClientSideLink href={`/tests/${test.name.replace(/ /g, '-')}`}>
-              <Image
-                src={test.imageUrl}
-                alt={test.imageUrl}
-                width="300"
-                height="300"
-                objectFit="cover"
-              />
-            </ClientSideLink>
-          </RelativePosition>
-        ))}
-      </GridContainer>
-      {error && '오류 발생...'}
-      <Padding />
+        <GridContainer>
+          {data?.map((test) => (
+            <RelativePosition key={test.id}>
+              <AbsolutePositionH2>{test.description}</AbsolutePositionH2>
+              <ClientSideLink href={`/tests/${test.name.replace(/ /g, '-')}`}>
+                <Image
+                  src={test.imageUrl}
+                  alt={test.imageUrl}
+                  width="300"
+                  height="300"
+                  objectFit="cover"
+                />
+              </ClientSideLink>
+            </RelativePosition>
+          ))}
+        </GridContainer>
+        {error && '오류 발생...'}
+        <Padding />
+      </NavigationLayout>
     </PageHead>
   )
 }

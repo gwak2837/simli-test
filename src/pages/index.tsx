@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import NavigationLayout from '../components/layouts/NavigationLayout'
 import PageHead from '../components/layouts/PageHead'
 import { FlexContainerAlignCenter } from 'src/styles/FlexContainer'
 import ClientSideLink from 'src/components/atoms/ClientSideLink'
@@ -15,25 +16,12 @@ const LocationText = styled.h3`
   text-align: center;
 `
 
-const FlexContainerRowReverse = styled.div`
-  display: flex;
-  flex-flow: row-reverse nowrap;
-  align-items: center;
-
-  a {
-    padding: 1rem;
-  }
-`
-
 export const SquareFrame = styled.div`
   padding-top: 100%;
   position: relative;
 `
 
 const StartButton = styled(SecondaryButton)`
-  animation: ${focusInExpandFwd} 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-`
-const LoginButton = styled(SecondaryButton)`
   animation: ${focusInExpandFwd} 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 `
 
@@ -52,31 +40,29 @@ function HomePage() {
 
   return (
     <PageHead>
-      <FlexContainerRowReverse>
-        <ClientSideLink href="/login">로그인</ClientSideLink>
-        <ClientSideLink href="/register">회원가입</ClientSideLink>
-      </FlexContainerRowReverse>
-      <SquareFrame>
-        <ClientSideLink href="/tests">
-          <Image src="/simli-main.jpg" alt="main-image" layout="fill" objectFit="cover" />
-        </ClientSideLink>
-      </SquareFrame>
-      <FlexContainerColumnCenter>
-        <StartButton onClick={goToTestsPage}>심리테스트 시작</StartButton>
-        <FlexContainerAlignCenter>
-          <div>
-            <StartEffectTag>쟤도 날 좋아할까? 그/그녀의 심리를 알고 싶다면?</StartEffectTag>
-            <LocationText>
-              나는 타고난 어그로 꾼인가? 당신의 숨겨진 정체를 깨닫고 싶다면?
-            </LocationText>
-            <LocationText>
-              이 말을 가짜라고 생각하고 무시한다면 정말 안 좋은 사고가 꼭 일어납니다.
-            </LocationText>
-            <LocationText>지금 당장 시작하세요.</LocationText>
-          </div>
-        </FlexContainerAlignCenter>
-      </FlexContainerColumnCenter>
-      <Footer />
+      <NavigationLayout>
+        <SquareFrame>
+          <ClientSideLink href="/tests">
+            <Image src="/simli-main.jpg" alt="main-image" layout="fill" objectFit="cover" />
+          </ClientSideLink>
+        </SquareFrame>
+        <FlexContainerColumnCenter>
+          <StartButton onClick={goToTestsPage}>심리테스트 시작</StartButton>
+          <FlexContainerAlignCenter>
+            <div>
+              <StartEffectTag>쟤도 날 좋아할까? 그/그녀의 심리를 알고 싶다면?</StartEffectTag>
+              <LocationText>
+                나는 타고난 어그로 꾼인가? 당신의 숨겨진 정체를 깨닫고 싶다면?
+              </LocationText>
+              <LocationText>
+                이 말을 가짜라고 생각하고 무시한다면 정말 안 좋은 사고가 꼭 일어납니다.
+              </LocationText>
+              <LocationText>지금 당장 시작하세요.</LocationText>
+            </div>
+          </FlexContainerAlignCenter>
+        </FlexContainerColumnCenter>
+        <Footer />
+      </NavigationLayout>
     </PageHead>
   )
 }
