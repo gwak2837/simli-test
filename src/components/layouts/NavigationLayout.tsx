@@ -5,6 +5,7 @@ import { FlexContainerBetweenCenter } from 'src/styles/FlexContainer'
 import styled from 'styled-components'
 import useSwr from 'swr'
 import { BACKEND_URL } from 'src/models/constants'
+import { PrimaryButton } from '../atoms/Button'
 
 export const FlexContainerPadding = styled(FlexContainerBetweenCenter)`
   div > a {
@@ -31,7 +32,9 @@ type Props = {
 }
 
 function NavigationLayout({ children }: Props) {
-  const { data, error } = useSwr(`${BACKEND_URL}/me`, fetcher)
+  const { data, error, revalidate } = useSwr(`${BACKEND_URL}/me`, fetcher)
+
+  console.log(data, error)
 
   return (
     <>
@@ -43,7 +46,14 @@ function NavigationLayout({ children }: Props) {
           data.name ? (
             <div>
               <ClientSideLink href={`/@${data.name}`}>{data.name}</ClientSideLink>
-              <ClientSideLink href="/login">로그아웃</ClientSideLink>
+              <PrimaryButton
+                onClick={() => {
+                  sessionStorage.removeItem('jwt')
+                  revalidate()
+                }}
+              >
+                로그아웃
+              </PrimaryButton>
             </div>
           ) : (
             <div>

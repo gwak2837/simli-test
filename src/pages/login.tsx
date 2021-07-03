@@ -56,14 +56,17 @@ function LoginPage() {
         body: JSON.stringify({ email, password }),
       })
       const data = await response.json()
-      sessionStorage.setItem('jwt', data.jwt)
+      setIsLoginLoading(false)
+
+      if (data.jwt) {
+        sessionStorage.setItem('jwt', data.jwt)
+        router.push('/')
+      } else {
+        alert(data.message)
+      }
     } catch (error) {
       console.error(error)
     }
-
-    setIsLoginLoading(false)
-
-    router.push('/')
   }
 
   return (

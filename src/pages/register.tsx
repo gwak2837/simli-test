@@ -37,14 +37,17 @@ function RegisterPage() {
         body: JSON.stringify({ email, password, name, phoneNumber, birth, address }),
       })
       const data = await response.json()
-      sessionStorage.setItem('jwt', data.jwt)
+      setIsRegisterLoading(false)
+
+      if (data.jwt) {
+        sessionStorage.setItem('jwt', data.jwt)
+        router.push('/')
+      } else {
+        alert(data.message)
+      }
     } catch (error) {
       console.error(error)
     }
-
-    setIsRegisterLoading(false)
-
-    router.push('/')
   }
 
   return (
