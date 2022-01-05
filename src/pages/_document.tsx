@@ -4,7 +4,7 @@ import { PRIMARY_BACKGROUND_COLOR } from 'src/models/constants'
 import { GOOGLE_ANALYTICS_TRACKING_ID } from 'src/utils/google-analytics'
 import { ServerStyleSheet } from 'styled-components'
 
-export const canonicalUrl = 'https://simli-test.vercel.app/'
+export const canonicalUrl = 'https://simli.vercel.app/'
 
 // 최대 10개
 const keywords = '심리테스트,심리,테스트'
